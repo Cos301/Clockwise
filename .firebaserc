@@ -1,7 +1,10 @@
 {
   "projects": {
-    "default": "<REPLACE_ME>",
+    "default": "clockwise-12e44",
     "production": "<REPLACE_ME>",
-    "development": "<REPLACE_ME>"
-  }
+    "development": "<REPLACE_ME>",
+    "staging": "clockwise-12e44"
+  },
+  "targets": {},
+  "etags": {}
 }
