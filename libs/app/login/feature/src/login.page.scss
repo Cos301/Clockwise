@@ -1,0 +1,22 @@
+
+ion-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+//To create a card with a fixed width and padding on the items inside it.
+ion-card{
+  width: 100%;
+  max-width: 400px;
+  ion-item {
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  ion-item:last-child {
+    margin-bottom: 0;
+  }
+}
+//**************************************************************************
