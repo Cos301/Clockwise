@@ -1,0 +1,33 @@
+
+ion-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: visible; //Necessary to be able to scroll on page
+}
+
+//To create a card with a fixed width and padding on the items inside it.
+ion-card{
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 0;
+  ion-item {
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  ion-item:last-child {
+    margin-bottom: 0;
+  }
+}
+//**************************************************************************
+
+ion-footer{
+  //the footer css to make it stick to the bottom of the page
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+
