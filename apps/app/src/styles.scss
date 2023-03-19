@@ -29,3 +29,11 @@
   content: ' *';
   color: red;
 }
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('assets/fonts/Merriweather/Merriweather-Regular.ttf');
+}
+h1 {
+  font-family: 'Merriweather';
+}
