@@ -7,106 +7,68 @@
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
-<!-- ******************************** Completed -->
+<ion-content>
 
-<!--TODO: This is the body section of the login page -->
-<ion-content [fullscreen]="true">
+  <div class="colorMe"> <!-- color the background -->
+
+    <div class="msgContainer"> <!-- to add padding to the welcome message-->
+      <div class="welcomeBackMsg">
+        <h2>Welcome Back</h2>
+        <p>Ready for another visit?<br/>
+          Time must be on your side... 😉</p>
+      </div>
+    </div>
 
   <ion-grid>
-    <!-- this row contains the logo -->
-    <ion-row size="3">
 
-      <ion-col></ion-col>
-
-      <ion-col class="ion-text-center">
-        <ion-img src="assets/logos/Logo_Attempt_-_edited.svg" alt="The Clockwise logo"></ion-img>
-        <h1>Clockwise</h1>
-        <h3>It's about time</h3>
-      </ion-col>
-
-      <ion-col></ion-col>
-
+    <ion-row size="1">
+      
     </ion-row>
-    <!--******************************** Completed -->
-
-    <!-- this row contains the login form -->
+      
     <ion-row size="3">
 
-      <ion-card> <!-- this is the card that contains the login form -->
-
-
+      <ion-card> <!-- login form -->
         <form [formGroup]="loginForm" ngxsForm="login.loginForm" (submit)="login()" >
-          <ion-list class="ion-padding-vertical">
-
+          
+          <ion-list>
             <!-- Output incase of error with email-->
-            <ion-text
-              *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-              class="ion-padding-start"
-              color="danger">
-              <small>{{ emailError }}</small>
+           <div class="error"><ion-text
+           *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+           color="danger">
+          {{ emailError }}
+             </ion-text></div>
+             <!-- ******************************** -->
 
-            </ion-text>
-            <!-- ******************************** -->
+        <!-- Email input -->
+        <ion-item fill="outline" >
+          <ion-label position="floating" class="required" >Email</ion-label>
+          <ion-input
+            shape="round"
+            type="email"
+            minlength="6"
+            maxlength="64"
+            placeholder="Enter email"
+            required="true"
+            autocomplete="email"
+            formControlName="email"></ion-input>
+        </ion-item>
+        <!-- ******************************** -->
 
-            <!-- Email input -->
-            <ion-item fill="outline" >
-              <ion-label position="floating" class="required" >Email</ion-label>
-              <ion-input
-                shape="round"
-                type="email"
-                minlength="6"
-                maxlength="64"
-                placeholder="Enter email"
-                required="true"
-                autocomplete="email"
-                formControlName="email"></ion-input>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input placeholder="Enter password"></ion-input>
             </ion-item>
-            <!-- ******************************** -->
 
-            <!-- Output incase of error with password-->
-            <ion-text
-              *ngIf="password?.invalid && (password?.dirty || password?.touched)"
-              class="ion-padding-start"
-              color="danger">
-              <small>{{ passwordError }}</small>
-            </ion-text>
-            <!-- ******************************** -->
-
-            <!-- Password input -->
-            <ion-item fill="outline" counter="true" >
-              <ion-label position="floating" class="required" >Password</ion-label>
-              <ion-input
-                [type]="showPassword ? 'text' : 'password'"
-                minlength="6"
-                maxlength="64"
-                placeholder="Enter password"
-                required="true"
-                autocomplete="password"
-                formControlName="password"></ion-input>
-              <ion-icon
-                [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"
-                slot="end"
-                class="ion-align-self-center"
-                (click)="toggleShowPassword()"></ion-icon>
+            <ion-item id="loginButton">
+              <ion-button expand="block" [disabled]="!this.loginForm.valid || (busy$ | async)" type="submit">Login</ion-button>
+              <ion-spinner *ngIf="busy$ | async"></ion-spinner>
             </ion-item>
-            <!-- ******************************** -->
 
           </ion-list>
 
-          <ion-grid class="ion-padding">
-            <ion-row>
-              <ion-col>
-                <ion-button
-                  expand="block"
-                  [disabled]="!this.loginForm.valid || (busy$ | async)"
-                  type="submit">
-                  <ion-spinner *ngIf="busy$ | async"></ion-spinner>
-                  <ion-text>Login</ion-text>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-
-          </ion-grid>
+           
+          
+                
 
         </form>
       </ion-card>
@@ -138,6 +100,7 @@
     </ion-col>
   </ion-row>
   -->
+  </div>
 
 </ion-content>
 <!-- ******************************** -->
