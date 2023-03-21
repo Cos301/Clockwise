@@ -3,18 +3,19 @@
     <ion-grid [fixed]="true"> <!-- the grid that will structure the page. Width based on screen-size -> [fixed]-->
 
       <!-- Welcome text is in the row below-->
-      <ion-row offset="4" size="3">
-        <ion-col></ion-col>
+      <ion-row>
+        
 
         <ion-col>
-          <ion-text >
-            <h3>Welcome to</h3>
-            <h1>Clockwise</h1>
-            <h5>It's about time</h5>
+          <ion-text>
+            <h1><span class="justify-left">Welcome to</span><br/>
+            <div class="center">
+              <span class="big">Clockwise</span>
+            </div></h1>
+            <h2 class="small">It's about time</h2>
           </ion-text>
         </ion-col>
 
-        <ion-col></ion-col>
 
       </ion-row>
       <!-- ***************************************** -->
@@ -25,7 +26,7 @@
         <ion-col></ion-col>
 
         <ion-col>
-          <ion-img src="assets/logos/Logo_Attempt_-_edited.svg" alt="The Clockwise logo"></ion-img>
+          <ion-img class="image" src="assets/logos/logo-animated.gif" alt="The Clockwise logo"></ion-img>
         </ion-col>
 
         <ion-col></ion-col>
@@ -98,9 +99,11 @@
 
     </ion-grid>
   </div>
+
 </ion-content>
+
 
 <ion-footer collapse="condense" class="ion-padding ion-text-center">
   <ms-version-component></ms-version-component><br />
   <ms-copyright-component></ms-copyright-component>
-</ion-footer>-->
+</ion-footer>
