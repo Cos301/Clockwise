@@ -65,3 +65,53 @@ Once the emulators are up, please go to http://localhost:5001 to see the Emulato
 
 - When creating your Firebase authentication, hosting, storage, functions. Make sure to use the same location throughout. (MAKE SURE TO SET "Default GCP resource location" in Project Settings in Firebase Console. If you do not do this, the app will not work)
 - The app is built to be a PWA. (See: So if you deploy it to prod, you can install the app on iOS by adding to home screen or using Android by installing through Chrome)
+
+## Generating components
+
+libraries = shared group of components
+
+to make a new library: 
+	npx nx g lib <name>
+
+generate a component inside a library: 
+	npx nx g c <name> --project=<lib name>
+
+generate a storybook to run in a playground: 
+	install storybook schematics: 
+		yarn add -D @nrwl/storybook
+	generate:
+		npx nx g @nrwl/storybook:configuration <lib name> (NB: not component name!!!)
+		cypress tests: false
+		webpack builder
+	run the storybook:
+		nx generate e2e-project <lib name>
+		npx nx g @nrwl/angular:stories <lib name> (NB: first add a component!!)
+		npx nx run <lib name>:storybook
+		
+	edit the storybook's main.js to match the following:
+
+/////////////////////////////////////////////////
+const path = require('path');
+
+module.exports = {
+  webpackFinal: async config => {
+    // Remove the existing css rule
+    config.module.rules = config.module.rules.filter(
+      f => f.test.toString() !== '/\\.css$/'
+    );
+
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['style-loader', {
+        loader: 'css-loader',
+        options: {
+          modules: true, // Enable modules to help you using className
+        }
+      }],
+      include: path.resolve(__dirname, '../src'),
+    });
+
+    return config;
+  },
+};
+/////////////////////////////////////////////////
