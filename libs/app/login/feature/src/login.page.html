@@ -21,6 +21,10 @@
 
     <form [formGroup]="loginForm" ngxsForm="login.loginForm" (submit)="login()" >
       
+      <div class="error">
+        <ion-text *ngIf="email?.invalid && (email?.dirty || email?.touched)" color="danger">{{ emailError }}</ion-text>
+      </div>
+
       <!-- TEMPLATE: input -->
       <ion-list>
         <ion-item class="ion-no-padding"><ion-input type="email" maxlength="64" placeholder="email" required="true" autocomplete="email" formControlName="email"></ion-input></ion-item>

@@ -21,6 +21,19 @@
   border-radius: var(--stdRadius);
 }
 
+.error {
+  text-align: center;
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  left: 0;
+  width: 100%;
+}
+
+form {
+  position: relative;
+  padding-top: 20px;
+}
 
 
 //To create a card with a fixed width and padding on the items inside it.
