@@ -1,7 +1,8 @@
 
 
 .colorMe{
-  background: linear-gradient(160deg, white 0%, var(--clExtraLight) 40%,white 80%)
+  background: linear-gradient(160deg, white 0%, var(--clExtraLight) 40%,white 80%);
+  height: 100%;
 }
   
 .msgContainer {
@@ -11,13 +12,16 @@
 .welcomeBackMsg {
   padding: 20px;
   background-color: var(--clExtraLight);
-  margin: 30px;
+  margin: var(--stdMargin);
   margin-top: 0;
   margin-bottom: 0;
   color: var(--clShadow);
   border-radius: 10px;
   box-shadow: var(--shadow);
+  border-radius: var(--stdRadius);
 }
+
+
 
 //To create a card with a fixed width and padding on the items inside it.
 ion-card{
@@ -29,24 +33,9 @@ ion-card{
     margin-bottom: 10px;
   }
   ion-item:last-child {
+    border-bottom: none;
     margin-bottom: 0;
   }
 }
 
-.error {
-  text-align: center;
-  height: 16.8px;
-  padding: 2px;
-  position: relative;
-}
-form, .item, div.item-native {
-  background-color: var(--clExtraDark);
-}
-
-#loginButton ion-button{
-  width: 100%;
-  height: 30px;
-  margin-bottom: 25px;
-  margin-top: 25px;
-}
 //**************************************************************************

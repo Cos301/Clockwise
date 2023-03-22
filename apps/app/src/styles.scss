@@ -30,27 +30,3 @@
   color: red;
 }
 
-/*Merriweather*/
-@font-face {
-  font-family: 'Merriweather';
-  src: url('assets/fonts/Merriweather/Merriweather-Regular.ttf');
-}
-
-/*Bitter*/
-@font-face {
-  font-family: 'Bitter';
-  src: url('assets/fonts/Bitter/Bitter.ttf');
-}
-@font-face {
-  font-family: 'Bitter';
-  src: url('assets/fonts/Bitter/Bitter-Italic.ttf');
-  font-style: italic;
-}
-
-h1, h2 {
-  font-family: 'Merriweather';
-}
-
-p {
-  font-family: 'Bitter';
-}

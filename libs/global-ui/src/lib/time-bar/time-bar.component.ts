@@ -11,7 +11,7 @@ export class TimeBarComponent implements OnInit {
   lowTime: boolean | undefined;
 
   ngOnInit() {
-    this.setProgress(20)
+    this.setProgress(50)
   }
 
   setProgress(newVal: number) {
