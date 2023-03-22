@@ -1,4 +1,4 @@
-<div id="container">
+<div id="container" (click)="expand()">
     <div id="background" class="bar"></div>
-    <div [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [ngStyle]="getStyle()"></div>
+    <div ng-click="expand()" [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [ngStyle]="getStyle()"></div>
 </div>

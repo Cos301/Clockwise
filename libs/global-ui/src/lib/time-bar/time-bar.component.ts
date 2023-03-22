@@ -11,7 +11,7 @@ export class TimeBarComponent implements OnInit {
   lowTime: boolean | undefined;
 
   ngOnInit() {
-    this.setProgress(50)
+    this.setProgress(20)
   }
 
   setProgress(newVal: number) {
@@ -19,6 +19,10 @@ export class TimeBarComponent implements OnInit {
     if (newVal < 20) {
       this.lowTime = true;
     }
+  }
+
+  expand() {
+    console.log("mouse enter");
   }
 
   getStyle() {
