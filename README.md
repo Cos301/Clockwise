@@ -84,8 +84,8 @@ generate a storybook to run in a playground:
 		cypress tests: false
 		webpack builder
 	run the storybook:
-		nx generate e2e-project <lib name>
-		npx nx g @nrwl/angular:stories <lib name> (NB: first add a component!!)
+		npx nx generate e2e-project <lib name>
+		 <lib name> (NB: first add a component!!)
 		npx nx run <lib name>:storybook
 		
 	edit the storybook's main.js to match the following:
