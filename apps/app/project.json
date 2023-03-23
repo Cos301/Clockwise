@@ -22,6 +22,11 @@
             "glob": "**/*.svg",
             "input": "node_modules/ionicons/dist/ionicons/svg",
             "output": "./svg"
+          },
+          {
+            "input": "libs/chats/src/assets", 
+            "glob": "**/*", 
+            "output": "assets/chats"
           }
         ],
         "styles": [

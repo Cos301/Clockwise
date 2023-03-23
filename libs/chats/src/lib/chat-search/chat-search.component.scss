@@ -1,0 +1,32 @@
+input[type=text] {
+    background-color: #fdd088;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    position: absolute;
+    width: 60%;
+    top: 60px;
+    left: 20%;
+    height: 25px;
+}
+
+.container {
+    position: relative;
+}
+
+input[type=text]:focus {
+    outline: none !important;
+}
+
+.leafContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+}
+
+img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

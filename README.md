@@ -116,3 +116,10 @@ module.exports = {
   },
 };
 /////////////////////////////////////////////////
+
+to add an image to a storybook: 
+
+edit that storybooks main.js, and add: 
+  staticDirs: ['public']
+
+add 'public' folder to .storybook, and add the image

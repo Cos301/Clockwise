@@ -35,7 +35,8 @@
         "port": 4400,
         "configDir": "libs/user-profile/.storybook",
         "browserTarget": "user-profile:build-storybook",
-        "compodoc": false
+        "compodoc": false, 
+        "staticDir": [".storybook/public"]
       },
       "configurations": {
         "ci": {
