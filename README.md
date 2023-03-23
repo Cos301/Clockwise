@@ -86,6 +86,7 @@ generate a storybook to run in a playground:
 	run the storybook:
 		npx nx generate e2e-project <lib name>
 		 <lib name> (NB: first add a component!!)
+    npx nx g @nrwl/angular:stories project-name
 		npx nx run <lib name>:storybook
 		
 	edit the storybook's main.js to match the following:

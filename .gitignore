@@ -56,7 +56,3 @@ pubsub-debug.log
 
 .env
 .env.prod
-
-#end-to-end tests and storybooks
-global-ui-e2e
-.storybook
