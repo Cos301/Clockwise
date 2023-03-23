@@ -1,4 +1,5 @@
-<div id="container" (click)="expand()">
-    <div id="background" class="bar"></div>
-    <div ng-click="expand()" [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [ngStyle]="getStyle()"></div>
+<div id="container" (click)="isExpanded ? collapse() : expand()">
+    <div id="background" class="bar" [style]="getBackgroundStyle()"></div>
+    <div [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [style]="getStyle()"></div>
+    <button (click)="setProgress(100);">set progress</button>
 </div>
