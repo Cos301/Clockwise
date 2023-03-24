@@ -1,5 +1,15 @@
+@import url('../../../../../apps/app/src/theme/variables.scss');
+
 #container {
-    background-color: #c31c1c;
+    position: relative;
+}
+
+#display {
+    position: absolute;
+    right: 0;
+    padding: 2px;
+    padding-left: 3px;
+    font-family: --var('Merriweather');
 }
 
 .bar {

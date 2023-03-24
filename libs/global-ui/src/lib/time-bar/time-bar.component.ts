@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+
+//IMPORTANT NOTE: minutes can't go over 30
 
 @Component({
   selector: 'mp-time-bar',
@@ -7,6 +8,7 @@ import { Subscription, interval } from 'rxjs';
   styleUrls: ['./time-bar.component.scss'],
 })
 export class TimeBarComponent implements OnInit, OnDestroy {
+  @Input() startMinutes: number;
   
   //for visual elements
   private progress: number;
@@ -16,6 +18,10 @@ export class TimeBarComponent implements OnInit, OnDestroy {
   private collapsedHeight: string; 
   private isExpanded: boolean;
   private timerInterval: any; 
+  private startDate: Date;
+  private totalSeconds: number;
+  private startSeconds: number;
+  private endSeconds: number;
 
   //for timer functions
   //private subscription: Subscription;
@@ -32,12 +38,18 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.isExpanded = false;
     this.lowTime = false;
     this.progress = 0; 
+    this.startMinutes = 2;
 
     //set a 10 minute timer and set the progress to 100
-    this.endDate = this.addMinutes(new Date(), 10);
+    this.startDate = new Date(); 
+    this.endDate = this.addMinutes(this.startDate, this.startMinutes);
     this.setProgress(100);
-    this.minutes = 10;
+    this.minutes = 0;
     this.seconds = 0; 
+    
+    this.startSeconds = (this.startDate.getMinutes() * 60) + this.startDate.getSeconds();
+    this.endSeconds = (this.endDate.getMinutes() * 60) + this.endDate.getSeconds();
+    this.totalSeconds = this.endSeconds - this.startSeconds;
   }
 
 
@@ -53,12 +65,15 @@ export class TimeBarComponent implements OnInit, OnDestroy {
       //update the timer
       this.minutes = timeLeft.getMinutes();  
       this.seconds = timeLeft.getSeconds();
+
+      //update the progress bar
+      this.progress = (this.minutes * 60 + this.seconds)/this.totalSeconds * 100;
+
     }, 300)
   }
 
   addMinutes(date: Date, minutes: number) {
-    date.setMinutes(date.getMinutes() + minutes);
-    return date;
+    return new Date(date.getTime() + minutes*60000);
   }
 
   setProgress(newVal: number) {
