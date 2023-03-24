@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'mp-chat-header',
-  templateUrl: './chat-header.component.html',
-  styleUrls: ['./chat-header.component.scss'],
+  selector: 'mp-chat-bubble',
+  templateUrl: './chat-bubble.component.html',
+  styleUrls: ['./chat-bubble.component.scss'],
 })
-export class ChatHeaderComponent {
+export class ChatBubbleComponent {
   @Input() chatName: string;
   @Input() profilePhotoUrl: string;
   @Input() msgPreview: string;
@@ -18,5 +18,4 @@ export class ChatHeaderComponent {
     this.time = "14:45";
     this.unreadCount = 1;
   }
-  
 }

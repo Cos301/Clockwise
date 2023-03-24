@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
 
-  //My colors
+  /*My colors*/
   --clDanger: #d1495b;
   --clWarning: #edae49;
   --clLight: #70ad47;
@@ -20,7 +20,7 @@
   --shadow: 6px 5px 13px 0px rgba(0,0,0,0.55);
   --sky: 143deg, rgb(196, 230, 247) 0%, rgba(255,255,255,1) 39%, rgb(194, 230, 248) 100%;
 
-  //My styling 
+  /*My styling */
   --stdMargin: 30px;
   --stdMarginSmall: 5px;
   --stdRadius: 10px;
@@ -85,7 +85,7 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-// import fonts //
+/* import fonts */
 
 /*Merriweather*/
 @font-face {
@@ -105,7 +105,7 @@
 }
 
 
-//------------------------ FORMS AND INPUTS ------------------------//
+/*------------------------ FORMS AND INPUTS ------------------------*/
 
 form {
   background-color: var(--clPale);
@@ -153,7 +153,7 @@ label {
   padding-left: var(--stdPadding);
 }
 
-//------------------------ HEADINGS AND TEXT ------------------------//
+/*------------------------ HEADINGS AND TEXT ------------------------*/
 
 h1, h2 {
   font-family: 'Merriweather';
@@ -176,4 +176,4 @@ label {
   height: 19.2px;
 }
 
-//------------------------------------------------------------------//
+/*------------------------------------------------------------------*/
