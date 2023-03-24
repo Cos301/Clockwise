@@ -1,11 +1,17 @@
 <ion-item id="container">
-    <div>
+    <ion-item>
         <img src={{this.profilePhotoUrl}}/>
-    </div>
-    <div>
-        <div id="chatName">{{this.chatName}}</div>
-        <div id="msgPreview">{{this.msgPreview}}</div>
-    </div>
+    </ion-item>
+    <ion-item>
+        <ion-list>
+            <ion-item id="chatName">{{this.chatName}}</ion-item><br/>
+            <ion-item>
+                <div id="msgPreview">
+                    <ion-label>{{this.msgPreview}}</ion-label>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-item>
     <div id="time">{{this.time}}</div>
     <div id="unread">{{this.unreadCount}}</div>
 </ion-item>
