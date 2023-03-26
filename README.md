@@ -84,38 +84,10 @@ generate a storybook to run in a playground:
 		cypress tests: false
 		webpack builder
 	run the storybook:
-		npx nx generate e2e-project <lib name>
-		 <lib name> (NB: first add a component!!)
     npx nx g @nrwl/angular:stories project-name
 		npx nx run <lib name>:storybook
 		
-	edit the storybook's main.js to match the following:
-
-/////////////////////////////////////////////////
-const path = require('path');
-
-module.exports = {
-  webpackFinal: async config => {
-    // Remove the existing css rule
-    config.module.rules = config.module.rules.filter(
-      f => f.test.toString() !== '/\\.css$/'
-    );
-
-    config.module.rules.push({
-      test: /\.css$/,
-      use: ['style-loader', {
-        loader: 'css-loader',
-        options: {
-          modules: true, // Enable modules to help you using className
-        }
-      }],
-      include: path.resolve(__dirname, '../src'),
-    });
-
-    return config;
-  },
-};
-/////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 
 to add an image to a storybook: 
 
@@ -123,3 +95,8 @@ edit that storybooks main.js, and add:
   staticDirs: ['public']
 
 add 'public' folder to .storybook, and add the image
+
+///////// exporting//////////////
+
+NB: make sure that the component is exported in the 
+index.ts of the lib!!!!!!!

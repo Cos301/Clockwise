@@ -6,6 +6,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
   selector: 'mp-time-bar',
   templateUrl: './time-bar.component.html',
   styleUrls: ['./time-bar.component.scss'],
+  standalone: true
 })
 export class TimeBarComponent implements OnInit, OnDestroy {
   @Input() startMinutes: number;
@@ -38,7 +39,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.isExpanded = false;
     this.lowTime = false;
     this.progress = 0; 
-    this.startMinutes = 2;
+    this.startMinutes = 3;
 
     //set a 10 minute timer and set the progress to 100
     this.startDate = new Date(); 
