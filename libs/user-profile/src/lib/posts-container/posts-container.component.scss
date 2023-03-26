@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 100%;
+}
+
+.post {
+    position: relative;
+    flex-basis: calc(33% - 8px);
+    margin: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.post::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+.post img {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: auto;
+    width: 100%;
+  }
+

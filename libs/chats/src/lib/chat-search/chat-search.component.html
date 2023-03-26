@@ -1,6 +1,7 @@
 <div [ngClass]="container">
     <div class="leafContainer">
         <img src="leaf.png"/>
-        <input type="text" placeholder=" 🔎︎ search..."/>
+        <input (focus)="clearText()" [value]="searchQuery" 
+            type="text" placeholder=" 🔎︎ search..." [ngModelOptions]="{standalone: true}"/>
     </div>
 </div>

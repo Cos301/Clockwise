@@ -1,14 +1,15 @@
 #searchContainer {
-    padding-top: 50px;
+    padding: 50px 10px;
 }
 
 #messageContainer {
     position: relative;
     padding-top: 50px;
+    padding: 10px;
 }
 
 .container {
     /*TODO: change to var(--sky);*/
-    background-color: linear-gradient(143deg, rgb(196, 230, 247) 0%, rgba(255,255,255,1) 39%, rgb(194, 230, 248) 100%);
+    background: rgb(211, 254, 253);
     height: calc(100vh - 80px);
 }

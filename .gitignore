@@ -40,6 +40,7 @@ Thumbs.db
 
 # Angular
 .angular
+.storybook
 
 # Firebase Logs
 database-debug.log
@@ -51,8 +52,10 @@ pubsub-debug.log
 # Emulators
 .emulators
 
+
 # Keys
 .keys/*.json
 
 .env
 .env.prod
+

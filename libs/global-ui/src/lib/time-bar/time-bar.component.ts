@@ -45,7 +45,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.showTime = true;
     this.lowTime = false;
     this.progress = 0; 
-    this.startMinutes = 1.2; 
+    this.startMinutes = 1.3; 
 
     //set a 10 minute timer and set the progress to 100
     this.startDate = new Date(); 
@@ -97,7 +97,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
         this.showTime = false;
       }
 
-    }, 450)
+    }, 1000)
   }
 
   addMinutes(date: Date, minutes: number) {

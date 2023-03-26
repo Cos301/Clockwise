@@ -1,0 +1,48 @@
+.container {
+    height: 200px;
+}
+
+
+.bio, .bottomHalfInner, .username {
+    background-color: #9be06b;
+}
+
+.bio p {
+    margin: 0;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+}
+
+.username {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.background {
+    background-color: #edae49;
+    overflow: hidden;
+    height: 75px;
+    padding-top: 55px;
+}
+
+.bottomHalfInner {
+    border-radius: 100%;
+    height: 200%;
+    position: relative;
+    z-index: 0;
+}
+
+img {
+    height: 100px;
+    position: absolute;
+    top: 15px;
+    left: calc(50% - 50px);
+    background-color: #fff;
+    border-radius: 100%;
+    z-index: 2;
+}
