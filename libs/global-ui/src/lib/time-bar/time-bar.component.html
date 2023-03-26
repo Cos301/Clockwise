@@ -3,7 +3,7 @@
         <div id="background" class="bar" [style]="getBackgroundStyle()"></div>
         <div [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [style]="getStyle()"></div>
         <div *ngIf="isExpanded" id="display">
-            {{this.minutes}}:{{this.seconds}}
+            {{this.dispMinutes}}<div *ngIf="showTime">:</div>{{this.dispSeconds}}
         </div>
     </div>
 </ion-item>

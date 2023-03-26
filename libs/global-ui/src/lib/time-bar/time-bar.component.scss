@@ -7,9 +7,13 @@
 #display {
     position: absolute;
     right: 0;
-    padding: 2px;
-    padding-left: 3px;
-    font-family: --var('Merriweather');
+    padding: 1px;
+    padding-right: 3px;
+    /*TODO: change to var(--stdFont) in production */
+    font-family: "Merriweather";
+    /*TODO: change to var(--clDarker) in production */
+    color: #184f19;
+    display: flex;
 }
 
 .bar {

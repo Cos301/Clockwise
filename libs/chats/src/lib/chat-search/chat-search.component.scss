@@ -8,6 +8,9 @@ input[type=text] {
     top: 45px;
     left: 20%;
     height: 25px;
+    /*TODO: change to var(--stdFont) in producion */
+    font-family: "Merriweather";
+    font-size: 1.1rem;
 }
 
 .container {
