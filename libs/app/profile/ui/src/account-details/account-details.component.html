@@ -81,16 +81,8 @@
           </ion-text>
         </ion-list>
       </ion-card-content>
-      <ion-button
-        fill="clear"
-        class="ion-float-left"
-        type="button"
-        (click)="logout()">
-        Logout
-      </ion-button>
-      <ion-button fill="clear" class="ion-float-right" type="submit"
-        >Save</ion-button
-      >
+      <ion-button type="submit">Save</ion-button>
+      <ion-button class="logout" (click)="logout()">Logout</ion-button>
     </ion-card>
   </form>
 </ng-container>

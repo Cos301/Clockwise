@@ -108,12 +108,11 @@
 /*------------------------ FORMS AND INPUTS ------------------------*/
 
 form {
-  background-color: var(--clPale);
+  background-color: var(--clPale) !important;
   border-radius: var(--stdRadius);
   padding: var(--stdPadding);
   padding-left: var(--stdPaddingLrg);
   padding-right: var(--stdPaddingLrg);
-  margin: var(--stdMargin);
 }
 
 
