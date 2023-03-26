@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-type PostType = {
+export type PostType = {
   src: string
 }
 
@@ -8,6 +8,7 @@ type PostType = {
   selector: 'mp-posts-container',
   templateUrl: './posts-container.component.html',
   styleUrls: ['./posts-container.component.scss'],
+  standalone: true
 })
 export class PostsContainerComponent {
   @Input() posts : PostType[];

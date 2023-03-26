@@ -4,9 +4,6 @@ import { Component } from '@angular/core';
   selector: 'mp-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  standalone: true
 })
-export class HeaderComponent {
-  constructor() {
-    
-  }
-}
+export class HeaderComponent {}

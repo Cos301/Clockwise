@@ -13,16 +13,7 @@
         "outputPath": "dist/apps/api",
         "main": "apps/api/src/main.ts",
         "tsConfig": "apps/api/tsconfig.app.json",
-        "assets": [
-          "apps/api/src/assets",
-          "apps/app/src/assets", 
-          { "glob": "**/*", "input": "apps/my-project-name/src/assets/", "output": "./assets/" },
-          {
-          "glob": "**/*",
-          "input": "libs/chats/assets/",
-          "output": "./assets/"
-          }
-        ],
+        "assets": [],
         "isolatedConfig": true,
         "webpackConfig": "apps/api/webpack.config.js",
         "generatePackageJson": true

@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { min } from 'rxjs';
 
 //IMPORTANT NOTE: minutes can't go over 30
 
