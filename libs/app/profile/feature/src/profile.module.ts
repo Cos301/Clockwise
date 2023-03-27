@@ -7,6 +7,7 @@ import { ProfileModule as ProfileUiModule } from '@mp/app/profile/ui';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProfilePage } from './profile.page';
 import { ProfileRouting } from './profile.routing';
+import { TimeBarComponent } from 'libs/global-ui/src/lib/time-bar/time-bar.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ProfileRouting } from './profile.routing';
     ProfileUiModule,
     ProfileDataAccessModule,
     NgxSkeletonLoaderModule,
+    TimeBarComponent
   ],
   declarations: [ProfilePage],
 })

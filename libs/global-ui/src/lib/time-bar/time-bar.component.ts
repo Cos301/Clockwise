@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 //IMPORTANT NOTE: minutes can't go over 30
@@ -6,6 +7,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
   selector: 'mp-time-bar',
   templateUrl: './time-bar.component.html',
   styleUrls: ['./time-bar.component.scss'],
+  imports: [CommonModule],
   standalone: true
 })
 export class TimeBarComponent implements OnInit, OnDestroy {
@@ -14,11 +16,11 @@ export class TimeBarComponent implements OnInit, OnDestroy {
   //for visual elements
   private progress: number;
   private height: string;
-  private lowTime: boolean;
+  public lowTime: boolean;
   private expandedHeight: string; 
   private collapsedHeight: string; 
-  private isExpanded: boolean;
-  private showTime: boolean;
+  public isExpanded: boolean;
+  public showTime: boolean;
   private timerInterval: any; 
   private startDate: Date;
   private totalSeconds: number;

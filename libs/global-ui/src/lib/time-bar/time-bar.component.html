@@ -1,9 +1,8 @@
-<ion-item>
-    <div id="container" (click)="isExpanded ? collapse() : expand()">
-        <div id="background" class="bar" [style]="getBackgroundStyle()"></div>
-        <div [ngClass]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [style]="getStyle()"></div>
-        <div *ngIf="isExpanded" id="display">
-            {{this.dispMinutes}}<div *ngIf="showTime">:</div>{{this.dispSeconds}}
-        </div>
+
+<div id="container" (click)="isExpanded ? collapse() : expand()">
+    <div id="background" class="bar" [style]="getBackgroundStyle()"></div>
+    <div [class]="lowTime ? 'progress-bar bar low' : 'progress-bar bar'" [style]="getStyle()"></div>
+    <div *ngIf="isExpanded" id="display">
+        {{this.dispMinutes}}<div *ngIf="showTime">:</div>{{this.dispSeconds}}
     </div>
-</ion-item>
+</div>

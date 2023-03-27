@@ -1,2 +1,2 @@
-export * from './lib/global-ui.module'
+export * from './global-ui.module'
 
