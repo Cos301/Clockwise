@@ -21,15 +21,10 @@
       <!-- ***************************************** -->
 
       <!-- Logo is in the row below-->
-      <ion-row size="3">
-
-        <ion-col></ion-col>
-
+      <ion-row>
         <ion-col>
-          <ion-img class="image" src="assets/logos/logo-animated.gif" alt="The Clockwise logo"></ion-img>
+          <img class="image" src="assets/logos/logo-animated.gif" alt="The Clockwise logo"/>
         </ion-col>
-
-        <ion-col></ion-col>
       </ion-row>
       <!-- ***************************************** -->
 
@@ -46,20 +41,10 @@
 
         <ion-col>
           <ion-nav-link [routerLink]="['register']">
-            <ion-button expand="full" color="primary" shape="round">Signup</ion-button> <!-- Signup button -->
+            <ion-button expand="full" color="success" shape="round">Signup</ion-button> <!-- Signup button -->
           </ion-nav-link>
         </ion-col>
 
-      </ion-row>
-      <!-- ***************************************** -->
-
-
-
-      <!-- Divider text is below-->
-      <ion-row>
-        <ion-col class="ion-text-center">
-          <ion-text color="medium">or</ion-text>
-        </ion-col>
       </ion-row>
       <!-- ***************************************** -->
 
@@ -71,11 +56,11 @@
           <ion-nav-link>
             <ion-button
               expand="block"
-              color="primary"
+              class="google"
               shape="round"
               (click)="continueWithGoogle()">
-              <ion-icon name="logo-google"></ion-icon>
-              <ion-text style="padding-left: 5px">
+              <ion-icon name="logo-google" color="primary"></ion-icon>
+              <ion-text class="googleText" style="padding-left: 5px">
                 Continue with Google
               </ion-text>
             </ion-button>
@@ -83,6 +68,11 @@
         </ion-col>
       </ion-row>
       <!-- ***************************************** -->
+
+      <ion-row class="images">
+        <img src="assets/images/tree.svg" />
+        <img src="assets/images/bush.svg" />
+      </ion-row>
 
       <!-- This row contains the T.O.F. and Privacy Policy links -->
       <!--  <ion-row class="ion-padding-top">
@@ -98,12 +88,6 @@
        *********************************************************************-->
 
     </ion-grid>
+  
   </div>
-
 </ion-content>
-
-
-<ion-footer collapse="condense" class="ion-padding ion-text-center">
-  <ms-version-component></ms-version-component><br />
-  <ms-copyright-component></ms-copyright-component>
-</ion-footer>

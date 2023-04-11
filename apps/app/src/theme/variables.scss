@@ -7,18 +7,10 @@
   /*My colors*/
   --clDanger: #d1495b;
   --clWarning: #edae49;
-  --clLight: #70ad47;
-  --clExtraLight: #c0f69d;
-  --clPale: #fcfffd;
-  --clSkin: #fdd088;
-  --clMedlight: #139a43;
-  --clPrimary: #116b26;
-  --clMedDark: #115321;
-  --clDarker: #184f19;
-  --clExtraDark: #123213;
-  --clShadow: #051401;
-  --shadow: 6px 5px 13px 0px rgba(0,0,0,0.55);
-  --sky: #e9ffe2;
+  --clLight: #b2e692;
+  --clExtraLight: #e9ffe2;
+  --clPrimary: #9bca7d;
+  --clDarkPrimary: #407022;
 
   /*My styling */
   --stdMargin: 30px;
@@ -26,9 +18,9 @@
   --stdRadius: 10px;
   --stdPadding: 10px;
   --stdPaddingLrg: 15px;
-  --stdFont: 'Merriweather'
+  --stdFont: 'Merriweather';
 
-  --ion-color-primary: #0b5d1e;
+  --ion-color-primary: var(--clDarkPrimary);
   --ion-color-primary-rgb: 32, 38, 95;
   --ion-color-primary-contrast: #ffffff; 
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -49,7 +41,7 @@
   --ion-color-tertiary-shade: #3c8abe;
   --ion-color-tertiary-tint: #57a7dc;
 
-  --ion-color-success: #4f8565;
+  --ion-color-success: var(--clPrimary);
   --ion-color-success-rgb: 45, 211, 111;
   --ion-color-success-contrast: #000000;
   --ion-color-success-contrast-rgb: 0, 0, 0;
@@ -93,6 +85,12 @@
   src: url('../assets/fonts/Merriweather/Merriweather-Regular.ttf');
 }
 
+/*Imprima*/
+@font-face {
+  font-family: 'Imprima';
+  src: url('../assets/fonts/Imprima/Imprima-Regular.ttf');
+}
+
 /*Bitter*/
 @font-face {
   font-family: 'Bitter';
@@ -115,14 +113,17 @@ form {
   padding-right: var(--stdPaddingLrg);
 }
 
-
 ion-button {
-  color: var(--clPale);
-  --background: var(--clPrimary);
-  --border-radius: var(--stdRadius);
-  --margin-top: 10px;
-  --padding-top: 10px;
-  --padding-bottom: 10px;
+  --background: var(--clLight) !important;
+  --border-radius: 10px;
+  --padding-top: 0px;
+  font-size: 1.5rem;
+  height: 55px;
+  font-family: 'Imprima';
+}
+
+.google {
+  --background: var(--clLight) !important;
 }
 
 input:nth-last-child(1) {
@@ -155,7 +156,7 @@ label {
 /*------------------------ HEADINGS AND TEXT ------------------------*/
 
 h1, h2 {
-  font-family: 'Merriweather';
+  font-family: 'Imprima';
 }
 
 p, input, label {
