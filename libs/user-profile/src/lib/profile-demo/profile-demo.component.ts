@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TimeBarComponent } from '@mp/global-ui';
 import { HeaderComponent } from '../header/header.component';
 import { PostsContainerComponent } from '../posts-container/posts-container.component';
 
@@ -9,8 +8,7 @@ import { PostsContainerComponent } from '../posts-container/posts-container.comp
   styleUrls: ['./profile-demo.component.scss'],
   imports: [
     HeaderComponent,
-    PostsContainerComponent, 
-    TimeBarComponent
+    PostsContainerComponent
   ]
 })
 export class ProfileDemoComponent {}

@@ -1,36 +1,16 @@
 input[type=text] {
-    background-color: #fdd088;
+    background-color: #ffffff;
     border: none;
-    border-radius: 10px;
-    padding-left: 10px;
-    position: absolute;
-    width: 60%;
-    top: 45px;
-    left: 20%;
-    height: 25px;
+    border-radius: 20px;
+    height: 40px;
+    margin-left: 10px;
+    width: calc(100% - 20px);
     /*TODO: change to var(--stdFont) in producion */
     font-family: "Merriweather";
     font-size: 1.1rem;
-}
-
-.container {
-    position: relative;
+    text-align: center;
 }
 
 input[type=text]:focus {
     outline: none !important;
-}
-
-.leafContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 110px;
-    position: relative;
-}
-
-img {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
