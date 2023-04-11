@@ -1,10 +1,13 @@
 
 ion-content {
+  top: 100px;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow-y: visible; //Necessary to be able to scroll on page
+  --ion-background-color: #c9d8bf;
+  
 }
 
 //To create a card with a fixed width and padding on the items inside it.
@@ -12,12 +15,13 @@ ion-card{
   width: 100%;
   max-width: 400px;
   margin-bottom: 0;
+  //align items neatly on card
   ion-item {
     margin-bottom: 10px;
     padding: 20px;
   }
   ion-item:last-child {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }
 //**************************************************************************
@@ -30,4 +34,61 @@ ion-footer{
   z-index: 100;
 }
 
+form{
+  //position inputs under one another with an equal margin and the inputs must have a color of white and border radius 20px
+  ion-item{
+    margin-bottom: 10px;
+    border-radius: 20px;
+   
+      //space between the label a
+      ion-label{
+       font-size: 30px;
+      }
+
+  }
+     background-color: #c9d8bf !important; //force color change of form to match background
+  
+ 
+
+}
+
+ion-grid{
+  //the color of the grid must be #c9d8bf
+  background-color: #c9d8bf;
+}
+
+
+ion-input{
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  border: none !important;
+  box-shadow: none !important;
+  //adjust the height of the input
+  height: 50px;
+  //adjust the font size of the input
+  font-size: 20px;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  bottom: 10;
+}
+
+ion-icon{
+  top : 10px;
+}
+
+ion-button{
+  color: black;
+  --ion-background-color: #a7ca90;
+}
+
+.header-slogan{
+  font-size: 40px;
+  font-weight: bold;
+}
+.slogan{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
