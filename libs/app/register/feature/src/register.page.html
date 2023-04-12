@@ -14,21 +14,18 @@
   <ion-grid>
 
     <!-- this row contains the logo -->
-    <ion-row size="3">
-
-      <ion-col></ion-col>
-
-      <ion-col class="ion-text-center ">
-        <h1 class="header-slogan">Clockwise</h1>
-        <h3 class="slogan">It's about time</h3>
-      </ion-col>
-
-      <ion-col></ion-col>
-
+    <ion-row>
+        <h1>Sign up</h1>
     </ion-row>
-    <!--******************************** Completed -->
 
-    <!-- this row contains the signup form -->
+    
+    <img class="image" src="assets/logos/logo-animated.gif" alt="The Clockwise logo"/>
+    
+
+    <ion-row>
+      <p>Take the first step...</p>
+    </ion-row>
+
     <ion-row size="12">
 
 
@@ -36,96 +33,59 @@
         <form [formGroup]="registerForm" ngxsForm="register.registerForm" (submit)="register()">
           <ion-list>
 
-            <!-- TODO: Output in case of error with name
-            <ion-text
-              *ngIf="name?.invalid && (name?.dirty || name?.touched)"
-              class="ion-padding-start"
-              color="danger">
-              <small>{{ nameError }}</small>
-            </ion-text>
-           ******************************** -->
-
             <div class="myError">
+              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                {{ nameError }}
+              </div>
+              <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                {{ emailError }}
+              </div>
               <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
                 {{ passwordError }}
               </div>
-              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"> 
-                {{ nameError}}
+              <div *ngIf="passwordConfirm?.value !== password?.value && (passwordConfirm?.dirty || passwordConfirm?.touched)">
+                {{ passwordConfirmError }}
               </div>
             </div>
-
-            
 
             <!-- Name input -->
             <ion-item [ngClass]="{'invalid': name?.invalid && (name?.dirty || name?.touched)}">
               <ion-input type="text" minlength="3" maxlength="64" placeholder="Enter name" required="true"
                 autocomplete="name" formControlName="name"></ion-input>
             </ion-item>
-            <!-- ******************************** -->
-
 
             <!-- Email input -->
-            <ion-item>
+            <ion-item [ngClass]="{'invalid': email?.invalid && (email?.dirty || email?.touched)}">
               <ion-input type="email" minlength="6" maxlength="64" placeholder="Enter email" required="true"
                 autocomplete="email" formControlName="email"></ion-input>
             </ion-item>
-            <!-- ******************************** -->
-
-            <!-- Output in case of error with email-->
-            <ion-text *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-              color="danger">
-              <small>{{ emailError }}</small>
-            </ion-text>
-            <!-- ******************************** -->
 
             <!-- Password input -->
-            <ion-item>
+            <ion-item [ngClass]="{'invalid': password?.invalid && (password?.dirty || password?.touched)}">
               <ion-input [type]="showPassword ? 'text' : 'password'" minlength="6" maxlength="64"
                 placeholder="Enter password" required="true" autocomplete="password"
                 formControlName="password"></ion-input>
-              <!-- <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" slot="end"
-                class="ion-align-self-center" (click)="toggleShowPassword()"></ion-icon> -->
             </ion-item>
-            <!-- ******************************** -->
-
-
-            <!-- Output in case of error with password-->
-            <ion-text *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="ion-padding-start"
-              color="danger">
-              <small>{{ passwordError }}</small>
-            </ion-text>
-            <!-- ******************************** -->
-
-            <!-- TODO: Output in case of error with confirm password
-               <ion-text
-                 *ngIf="passwordConfirm?.invalid && (passwordConfirm?.dirty || passwordConfirm?.touched)"
-                 class="ion-padding-start"
-                 color="danger">
-                 <small>{{ passwordError }}</small>
-               </ion-text>
-            ******************************** -->
 
             <!-- Confirm password input -->
-            <ion-item>
-              <ion-input [type]="showPassword ? 'text' : 'password'" minlength="6" maxlength="64"
-                placeholder="Enter password" required="true" autocomplete="passwordConfirm"
-                class="ion-align-self-center"></ion-input>
-              <!-- <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" slot="end"
-                class="ion-align-self-center" (click)="toggleShowPassword()"></ion-icon> -->
+            <ion-item [ngClass]="{'invalid': passwordConfirm?.value !== password?.value && (passwordConfirm?.dirty || passwordConfirm?.touched)}">
+              <ion-input [type]="showPassword ? 'text' : 'password'"
+                placeholder="Confirm password" required="true" autocomplete="password"
+                formControlName="passwordConfirm"></ion-input>
             </ion-item>
-            <!-- ******************************** -->
 
-
+            
+            <ion-button expand="block" [disabled]="!this.registerForm.valid || (busy$ | async)" type="submit">
+              <ion-spinner *ngIf="busy$ | async"></ion-spinner>
+              <ion-text>SignUp</ion-text>
+            </ion-button>
 
           </ion-list>
 
           <ion-grid class="ion-padding">
             <ion-row>
               <ion-col>
-                <ion-button expand="block" [disabled]="!this.registerForm.valid || (busy$ | async)" type="submit">
-                  <ion-spinner *ngIf="busy$ | async"></ion-spinner>
-                  <ion-text>SignUp</ion-text>
-                </ion-button>
+                
               </ion-col>
             </ion-row>
 
@@ -158,7 +118,14 @@
     </ion-row>
     <!--******************************** Completed -->
 
+    <div class="images">
+      <img src="assets/images/tree.svg" />
+      <img src="assets/images/bush.svg" />
+    </div>
   </ion-grid>
+
+  
+
 </ion-content>
 
 <ion-footer collapse="condense" class="ion-padding ion-text-center">

@@ -54,6 +54,17 @@ form{
 ion-grid{
   //the color of the grid must be #c9d8bf
   background-color: var(--clExtraLight);
+  top: 0;
+}
+
+ion-content::part(scroll) {
+  background-color: var(--clExtraLight);
+}
+
+h1 {
+  position: absolute;
+  top: 20px;
+  margin-bottom: 0;
 }
 
 .myError {
@@ -61,6 +72,17 @@ ion-grid{
   display: block;
   color: var(--clDanger);
   text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.myError > * {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  background-color: var(--clExtraLight);
 }
 
 ion-item {
@@ -82,22 +104,66 @@ ion-input{
   text-align: center;
   border: none !important;
   box-shadow: none !important;
-  //adjust the height of the input
-  height: 50px;
+
+  --padding-bottom: 8px;
+  --padding-end: 8px;
+  --padding-start: 8px;
+  --padding-top: 8px;
 }
 
 ion-icon{
   top : 10px;
 }
 
+.images img {
+  position: absolute;
+}
+
+.images img:nth-child(1) {
+  left: -120px; 
+  top: 650px;
+  scale: 0.5;
+}
+
+.images img:nth-child(2) {
+  right: -55px;
+  top: 770px;
+  scale: 0.5;
+}
+
+
+h1, p {
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0;
+  font-family: var(--stdFont);
+}
+
+img {
+  width: 50%;
+  margin-left: 25%;
+  position: absolute;
+  top: 80px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 200px;
+}
 
 .header-slogan{
-  font-size: 40px;
+  font-size: 2.1rem;
   font-weight: bold;
 }
-.slogan{
-  font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+ion-button {
+  color: black;
 }
 

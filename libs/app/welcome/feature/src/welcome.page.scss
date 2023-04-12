@@ -17,6 +17,11 @@
   font-size: 3rem;
 }
 
+ion-content {
+  height: 100vh;
+  --overflow: hidden;
+}
+
 .googleText {
   color: rgb(34, 93, 22);
 }

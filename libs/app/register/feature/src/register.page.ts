@@ -25,6 +25,10 @@ export class RegisterPage {
       '', 
       [Validators.minLength(6), Validators.maxLength(64)]
     ],
+    passwordConfirm: [
+      '', 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
     name: [
       '',
       [Validators.minLength(0), Validators.maxLength(64)]
@@ -37,7 +41,15 @@ export class RegisterPage {
   }
 
   get password() {
+    console.log('password');
+    console.log(this.registerForm.get('password'));
     return this.registerForm.get('password');
+  }
+
+  get passwordConfirm() {
+    console.log('password confirm');
+    console.log(this.registerForm.get('passwordConfirm'));
+    return this.registerForm.get('passwordConfirm');
   }
 
   get name() {
@@ -74,6 +86,15 @@ export class RegisterPage {
       return 'Password should be shorter than 64 characters';
 
     return 'Password is invalid';
+  }
+
+  get passwordConfirmError(): string {
+    if (this.passwordConfirm?.errors?.['required']) return 'Password confimation is required';
+
+    if (this.password?.value != this.passwordConfirm?.value)
+      return "Passwords do not match";
+
+    return "Passwords do not match"
   }
 
   constructor(
