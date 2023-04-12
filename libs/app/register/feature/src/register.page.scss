@@ -5,9 +5,7 @@ ion-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: visible; //Necessary to be able to scroll on page
-  --ion-background-color: #c9d8bf;
-  
+  overflow-y: visible; //Necessary to be able to scroll on page  
 }
 
 //To create a card with a fixed width and padding on the items inside it.
@@ -46,15 +44,34 @@ form{
       }
 
   }
-     background-color: #c9d8bf !important; //force color change of form to match background
-  
- 
+  background-color: rgba(0, 0, 0 ,0);
+}
 
+.list-ios {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 ion-grid{
   //the color of the grid must be #c9d8bf
-  background-color: #c9d8bf;
+  background-color: var(--clExtraLight);
+}
+
+.myError {
+  height: 30px;
+  display: block;
+  color: var(--clDanger);
+  text-align: center;
+}
+
+ion-item {
+  //account for the border
+  margin: 5px;
+}
+
+ion-item.invalid {
+  border: 5px solid var(--clDanger);
+  margin: 0;
+  --highlight-background:var(--clDanger);
 }
 
 
@@ -67,20 +84,12 @@ ion-input{
   box-shadow: none !important;
   //adjust the height of the input
   height: 50px;
-  //adjust the font size of the input
-  font-size: 20px;
-  box-shadow: 0 0 0px 1000px white inset !important;
-  bottom: 10;
 }
 
 ion-icon{
   top : 10px;
 }
 
-ion-button{
-  color: black;
-  --ion-background-color: #a7ca90;
-}
 
 .header-slogan{
   font-size: 40px;

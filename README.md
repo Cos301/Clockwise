@@ -78,7 +78,7 @@ generate a component inside a library:
 
 generate a storybook to run in a playground: 
 	install storybook schematics: 
-		yarn add -D @nrwl/storybook
+		
 	generate:
 		npx nx g @nrwl/storybook:configuration <lib name> (NB: not component name!!!)
 		cypress tests: false
@@ -100,3 +100,4 @@ add 'public' folder to .storybook, and add the image
 
 NB: make sure that the component is exported in the 
 index.ts of the lib!!!!!!!
+yarn add -D @nrwl/storybook

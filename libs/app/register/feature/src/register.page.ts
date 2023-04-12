@@ -21,7 +21,14 @@ export class RegisterPage {
       '',
       [Validators.email, Validators.minLength(6), Validators.maxLength(64)],
     ],
-    password: ['', [Validators.minLength(6), Validators.maxLength(64)]],
+    password: [
+      '', 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
+    name: [
+      '',
+      [Validators.minLength(0), Validators.maxLength(64)]
+    ]
   });
   showPassword = false;
 
@@ -33,6 +40,10 @@ export class RegisterPage {
     return this.registerForm.get('password');
   }
 
+  get name() {
+    return this.registerForm.get('name');
+  }
+
   get emailError(): string {
     if (this.email?.errors?.['email']) return 'Email is invalid';
     if (this.email?.errors?.['required']) return 'Email is required';
@@ -42,6 +53,17 @@ export class RegisterPage {
       return 'Email should be shorter than 64 characters';
 
     return 'Email is invalid';
+  }
+
+  get nameError() : string {
+    if (this.name?.errors?.['name']) return 'name is invalid';
+    if (this.name?.errors?.['required']) return 'name is required';
+    if (this.name?.errors?.['minlength'])
+      return 'name should be longer than 6 characters';
+    if (this.name?.errors?.['maxlength'])
+      return 'name should be shorter than 64 characters';
+
+    return 'name is invalid';
   }
 
   get passwordError(): string {

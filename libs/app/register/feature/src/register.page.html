@@ -45,35 +45,41 @@
             </ion-text>
            ******************************** -->
 
+            <div class="myError">
+              <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                {{ passwordError }}
+              </div>
+              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"> 
+                {{ nameError}}
+              </div>
+            </div>
+
+            
+
             <!-- Name input -->
-            <ion-item>
-              <ion-label position="stacked" class="required">Name:</ion-label>
+            <ion-item [ngClass]="{'invalid': name?.invalid && (name?.dirty || name?.touched)}">
               <ion-input type="text" minlength="3" maxlength="64" placeholder="Enter name" required="true"
-                autocomplete="name"></ion-input>
+                autocomplete="name" formControlName="name"></ion-input>
             </ion-item>
             <!-- ******************************** -->
 
 
             <!-- Email input -->
             <ion-item>
-              <ion-label position="stacked" class="required">Email:</ion-label>
               <ion-input type="email" minlength="6" maxlength="64" placeholder="Enter email" required="true"
                 autocomplete="email" formControlName="email"></ion-input>
             </ion-item>
             <!-- ******************************** -->
 
             <!-- Output in case of error with email-->
-            <ion-text *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="ion-padding-start"
+            <ion-text *ngIf="email?.invalid && (email?.dirty || email?.touched)"
               color="danger">
               <small>{{ emailError }}</small>
             </ion-text>
             <!-- ******************************** -->
 
-
-
             <!-- Password input -->
             <ion-item>
-              <ion-label position="stacked" class="required">Password:</ion-label>
               <ion-input [type]="showPassword ? 'text' : 'password'" minlength="6" maxlength="64"
                 placeholder="Enter password" required="true" autocomplete="password"
                 formControlName="password"></ion-input>
@@ -101,7 +107,6 @@
 
             <!-- Confirm password input -->
             <ion-item>
-              <ion-label position="stacked" class="required">Confirm Password:</ion-label>
               <ion-input [type]="showPassword ? 'text' : 'password'" minlength="6" maxlength="64"
                 placeholder="Enter password" required="true" autocomplete="passwordConfirm"
                 class="ion-align-self-center"></ion-input>
