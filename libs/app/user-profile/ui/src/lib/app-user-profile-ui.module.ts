@@ -5,6 +5,7 @@ import { PostsContainerComponent } from './posts-container/posts-container.compo
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [HeaderComponent, PostsContainerComponent]
+  declarations: [HeaderComponent, PostsContainerComponent], 
+  exports: [HeaderComponent, PostsContainerComponent]
 })
 export class AppUserProfileUiModule {}
