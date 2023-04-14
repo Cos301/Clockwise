@@ -24,8 +24,8 @@
             "output": "./svg"
           },
           {
-            "input": "libs/chats/src/assets", 
-            "glob": "**/*", 
+            "input": "libs/chats/src/assets",
+            "glob": "**/*",
             "output": "assets/chats"
           }
         ],

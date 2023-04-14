@@ -81,6 +81,7 @@ generate a storybook to run in a playground:
 		
 	generate:
 		npx nx g @nrwl/storybook:configuration <lib name> (NB: not component name!!!)
+		(eg: for ui library: npx nx g @nrwl/storybook:configuration app-user-profile-ui)
 		cypress tests: false
 		webpack builder
 	run the storybook:
