@@ -2,16 +2,11 @@
     height: 200px;
 }
 
+.bottomHalfInner, .username {    
+    background-color: var(--clPrimary);
 
-.bio, .bottomHalfInner, .username {
+    /*TODO: remove this line*/
     background-color: #9bca7d;
-}
-
-.bio p {
-    margin: 0;
-    padding: 15px;
-    font-weight: bold;
-    text-align: center;
 }
 
 .container {
@@ -21,17 +16,18 @@
 .username {
     text-align: center;
     font-size: 1.5rem;
+    padding-bottom: 5px;
 }
 
 .background {
     background-color: #e9f3e2;
     overflow: hidden;
     height: 75px;
-    padding-top: 55px;
+    padding-top: 40px;
 }
 
 .bottomHalfInner {
-    border-radius: 100%;
+    border-radius: 30px;
     height: 200%;
     position: relative;
     z-index: 0;
