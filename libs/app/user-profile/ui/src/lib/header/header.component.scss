@@ -1,5 +1,6 @@
 .container {
-    height: 200px;
+    padding-top: 10px;
+    background-color: #e9f3e2;
 }
 
 .bottomHalfInner, .username {    
@@ -38,7 +39,7 @@
 img {
     height: 100px;
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: calc(50% - 50px);
     background-color: #fff;
     border-radius: 100%;

@@ -2,6 +2,7 @@
 
 #container {
     position: relative;
+    z-index: 5;
 }
 
 #display {
@@ -22,6 +23,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .progress-bar {
@@ -29,7 +32,7 @@
 }
 
 #background {
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(255, 255, 255);
 }
 
 .low {

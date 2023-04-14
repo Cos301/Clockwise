@@ -87,6 +87,9 @@ generate a storybook to run in a playground:
 	run the storybook:
     npx nx g @nrwl/angular:stories project-name
 		npx nx run <lib name>:storybook
+
+add this to preview.js to get it into fullscreen mode: 
+	export const parameters = { layout: 'fullscreen' }
 		
 ////////////////////////////////////////////////////////////////////
 
