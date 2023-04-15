@@ -34,7 +34,6 @@ export class TimeBarComponent implements OnInit, OnDestroy {
   public minutes: number;
   public seconds: number;
   public dispMinutes: string;
-  public dispSeconds: string;
 
 
   constructor() {
@@ -46,7 +45,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.showTime = true;
     this.lowTime = false;
     this.progress = 0; 
-    this.startMinutes = 1.3; 
+    this.startMinutes = 0.2; 
 
     //set a 10 minute timer and set the progress to 100
     this.startDate = new Date(); 
@@ -55,7 +54,6 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.minutes = 0;
     this.seconds = 0; 
     this.dispMinutes = "00";
-    this.dispSeconds = "00";
     
     this.startSeconds = (this.startDate.getMinutes() * 60) + this.startDate.getSeconds();
     this.endSeconds = (this.endDate.getMinutes() * 60) + this.endDate.getSeconds();
@@ -72,7 +70,6 @@ export class TimeBarComponent implements OnInit, OnDestroy {
       newSeconds = "0" + newSeconds;
 
     this.dispMinutes = newMinutes;
-    this.dispSeconds = newSeconds;
   }
 
   ngOnInit() {
@@ -93,8 +90,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
       this.setProgress((this.minutes * 60 + this.seconds)/this.totalSeconds * 100);
       if (this.progress <= 0) {
         clearInterval(this.timerInterval);
-        this.dispMinutes = "";
-        this.dispSeconds = "TIME'S UP!";
+        this.dispMinutes = "TIME'S UP!";
         this.showTime = false;
       }
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TimeBarComponent } from './lib/time-bar/time-bar.component';
+import { TimeBarComponent } from './time-bar/time-bar.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [TimeBarComponent],
+  declarations: [TimeBarComponent], 
   exports: [TimeBarComponent]
 })
-export class GlobalUiModule {}
+export class AppGlobalUiModule {}

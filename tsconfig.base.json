@@ -60,6 +60,7 @@
       ],
       "@mp/app/forgot/feature": ["libs/app/forgot/feature/src/index.ts"],
       "@mp/app/forgot/util": ["libs/app/forgot/util/src/index.ts"],
+      "@mp/app/global-ui": ["libs/app/global-ui/src/index.ts"],
       "@mp/app/home/feature": ["libs/app/home/feature/src/index.ts"],
       "@mp/app/login/data-access": ["libs/app/login/data-access/src/index.ts"],
       "@mp/app/login/feature": ["libs/app/login/feature/src/index.ts"],
@@ -103,7 +104,6 @@
       "@mp/app/welcome/util": ["libs/app/welcome/util/src/index.ts"],
       "@mp/chats": ["libs/chats/src/index.ts"],
       "@mp/cli/core/feature": ["libs/cli/core/feature/src/index.ts"],
-      "@mp/global-ui": ["libs/global-ui/src/index.ts"],
       "@mp/user-profile": ["libs/user-profile/src/index.ts"]
     }
   },

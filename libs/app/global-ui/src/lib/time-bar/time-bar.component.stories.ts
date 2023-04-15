@@ -18,4 +18,5 @@ const Template: Story<TimeBarComponent> = (args: TimeBarComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
+    startMinutes:  0,
 }
