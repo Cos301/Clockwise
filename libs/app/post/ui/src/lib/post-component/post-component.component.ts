@@ -20,10 +20,11 @@ export class PostComponentComponent {
   }
   getBarStyle() {
     return {
-      'height': '19px',
+      'height': '24px',
       'padding': '1px',
       'padding-left': '5px',
-      'border-radius': '9px',
+      'border-radius': '15px',
+      'background-color': '#70ad47',
       'position': 'absolute',
       'width': 'calc(' + this.progress + '% - 5px)'
     }
