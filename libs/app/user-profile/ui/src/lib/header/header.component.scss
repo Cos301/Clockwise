@@ -1,6 +1,7 @@
 .container {
     padding-top: 10px;
     background-color: #e9f3e2;
+    position: relative;
 }
 
 .bottomHalfInner, .username {    
@@ -8,10 +9,6 @@
 
     /*TODO: remove this line*/
     background-color: #9bca7d;
-}
-
-.container {
-    position: relative;
 }
 
 .username {

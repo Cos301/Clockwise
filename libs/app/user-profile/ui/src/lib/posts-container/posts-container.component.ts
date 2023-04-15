@@ -53,6 +53,34 @@ export class PostsContainerComponent {
       { 
         src: "post-template.jpg", 
         expired: true
+      }, 
+      { 
+        src: "post-template.jpg", 
+        expired: true
+      }, 
+      { 
+        src: "post-template.jpg", 
+        expired: true
+      }, 
+      { 
+        src: "post-template.jpg", 
+        expired: true
+      },
+      {
+        src: "post-template.jpg", 
+        expired: true
+      }, 
+      { 
+        src: "post-template.jpg", 
+        expired: true
+      }, 
+      {
+        src: "post-template.jpg", 
+        expired: true
+      }, 
+      {
+        src: "post-template.jpg", 
+        expired: true
       }
     ]
   }

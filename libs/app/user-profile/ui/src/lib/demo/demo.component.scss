@@ -1,6 +1,12 @@
 .container {
-    height: 100vh;
+    height: calc(100vh);
     display: grid;
     grid-template-rows: 0px 158px 1fr;
     background-color: #e9f3e2;
+    overflow-y: hidden;
+}
+
+.posts {
+    height: calc(100%);
+    overflow-y: scroll;
 }
