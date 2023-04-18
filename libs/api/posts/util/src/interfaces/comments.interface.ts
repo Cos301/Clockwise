@@ -1,9 +1,9 @@
 import { Timestamp } from 'firebase-admin/firestore';
-import { User } from './user.interface';
+import { IUser } from '@mp/api/users/util';
 
 export interface Comment {
     comment_id: string;
     text: string;
     time_created: Timestamp;
-    user_ref: User;
+    user_ref: IUser;
 }
