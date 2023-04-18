@@ -1,5 +1,5 @@
 import { Timestamp } from 'firebase-admin/firestore';
-import { IPost } from '@mp/api/posts/util';
+import {IPost} from '@mp/api/posts/util';
 
 export interface IUser {
     user_id: string;

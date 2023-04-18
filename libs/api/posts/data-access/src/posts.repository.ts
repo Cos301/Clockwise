@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Post } from "@mp/api/posts/util";
+import { IPost } from "@mp/api/posts/util";
 import * as admin from 'firebase-admin';
 
 @Injectable()
