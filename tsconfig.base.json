@@ -19,6 +19,9 @@
       "@mp/api/auth/data-access": ["libs/api/auth/data-access/src/index.ts"],
       "@mp/api/auth/feature": ["libs/api/auth/feature/src/index.ts"],
       "@mp/api/auth/util": ["libs/api/auth/util/src/index.ts"],
+      "@mp/api/chat/data-access": ["libs/api/chat/data-access/src/index.ts"],
+      "@mp/api/chat/feature": ["libs/api/chat/feature/src/index.ts"],
+      "@mp/api/chat/util": ["libs/api/chat/util/src/index.ts"],
       "@mp/api/core/feature": ["libs/api/core/feature/src/index.ts"],
       "@mp/api/eventstore/data-access": [
         "libs/api/eventstore/data-access/src/index.ts"
@@ -32,6 +35,9 @@
       ],
       "@mp/api/history/feature": ["libs/api/history/feature/src/index.ts"],
       "@mp/api/history/util": ["libs/api/history/util/src/index.ts"],
+      "@mp/api/posts/data-access": ["libs/api/posts/data-access/src/index.ts"],
+      "@mp/api/posts/feature": ["libs/api/posts/feature/src/index.ts"],
+      "@mp/api/posts/util": ["libs/api/posts/util/src/index.ts"],
       "@mp/api/profiles/data-access": [
         "libs/api/profiles/data-access/src/index.ts"
       ],
