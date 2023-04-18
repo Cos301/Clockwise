@@ -70,6 +70,10 @@
       "@mp/app/login/data-access": ["libs/app/login/data-access/src/index.ts"],
       "@mp/app/login/feature": ["libs/app/login/feature/src/index.ts"],
       "@mp/app/login/util": ["libs/app/login/util/src/index.ts"],
+      "@mp/app/posts/data-access": ["libs/app/posts/data-access/src/index.ts"],
+      "@mp/app/posts/feature": ["libs/app/posts/feature/src/index.ts"],
+      "@mp/app/posts/ui": ["libs/app/posts/ui/src/index.ts"],
+      "@mp/app/posts/util": ["libs/app/posts/util/src/index.ts"],
       "@mp/app/privacy/feature": ["libs/app/privacy/feature/src/index.ts"],
       "@mp/app/profile/data-access": [
         "libs/app/profile/data-access/src/index.ts"
