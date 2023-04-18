@@ -8,7 +8,7 @@ export class UsersRepository {
     return await admin
       .firestore()
       .collection('users')
-      .doc(user.id)
+      .doc(user.user_id)
       .create(user);
   }
 }
