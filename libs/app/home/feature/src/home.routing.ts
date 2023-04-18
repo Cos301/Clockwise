@@ -18,6 +18,11 @@ const routes: Routes = [
           import('@mp/app/profile/feature').then((m) => m.ProfileModule),
       },
       {
+        path: 'my-profile', 
+        loadChildren: () => 
+          import('@mp/app/my-profile/feature').then((m) => m.AppMyProfileFeatureModule)
+      },
+      {
         path: '',
         pathMatch: 'full',
         redirectTo: '/home/dashboard',

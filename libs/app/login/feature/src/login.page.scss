@@ -1,49 +1,158 @@
-.msgContainer {
-  padding-top: 20px;
+
+ion-content {
+  top: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: visible; //Necessary to be able to scroll on page 
+  --offset-top: 200px !important;
 }
-
-.welcomeBackMsg {
-  padding: 20px;
-  background-color: var(--clExtraLight);
-  margin: var(--stdMargin);
-  margin-top: 0;
-  margin-bottom: 0;
-  color: var(--clShadow);
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  border-radius: var(--stdRadius);
-}
-
-.error {
-  text-align: center;
-  position: absolute;
-  z-index: 2;
-  top: 3px;
-  left: 0;
-  width: 100%;
-}
-
-form {
-  position: relative;
-  padding-top: 20px;
-  margin: var(--stdMargin);
-}
-
-
 
 //To create a card with a fixed width and padding on the items inside it.
 ion-card{
   width: 100%;
   max-width: 400px;
-  margin-bottom: 200px;
-  position: relative;
+  margin-bottom: 0;
+  //align items neatly on card
   ion-item {
     margin-bottom: 10px;
+    padding: 20px;
   }
   ion-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 }
 
+form {
+}
 //**************************************************************************
+
+ion-footer{
+  //the footer css to make it stick to the bottom of the page
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+form{
+  //position inputs under one another with an equal margin and the inputs must have a color of white and border radius 20px
+  ion-item{
+    margin-bottom: 10px;
+    border-radius: 20px;
+   
+      //space between the label a
+      ion-label{
+       font-size: 30px;
+      }
+
+  }
+  background-color: rgba(0, 0, 0 ,0);
+}
+
+.list-ios {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+ion-grid{
+  //the color of the grid must be #c9d8bf
+  background-color: var(--clExtraLight);
+  top: 0;
+}
+
+ion-content::part(scroll) {
+  background-color: var(--clExtraLight);
+}
+
+h1 {
+  position: absolute;
+  top: 20px;
+  margin-bottom: 0;
+}
+
+.myError {
+  height: 30px;
+  display: block;
+  color: var(--clDanger);
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.myError > * {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  background-color: var(--clExtraLight);
+}
+
+ion-item {
+  //account for the border
+  margin: 5px;
+}
+
+ion-item.invalid {
+  border: 5px solid var(--clDanger);
+  margin: 0;
+  --highlight-background:var(--clDanger);
+}
+
+ion-icon{
+  top : 10px;
+}
+
+.images img {
+  position: absolute;
+}
+
+.images img:nth-child(1) {
+  left: -120px; 
+  top: 650px;
+  scale: 0.5;
+}
+
+.images img:nth-child(2) {
+  right: -55px;
+  top: 770px;
+  scale: 0.5;
+}
+
+
+h1, p {
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0;
+  font-family: var(--stdFont);
+}
+
+img {
+  width: 50%;
+  margin-left: 25%;
+  position: absolute;
+  top: 80px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 200px;
+}
+
+.header-slogan{
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+ion-button {
+  color: black;
+}
+

@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../../dist/libs/app/my-profile/feature",
+  "lib": {
+    "entryFile": "src/index.ts"
+  }
+}

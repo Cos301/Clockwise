@@ -9,23 +9,14 @@
 </ion-header>
 <ion-content>
 
-  <div class="colorMe">
-
-    <div class="msgContainer"> 
-      <div class="welcomeBackMsg">
-        <h2>Welcome Back</h2>
-        <p>Ready for another visit?<br/>
-          Time must be on your side... 😉</p>
-      </div>
-    </div> <!--Msg container-->
-
+    <!--
     <form [formGroup]="loginForm" ngxsForm="login.loginForm" (submit)="login()" >
       
       <div class="error">
         <ion-text *ngIf="email?.invalid && (email?.dirty || email?.touched)" color="danger">{{ emailError }}</ion-text>
+        <ion-text *ngIf="!(email?.invalid && (email?.dirty || email?.touched)) && password?.invalid && (password?.dirty || password?.touched)" color="danger">{{passwordError}}</ion-text>
       </div>
 
-      <!-- TEMPLATE: input -->
       <ion-list>
         <ion-item class="ion-no-padding"><ion-input type="email" maxlength="64" placeholder="email" required="true" autocomplete="email" formControlName="email"></ion-input></ion-item>
         <ion-item class="ion-no-padding"><ion-input type="password" placeholder="password" required="true"></ion-input></ion-item>
@@ -34,14 +25,82 @@
       <div class="submitButtonWrapper">
         <ion-button ion-button expand="block" size="small" [disabled]="!this.loginForm.valid" type="submit">login</ion-button>
       </div>
-    </form> <!-- Login form -->
+    </form> -->
  
-  </div><!-- colorMe -->
+    <form [formGroup]="loginForm" ngxsForm="login.loginForm" (submit)="login()">
+      <ion-list class="ion-padding-vertical">
+        <ion-item>
+          <ion-input
+            type="email"
+            minlength="6"
+            maxlength="64"
+            placeholder="Enter email"
+            required="true"
+            autocomplete="email"
+            fill="outline"
+            formControlName="email"></ion-input>
+
+        </ion-item>
+        
+        <ion-text
+          *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+          class="ion-padding-start"
+          color="danger">
+          <small>{{ emailError }}</small>
+        </ion-text>
+        <ion-item>
+          <ion-input
+            [type]="showPassword ? 'text' : 'password'"
+            minlength="6"
+            maxlength="64"
+            placeholder="Enter password"
+            required="true"
+            autocomplete="password"
+            formControlName="password"></ion-input>
+          <ion-icon
+            [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"
+            slot="end"
+            class="ion-align-self-center"
+            (click)="toggleShowPassword()"></ion-icon>
+        </ion-item>
+        <ion-text
+          *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          class="ion-padding-start"
+          color="danger">
+          <small>{{ passwordError }}</small>
+        </ion-text>
+      </ion-list>
+  
+      <ion-grid class="ion-padding">
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              [disabled]="!this.loginForm.valid || (busy$ | async)"
+              type="submit">
+              <ion-spinner *ngIf="busy$ | async"></ion-spinner>
+              <ion-text>Login</ion-text>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-top">
+          <ion-col class="ion-text-center">
+            Having trouble?
+            <ion-nav-link routerLink="/forgot">
+              <ion-text color="primary">Forgot Password</ion-text>
+            </ion-nav-link>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            Don't have an account?
+            <ion-nav-link routerLink="/register">
+              <ion-text color="primary">Register</ion-text>
+            </ion-nav-link>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
 
 </ion-content>
-
-
-<ion-footer collapse="condense" class="ion-padding ion-text-center">
-  <ms-copyright-component></ms-copyright-component>
-</ion-footer>
 
