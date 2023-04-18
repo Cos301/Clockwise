@@ -1,5 +1,5 @@
-import {Post} from '../interfaces'
+import {IPost} from '../interfaces'
 
 export class GetAllPostsQuery {
-    constructor(public readonly post: Post) {}
+    constructor(public readonly post: IPost) {}
 }

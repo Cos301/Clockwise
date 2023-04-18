@@ -1,13 +1,14 @@
 import { Timestamp } from 'firebase-admin/firestore';
 import {Comment} from './comments.interface';
-import { User } from './user.interface';
+import { IUser } from '@mp/api/users/util';
+import { ITimeRemaining } from './timeRemaining.interface';
 
-export interface Post{
+export interface IPost{
     post_id: string;
     caption: string;
     comments: Comment[];
     img_url: string;
     time_created: Timestamp;
-    time_remaining: Map<string, number>;
-    user_id: User;
+    time_remaining: ITimeRemaining;
+    user: IUser;
 }
