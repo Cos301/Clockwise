@@ -1,11 +1,9 @@
 import {
     IComment,
     IPost    
-
 } from '@mp/api/posts/util';
 
 import { AggregateRoot } from '@nestjs/cqrs';
-import { create } from 'domain';
 
 export class Post extends AggregateRoot implements IPost {
   constructor(
@@ -32,8 +30,8 @@ export class Post extends AggregateRoot implements IPost {
     );
     return instance;
   }
+
+
+
 }
 
-create(){
-    this.apply(new PostCreatedEvent(this.toJSON()));
-}
