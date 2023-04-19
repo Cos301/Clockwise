@@ -2,10 +2,11 @@ import { Timestamp } from 'firebase-admin/firestore';
 import {IPost} from '@mp/api/posts/util';
 
 export interface IUser {
+    bio: string;
     user_id: string;
     email: string;
     first_name: string;
-    follwers: IUser[];
+    followers: IUser[];
     following: IUser[];
     last_name: string;
     gen_score: number;
@@ -14,4 +15,5 @@ export interface IUser {
     posts: IPost[];
     username: string;
     time_created: Timestamp;
+    time_remove: Timestamp;
 }
