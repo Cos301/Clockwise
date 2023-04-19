@@ -5,7 +5,7 @@ export interface IUser {
     user_id: string;
     email: string;
     first_name: string;
-    follwers: IUser[];
+    followers: IUser[];
     following: IUser[];
     last_name: string;
     gen_score: number;

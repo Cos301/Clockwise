@@ -12,13 +12,26 @@ export class CreateAuthHandler implements ICommandHandler<CreateAuthCommand> {
 
     const request = command.request;
     const data: IAuth = {
-      id: request.userRecord.uid,
+      // id: request.userRecord.uid,
+      // email: request.userRecord.email,
+      // displayName: request.userRecord.displayName,
+      // photoURL: request.userRecord.photoURL,
+      // phoneNumber: request.userRecord.phoneNumber,
+      // customClaims: request.userRecord.customClaims,
+      // created: Timestamp.fromDate(new Date()),
+      user_id: request.userRecord.user_id,
       email: request.userRecord.email,
-      displayName: request.userRecord.displayName,
-      photoURL: request.userRecord.photoURL,
-      phoneNumber: request.userRecord.phoneNumber,
-      customClaims: request.userRecord.customClaims,
-      created: Timestamp.fromDate(new Date()),
+      first_name: request.userRecord.first_name,
+      followers: [],
+      following: [],
+      last_name: request.userRecord.last_name,
+      gen_score: 0,
+      password: request.userRecord.password,
+      pfp_url: request.userRecord.pfp_url,
+      posts: [],
+      username: request.userRecord.username,
+      time_created: Timestamp.fromDate(new Date()),
+      
     };
     const auth = this.publisher.mergeObjectContext(Auth.fromData(data));
 
