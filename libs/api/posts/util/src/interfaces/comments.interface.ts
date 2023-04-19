@@ -1,6 +1,6 @@
 import { Timestamp } from 'firebase-admin/firestore';
 
-export interface Comment {
+export interface IComment {
     comment_id: string;
     text: string;
     time_created: Timestamp;
