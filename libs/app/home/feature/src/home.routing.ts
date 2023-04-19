@@ -18,9 +18,9 @@ const routes: Routes = [
           import('@mp/app/profile/feature').then((m) => m.ProfileModule),
       },
       {
-        path: 'my-profile', 
+        path: 'userprofile', 
         loadChildren: () => 
-          import('@mp/app/my-profile/feature').then((m) => m.AppMyProfileFeatureModule)
+          import('@mp/app/user-profile/feature').then((m) => m.UserProfileModule)
       },
       {
         path: '',
