@@ -19,6 +19,9 @@
       "@mp/api/auth/data-access": ["libs/api/auth/data-access/src/index.ts"],
       "@mp/api/auth/feature": ["libs/api/auth/feature/src/index.ts"],
       "@mp/api/auth/util": ["libs/api/auth/util/src/index.ts"],
+      "@mp/api/chat/data-access": ["libs/api/chat/data-access/src/index.ts"],
+      "@mp/api/chat/feature": ["libs/api/chat/feature/src/index.ts"],
+      "@mp/api/chat/util": ["libs/api/chat/util/src/index.ts"],
       "@mp/api/core/feature": ["libs/api/core/feature/src/index.ts"],
       "@mp/api/eventstore/data-access": [
         "libs/api/eventstore/data-access/src/index.ts"
@@ -32,6 +35,9 @@
       ],
       "@mp/api/history/feature": ["libs/api/history/feature/src/index.ts"],
       "@mp/api/history/util": ["libs/api/history/util/src/index.ts"],
+      "@mp/api/posts/data-access": ["libs/api/posts/data-access/src/index.ts"],
+      "@mp/api/posts/feature": ["libs/api/posts/feature/src/index.ts"],
+      "@mp/api/posts/util": ["libs/api/posts/util/src/index.ts"],
       "@mp/api/profiles/data-access": [
         "libs/api/profiles/data-access/src/index.ts"
       ],
@@ -43,6 +49,10 @@
       "@mp/app/auth/data-access": ["libs/app/auth/data-access/src/index.ts"],
       "@mp/app/auth/feature": ["libs/app/auth/feature/src/index.ts"],
       "@mp/app/auth/util": ["libs/app/auth/util/src/index.ts"],
+      "@mp/app/chat/data-access": ["libs/app/chat/data-access/src/index.ts"],
+      "@mp/app/chat/feature": ["libs/app/chat/feature/src/index.ts"],
+      "@mp/app/chat/ui": ["libs/app/chat/ui/src/index.ts"],
+      "@mp/app/chat/util": ["libs/app/chat/util/src/index.ts"],
       "@mp/app/copyright/ui": ["libs/app/copyright/ui/src/index.ts"],
       "@mp/app/core/feature": ["libs/app/core/feature/src/index.ts"],
       "@mp/app/dashboard/data-access": [
@@ -64,6 +74,10 @@
       "@mp/app/login/data-access": ["libs/app/login/data-access/src/index.ts"],
       "@mp/app/login/feature": ["libs/app/login/feature/src/index.ts"],
       "@mp/app/login/util": ["libs/app/login/util/src/index.ts"],
+      "@mp/app/posts/data-access": ["libs/app/posts/data-access/src/index.ts"],
+      "@mp/app/posts/feature": ["libs/app/posts/feature/src/index.ts"],
+      "@mp/app/posts/ui": ["libs/app/posts/ui/src/index.ts"],
+      "@mp/app/posts/util": ["libs/app/posts/util/src/index.ts"],
       "@mp/app/privacy/feature": ["libs/app/privacy/feature/src/index.ts"],
       "@mp/app/profile/data-access": [
         "libs/app/profile/data-access/src/index.ts"
