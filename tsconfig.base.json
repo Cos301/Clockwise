@@ -97,6 +97,7 @@
         "libs/app/user-profile/feature/src/index.ts"
       ],
       "@mp/app/user-profile/ui": ["libs/app/user-profile/ui/src/index.ts"],
+      "@mp/app/user-profile/util": ["libs/app/user-profile/util/src/index.ts"],
       "@mp/app/user/data-access": ["libs/app/user/data-access/src/index.ts"],
       "@mp/app/user/feature": ["libs/app/user/feature/src/index.ts"],
       "@mp/app/user/util": ["libs/app/user/util/src/index.ts"],

@@ -239,10 +239,11 @@ export class ProfileState {
       const residentialArea = state.addressDetailsForm.model.residentialArea;
       const workArea = state.addressDetailsForm.model.workArea;
 
-      if (!userId || !residentialArea || !workArea)
+      if (!userId || !residentialArea || !workArea) {
         return ctx.dispatch(
           new SetError('UserId or residential area or work area not set')
         );
+      }
 
       const request: IUpdateAddressDetailsRequest = {
         profile: {

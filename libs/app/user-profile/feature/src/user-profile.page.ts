@@ -12,5 +12,13 @@ import { UserProfileState } from '@mp/app/user-profile/data-access'
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class UserProfilePage {
-    @Select(UserProfileState.profile) profile$!: Observable<IProfile | null>;
+    @Select(UserProfileState.name) profile$!: Observable<IProfile | null>;
+    username: string;
+    constructor() {
+        this.username = "new Name!"
+    }
+    setName(newName: string) : void {
+        this.username = newName;
+    }
 }
+

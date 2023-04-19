@@ -18,4 +18,8 @@ export class HomePage {
   ionViewWillEnter() {
     this.store.dispatch(new SubscribeToProfile());
   }
+
+  goToProfile() {
+    console.log('navigating to provile...')
+  }
 }
