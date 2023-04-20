@@ -1,0 +1,19 @@
+name: Lint Code Base
+
+on: 
+   push:
+      branches-ignore: [stable]
+  
+jobs:
+  build:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: fetch
+      uses: actions/checkout@v2
+
+    - name: Lint
+      uses: github/super-linter@v3.17.0
+      env: 
+        VALIDATE_ALL_CODEBASE: false
