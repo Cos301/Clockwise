@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
-import { ProfileTestComponent } from '@mp/app/my-profile/feature'
+import { ProfileMainPageComponent } from '@mp/app/my-profile/feature'
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: ProfileMainPageComponent,
     children: [
       {
         path: 'dashboard',
@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'user-profile', 
     pathMatch: 'full',
-    component: ProfileTestComponent
+    component: ProfileMainPageComponent
   }
 ];
 

@@ -1,0 +1,12 @@
+#container {
+    height: 70px;
+    background-color: greenyellow;
+    display: flex;
+    position: relative;
+}
+
+#container > * {
+    height: 50%;
+    background-color: goldenrod;
+    
+}
