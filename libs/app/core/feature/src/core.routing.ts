@@ -18,6 +18,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('@mp/app/welcome/feature').then((m) => m.WelcomeModule),
   },
+  {
+    path: 'home/chats', 
+    pathMatch: 'full', 
+    loadChildren: () => 
+      import('@mp/app/login/feature').then((m) => m.LoginModule)
+  },
   // {
   //   path: 'response',
   //   loadChildren: () =>

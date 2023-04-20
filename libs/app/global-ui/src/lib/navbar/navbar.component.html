@@ -1,11 +1,11 @@
 <div id="container"> 
     <div>
-        <a>Profile</a>
+        <a [routerLink]="['home']" routerLinkActive="[router-link-active]">Home</a>
     </div>
     <div>
-        <a>Chats</a>
+        <a [routerLink]="['/home/dashboard']">Home</a>
     </div>
     <div>
-        <a>Explore</a>
+        <a [routerLink]="['chats']">Chats</a>
     </div>
 </div>

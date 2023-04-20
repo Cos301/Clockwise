@@ -65,6 +65,9 @@
       "@mp/app/login/data-access": ["libs/app/login/data-access/src/index.ts"],
       "@mp/app/login/feature": ["libs/app/login/feature/src/index.ts"],
       "@mp/app/login/util": ["libs/app/login/util/src/index.ts"],
+      "@mp/app/my-profile/data-access": [
+        "libs/app/my-profile/data-access/src/index.ts"
+      ],
       "@mp/app/my-profile/feature": [
         "libs/app/my-profile/feature/src/index.ts"
       ],
@@ -112,6 +115,9 @@
       ],
       "@mp/app/welcome/feature": ["libs/app/welcome/feature/src/index.ts"],
       "@mp/app/welcome/util": ["libs/app/welcome/util/src/index.ts"],
+      "@mp/apps/app/my-profile/data-access": [
+        "libs/apps/app/my-profile/data-access/src/index.ts"
+      ],
       "@mp/chats": ["libs/chats/src/index.ts"],
       "@mp/cli/core/feature": ["libs/cli/core/feature/src/index.ts"],
       "@mp/user-profile": ["libs/user-profile/src/index.ts"]
