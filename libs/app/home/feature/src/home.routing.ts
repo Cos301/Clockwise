@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import { ProfileTestComponent } from '@mp/app/my-profile/feature'
 
 const routes: Routes = [
   {
@@ -18,11 +19,6 @@ const routes: Routes = [
           import('@mp/app/profile/feature').then((m) => m.ProfileModule),
       },
       {
-        path: 'user-profile', 
-        loadChildren: () => 
-          import('@mp/app/user-profile/feature').then((m) => m.UserProfileModule)
-      },
-      {
         path: '',
         pathMatch: 'full',
         redirectTo: '/home/dashboard',
@@ -34,6 +30,11 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '/home/dashboard',
   },
+  {
+    path: 'user-profile', 
+    pathMatch: 'full',
+    component: ProfileTestComponent
+  }
 ];
 
 @NgModule({
