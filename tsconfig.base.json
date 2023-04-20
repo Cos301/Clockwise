@@ -44,6 +44,7 @@
       "@mp/app/auth/feature": ["libs/app/auth/feature/src/index.ts"],
       "@mp/app/auth/util": ["libs/app/auth/util/src/index.ts"],
       "@mp/app/chats/feature": ["libs/app/chats/feature/src/index.ts"],
+      "@mp/app/chats/ui": ["libs/app/chats/ui/src/index.ts"],
       "@mp/app/copyright/ui": ["libs/app/copyright/ui/src/index.ts"],
       "@mp/app/core/feature": ["libs/app/core/feature/src/index.ts"],
       "@mp/app/dashboard/data-access": [
