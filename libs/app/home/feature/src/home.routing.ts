@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { ProfileMainPageComponent } from '@mp/app/my-profile/feature'
+import { ChatsDemoComponent } from '@mp/chats';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
     path: 'user-profile', 
     pathMatch: 'full',
     component: ProfileMainPageComponent
+  }, 
+  {
+    path: 'chats', 
+    component: ChatsDemoComponent
   }
 ];
 

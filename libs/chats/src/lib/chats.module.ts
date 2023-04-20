@@ -4,18 +4,18 @@ import { ChatSearchComponent } from './chat-search/chat-search.component';
 import { MessageBubbleComponent } from './message-bubble/message-bubble.component';
 import { MessagesContainerComponent } from './messages-container/messages-container.component';
 import { ChatsDemoComponent } from './chats-demo/chats-demo.component';
-import { TimeBarComponent } from '@mp/global-ui';
+import { TimeBarComponent } from '@mp/app/global-ui';
 
 @NgModule({
   imports: [
     CommonModule, 
-    TimeBarComponent
+    TimeBarComponent, 
+    ChatsDemoComponent, 
+    ChatSearchComponent, 
+    MessageBubbleComponent, 
+    MessagesContainerComponent
   ],
   declarations: [
-    ChatSearchComponent,
-    MessageBubbleComponent,
-    MessagesContainerComponent,
-    ChatsDemoComponent,
   ],
   exports: [MessagesContainerComponent],
 })

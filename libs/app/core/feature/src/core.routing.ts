@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'home/chats', 
     pathMatch: 'full', 
     loadChildren: () => 
-      import('@mp/app/login/feature').then((m) => m.LoginModule)
+      import('@mp/app/chats/feature').then((m) => m.AppChatsFeatureModule)
   },
   // {
   //   path: 'response',

@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "feature": {
+      "type": "library",
+      "root": "libs/feature",
+      "entryFile": "index",
+      "sourceRoot": "libs/feature/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/feature/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
