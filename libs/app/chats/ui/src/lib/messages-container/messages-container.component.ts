@@ -3,7 +3,11 @@ import { MessageBubbleComponent } from '../message-bubble/message-bubble.compone
 import { CommonModule } from '@angular/common';
 
 type MessageType = {
-  message: string
+  chatName: string, 
+  msgPreview: string, 
+  time: string,
+  isUnread: boolean, 
+  profilePhotoUrl: string
 }
 
 @Component({
@@ -21,12 +25,25 @@ export class MessagesContainerComponent {
 
   constructor() {
     this.messages = [
-      { message: 'Hello I am message 1'}, 
-      { message: 'Hello, I am message 2'}
+      {
+        chatName: "New Chat" ,
+        msgPreview: "This is a message preview",
+        time: "13:45",
+        isUnread: true,
+        profilePhotoUrl: 'assets/placeholderAssets/dog.jpg'
+      }
     ]
   }
 
-  addMessage(newMessage: MessageType) {
-    this.messages.push(newMessage);
+  addMessage() {
+    this.messages.push(
+      {
+        chatName: "Tracy" ,
+        msgPreview: "Hi, this is tracy!",
+        time: "13:45",
+        isUnread: true,
+        profilePhotoUrl: 'assets/placeholderAssets/dog.jpg'
+      }
+    );
   }
 }

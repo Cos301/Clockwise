@@ -1,7 +1,9 @@
 <div id="container">
-    <div>
+
+    <div id="imageContainer">
         <img src={{this.profilePhotoUrl}}/>
     </div>
+ 
     <div>
         <div>
             <div id="chatName">{{this.chatName}}</div><br/>
@@ -13,5 +15,5 @@
         </div>
     </div>
     <div id="time">{{this.time}}</div>
-    <div id="unread">{{this.unreadCount}}</div>
+    <div *ngIf="this.unread" id="unread"></div>
 </div>

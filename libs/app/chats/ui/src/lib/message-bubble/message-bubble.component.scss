@@ -1,23 +1,19 @@
-img {
-    width: 50px;
-    height: 50px;
+#imageContainer img {
     border-radius: 100%;
-    margin-left: 5px;
-    margin-top: 4px;
-    margin-bottom: 2px;
-    background-color: #fff;
 }
 
 #container {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 60px 1fr;
     background-color: #9ae06a;
     border-radius: 15px;
     position: relative;
+    margin-bottom: 7px;
+    padding: 5px;
 }
 
 #unread {
-    background-color: cornflowerblue;
+    background-color: #416529;
     border-radius: 100%;
     width: 20px;
     height: 20px;
@@ -29,25 +25,25 @@ img {
 
 #msgPreview, #chatName, #time  {
     /*TODO: change to var(--stdFont) in producion */
-    font-family: "Merriweather";
+    font-family: var(--stdFont);
 }
 
 #chatName {
     display: inline-block;
     padding-top: 8px;
     padding-bottom: 5px;
-    padding-left: 15px;
+    padding-left: 10px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 #msgPreview {
     width: calc(100% - 50px);
     text-overflow: ellipsis;
-    padding-left: 5px;
+    padding-left: 9px;
     height: 18px;
     overflow: hidden;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 #time {

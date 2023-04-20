@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileState } from '@mp/app/profile/data-access';
-import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
 import {RouterModule} from '@angular/router';
 
 @Component({

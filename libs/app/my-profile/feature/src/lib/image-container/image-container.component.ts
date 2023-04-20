@@ -18,67 +18,67 @@ export class ImageContainerComponent {
   constructor() {
     this.posts = [
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: false
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: false
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: false
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: false
        }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: false
        },
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
        }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       },
       {
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       { 
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       {
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }, 
       {
-        src: "post-template.jpg", 
+        src: "assets/placeholderAssets/post-template.jpg", 
         expired: true
       }
     ]

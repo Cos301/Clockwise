@@ -1,6 +1,6 @@
 .container {
     padding-top: 10px;
-    background-color: #e9f3e2;
+    background-color: var(--clExtraLight);
     position: absolute;
     top: 0;
     width: 100%;
@@ -16,15 +16,15 @@
 .username {
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 5px;
+    padding-bottom: 13px;
     font-family: var(--stdFont);
     font-family: 'Imprima';
 }
 
 .background {
-    background-color: #e9f3e2;
+    background-color: var(--clExtraLight);
     overflow: hidden;
-    height: 126px;
+    height: 139px;
     padding-top: 54px;
 }
 
@@ -36,11 +36,11 @@
 }
 
 img {
-    height: 100px;
+    height: 120px;
     position: absolute;
     top: 30px;
-    left: calc(50% - 50px);
-    background-color: #fff;
+    left: calc(50% - 60px);
+    background-color: white;
     border-radius: 100%;
     z-index: 2;
 }
