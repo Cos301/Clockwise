@@ -24,6 +24,12 @@ const routes: Routes = [
     loadChildren: () => 
       import('@mp/app/chats/feature').then((m) => m.AppChatsFeatureModule)
   },
+  {
+    path: 'post', 
+    pathMatch: 'full', 
+    loadChildren: () => 
+      import('@mp/app/post/feature').then((m) => m.PostModule)
+  },
   // {
   //   path: 'response',
   //   loadChildren: () =>
