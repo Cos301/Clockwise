@@ -6,6 +6,7 @@ import * as admin from 'firebase-admin';
 export class PostsRepository {
   //Fetch all posts from the database
   async fetchAllPosts() {
+    console.log('Fetch all posts');
     return await admin.firestore().collection('posts').get();
   }
 }

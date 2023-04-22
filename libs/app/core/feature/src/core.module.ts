@@ -1,36 +1,36 @@
 import { isDevMode, NgModule } from '@angular/core';
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 import {
-    FirebaseOptions,
-    initializeApp,
-    provideFirebaseApp
+  FirebaseOptions,
+  initializeApp,
+  provideFirebaseApp
 } from '@angular/fire/app';
 import { connectAuthEmulator, getAuth, provideAuth } from '@angular/fire/auth';
 import {
-    connectDatabaseEmulator,
-    getDatabase,
-    provideDatabase
+  connectDatabaseEmulator,
+  getDatabase,
+  provideDatabase
 } from '@angular/fire/database';
 import {
-    connectFirestoreEmulator,
-    enableMultiTabIndexedDbPersistence,
-    getFirestore,
-    provideFirestore
+  connectFirestoreEmulator,
+  enableMultiTabIndexedDbPersistence,
+  getFirestore,
+  provideFirestore
 } from '@angular/fire/firestore';
 import {
-    connectFunctionsEmulator,
-    getFunctions,
-    provideFunctions
+  connectFunctionsEmulator,
+  getFunctions,
+  provideFunctions
 } from '@angular/fire/functions';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import {
-    getRemoteConfig,
-    provideRemoteConfig
+  getRemoteConfig,
+  provideRemoteConfig
 } from '@angular/fire/remote-config';
 import {
-    connectStorageEmulator,
-    getStorage,
-    provideStorage
+  connectStorageEmulator,
+  getStorage,
+  provideStorage
 } from '@angular/fire/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -40,6 +40,7 @@ import { AuthState } from '@mp/app/auth/data-access';
 import { AuthModule } from '@mp/app/auth/feature';
 import { ErrorsState } from '@mp/app/errors/data-access';
 import { ErrorsModule } from '@mp/app/errors/feature';
+import { PostsModule } from '@mp/app/posts/feature';
 import { NgxsActionsExecutingModule } from '@ngxs-labs/actions-executing';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
@@ -87,6 +88,7 @@ const FIREBASE_OPTIONS: FirebaseOptions = {
   entryComponents: [],
   imports: [
     BrowserModule,
+    PostsModule,
     IonicModule.forRoot(),
     CoreRouting,
     provideRemoteConfig(() => getRemoteConfig()),
@@ -161,4 +163,4 @@ const FIREBASE_OPTIONS: FirebaseOptions = {
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [CoreShell],
 })
-export class CoreModule {}
+export class CoreModule { }
