@@ -22,6 +22,11 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: '/home/dashboard',
       },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('@mp/app/posts/feature').then((m) => m.PostsModule),
+      },
     ],
   },
   {

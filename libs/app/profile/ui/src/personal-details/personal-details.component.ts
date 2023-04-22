@@ -74,6 +74,7 @@ export class PersonalDetailsComponent {
   ) {}
 
   updatePersonalDetails() {
+    console.log('updatePersonalDetails function');
     this.store.dispatch(new UpdatePersonalDetails());
   }
 }
