@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { PostsState } from './posts.state';
 import { PostsApi } from './posts.api';
-import { AuthModule } from '@mp/app/auth/data-access';
 @NgModule({
-  imports: [CommonModule, NgxsModule.forFeature([PostsState]), AuthModule],
+  imports: [CommonModule, NgxsModule.forFeature([PostsState])],
   providers: [PostsApi],
 })
 export class PostsModule {

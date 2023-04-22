@@ -19,6 +19,8 @@ export class PersonalDetailsComponent {
   @Select(ProfileState.profile) profile$!: Observable<IProfile | null>;
   @Select(actionsExecuting([UpdatePersonalDetails]))
   busy$!: Observable<ActionsExecuting>;
+
+  
   personalDetailsForm = this.fb.group({
     age: ['', [Validators.minLength(4), Validators.maxLength(64)]],
     gender: ['', [Validators.minLength(4), Validators.maxLength(64)]],
