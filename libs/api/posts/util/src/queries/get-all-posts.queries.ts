@@ -1,6 +1,7 @@
-import {IPost} from '../interfaces'
+import { IPost } from '../interfaces'
+import { IGetAllPostsRequest } from '../requests';
 
-export class IGetAllPostsQuery {
-    constructor(public readonly post: IPost) {}
+export class GetAllPostsQuery {
+  constructor(public readonly request: IGetAllPostsRequest) { }
 }
 

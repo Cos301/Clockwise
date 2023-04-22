@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { Functions, httpsCallable } from '@angular/fire/functions';
 
-import { IGetAllPostsQuery, IGetAllPostsResponse } from '@mp/api/posts/util';
+import { GetAllPostsQuery, IGetAllPostsResponse } from '@mp/api/posts/util';
 
 @Injectable()
 export class PostsApi {
@@ -13,7 +13,7 @@ export class PostsApi {
 
   async getAllPosts() {
     console.log('getAllPosts callable');
-    return await httpsCallable<IGetAllPostsQuery, IGetAllPostsResponse>(
+    return await httpsCallable<GetAllPostsQuery, IGetAllPostsResponse>(
       this.functions,
       'getAllPosts'
     )();
