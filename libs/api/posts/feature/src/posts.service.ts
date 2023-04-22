@@ -1,8 +1,6 @@
 import { QueryBus } from '@nestjs/cqrs';
-import { GetAllPostsQuery } from '../../util/src/queries';
-import { IGetAllPostsRequest } from '../../util/src/requests';
-import { IGetAllPostsResponse } from '../../util/src/response';
 import { Injectable } from '@nestjs/common';
+import { GetAllPostsQuery, IGetAllPostsRequest, IGetAllPostsResponse } from '@mp/api/posts/util';
 
 @Injectable()
 export class PostsService {
