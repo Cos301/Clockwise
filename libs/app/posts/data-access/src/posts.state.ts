@@ -36,11 +36,12 @@ export class PostsState {
   constructor(
     private readonly postsApi: PostsApi,
     private readonly store: Store
-  ) {}
+  ) { }
   @Selector()
   static posts(state: PostsStateModel) {
     return state.posts;
   }
+
   @Action(GetAllPosts)
   async getAllPosts(ctx: StateContext<PostsStateModel>) {
 
@@ -53,7 +54,7 @@ export class PostsState {
         response
       );
 
-      return ctx.dispatch(new setAllPosts([response.posts]));
+      return ctx.dispatch(new setAllPosts(response.posts));
     } catch (error) {
       return error;
     }
