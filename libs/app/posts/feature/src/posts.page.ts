@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import { Select, Selector, Store } from '@ngxs/store';
-import {GetAllPosts  } from '@mp/app/posts/util';
-import {
-  ActionsExecuting,
-  actionsExecuting
-} from '@ngxs-labs/actions-executing';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'ms-profile-page',
