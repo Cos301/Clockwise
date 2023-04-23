@@ -1,14 +1,18 @@
 import { Module } from "@nestjs/common";
 import { CqrsModule } from "@nestjs/cqrs";
-import { PostsModule as PostsDataAccessModule } from "../../data-access/src/posts.module";
+import { PostsModule as PostsDataAccessModule } from "@mp/api/posts/data-access";
 import { PostsService } from "./posts.service";
 import { GetAllPostsHandler } from "./queries";
+import { CreatePostHandler } from "./commands";
+import { PostCreatedHandler } from "./events";
 
+export const CommandHandlers = [CreatePostHandler];
+export const EventHandlers = [PostCreatedHandler];
 export const QueryHandlers = [GetAllPostsHandler];
 
 @Module({
   imports: [CqrsModule, PostsDataAccessModule],
-  providers: [PostsService, ...QueryHandlers],
+  providers: [PostsService, ...QueryHandlers, ...CommandHandlers, ...EventHandlers],
   exports: [PostsService]
 })
 export class PostsModule { }
