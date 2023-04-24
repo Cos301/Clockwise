@@ -30,6 +30,17 @@ h2 {
     position: relative;
 }
 
+#caption {
+    background-color: #fff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 30px;
+    font-family: var(--stdFont);
+    padding: 7px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 #mainImage {
     width: 100%;
     object-fit: cover;

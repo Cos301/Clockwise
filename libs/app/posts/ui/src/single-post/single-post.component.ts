@@ -11,11 +11,13 @@ export class SinglePostComponent {
   @Input() totalMinutes: 10;
   @Input() datePosted: string;
   @Input() timePosted: string;
+  @Input() caption: string;
   constructor() {
     this.myUsername = "username";
     this.minutesLeft = 5;
     this.totalMinutes = 10;
     this.datePosted = "12 March";
+    this.caption = "I am a caption";
     this.timePosted = "13:23";
   }
   getTimebarStyle() {
