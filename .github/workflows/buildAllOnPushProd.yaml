@@ -1,7 +1,7 @@
 name: Build app on Push
 on: 
   push: 
-    branches-ignore:
+    branches:
       - "stable"
 jobs:
   build_and_preview:
@@ -9,6 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
+    environment: production
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -19,8 +20,8 @@ jobs:
       - run: |
          yarn install --frozen-lockfile
       - name: Build app
-        run: yarn build:app:prod
+        run: yarn build:app:dev
       - name: Build api
-        run: yarn build:api:prod
+        run: yarn build:api:dev
       - name: Build cli
-        run: yarn build:cli:prod
+        run: yarn build:cli:dev
