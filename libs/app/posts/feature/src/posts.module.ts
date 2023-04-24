@@ -7,6 +7,8 @@ import {GetAllPostsModule , CreatePostModule} from '@mp/app/posts/ui';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PostsPage } from './posts.page';
 import { PostsRouting } from './posts.routing';
+import { TimeBarComponent } from '@mp/global-ui';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +19,7 @@ import { PostsRouting } from './posts.routing';
     GetAllPostsModule,
     CreatePostModule,
     NgxSkeletonLoaderModule,
+    TimeBarComponent
   ],
   declarations: [PostsPage],
 })
