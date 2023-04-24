@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
-import { PostsState } from './posts.state';
+import { PostsState, CreatePostState } from './posts.state';
 import { PostsApi } from './posts.api';
 @NgModule({
-  imports: [CommonModule, NgxsModule.forFeature([PostsState])],
+  imports: [CommonModule, NgxsModule.forFeature([PostsState, CreatePostState])], 
   providers: [PostsApi],
 })
 export class PostsModule {

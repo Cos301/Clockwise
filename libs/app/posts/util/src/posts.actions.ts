@@ -13,3 +13,15 @@ export class setAllPosts {
   static readonly type = '[Posts] setAllPosts';
   constructor(public readonly posts: IPost[]) {}
 }
+
+export class CreatePost {
+  static readonly type = '[Posts] CreatePost';
+  constructor () {
+    console.log("🚀 ~ file: posts.actions.ts:20~ CreatePost ~ CreatePost:")
+  }
+}
+
+export class setCreatedPost {
+  static readonly type = '[Posts] setCreatedPost';
+  constructor(public readonly post: IPost | null) {}
+}

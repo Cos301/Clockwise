@@ -18,6 +18,7 @@ export class GetAllPostsComponent {
 
   constructor(
     private readonly store: Store
+    
   ) { }
 
   @Selector()

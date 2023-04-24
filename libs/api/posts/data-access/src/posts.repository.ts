@@ -10,19 +10,18 @@ export class PostsRepository {
     const insertData = {
       name: 'John',
       age: 30,
+      caption: "Your mom is a nice person"
     };
-    const postsRef = admin.firestore().collectionGroup('posts');
+
     //console.log("🚀 ~ file: posts.repository.ts:12 ~ PostsRepository ~ fetchAllPosts ~ postsRef:", postsRef)
-    const data = await postsRef.get();
-    // const testInsert =  await admin
+
+    // const testInsert = await admin
     //   .firestore()
-    //   .collection('posts')
-    //   .doc("postsData")
+    //   .collection('test')
+    //   .doc('asddasd')
     //   .create(insertData);
-    console.log(
-      '🚀 ~ file: posts.repository.ts:14 ~ PostsRepository ~ fetchAllPosts ~ data:',
-      data
-    );
+    const postsRef = admin.firestore().collectionGroup('posts');
+    const data = await postsRef.get();
 
     return data;
   }

@@ -7,7 +7,7 @@ export class GetAllPostsHandler implements IQueryHandler<GetAllPostsQuery> {
   constructor(private readonly repository: PostsRepository) { }
 
   async execute(query: GetAllPostsQuery): Promise<any> {
-    console.log(`${GetAllPostsHandler.name}`);
+    console.log(`${GetAllPostsHandler.name} hello`);
     const data = await this.repository.fetchAllPosts();
     console.log("🚀 ~ file: get-all-posts.handler.ts:12 ~ GetAllPostsHandler ~ handle ~ data:", data)
     return data;
