@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
-import { GetAllPosts, setAllPosts, CreatePost, setCreatedPost } from '@mp/app/posts/util';
+import { GetAllPosts, setAllPosts, CreatePost, setCreatedPost, IncrementCounter } from '@mp/app/posts/util';
 
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
@@ -27,7 +27,7 @@ export interface PostsStateModel {
     // img_url: '',
     // time_created: Timestamp.now(),
     // time_remove: Timestamp.now(),
-    // user_id: '',
+    // user_id: ''
   },
 })
 @Injectable()
@@ -78,6 +78,7 @@ export interface PostStateModel {
     status: string;
     errors: object;
   };
+  count: number
 }
 @State<PostStateModel>({
   name: 'post',
@@ -97,6 +98,7 @@ export interface PostStateModel {
       status: '',
       errors: {},
     },
+    count: 0
   },
 })
 @Injectable()
@@ -109,6 +111,22 @@ export class CreatePostState {
   static post(state: PostStateModel) {
     return state.post;
   }
+
+  @Action(IncrementCounter)
+  async incrementCounter(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      count: state.count + 1
+    })
+    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.count)
+  }
+
+  @Selector()
+  static count(state: PostStateModel) {
+    return state.count;
+  }
+
 
   @Action(CreatePost)
   async createPost(ctx: StateContext<PostStateModel>) {

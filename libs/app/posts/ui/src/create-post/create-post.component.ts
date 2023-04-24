@@ -13,8 +13,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CreatePostComponent {
   @Select(CreatePostState.post) post$!: Observable<IPost | null>;
+  @Select(CreatePostState.count) count$!: Observable<PostStateModel | null>;
   @Select(actionsExecuting([CreatePost]))
   busy$!: Observable<ActionsExecuting>;
+  count : number;
   postDataForm = {
     post_id: "dsaasd5a5648ads",
     caption: "This is a caption",
@@ -31,15 +33,13 @@ export class CreatePostComponent {
   // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: Function | null = null;
 
-  count : number;
-
   postLife: number;
   constructor(
     private readonly store: Store,
     private readonly fb: FormBuilder,
   ) { 
+    this.count = this.store.selectSnapshot(state => state.count);
     this.postLife = 10;
-    this.count = 0;
   }
   // post_id: string;
   //   caption: string;

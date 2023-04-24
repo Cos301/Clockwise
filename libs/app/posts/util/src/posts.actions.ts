@@ -27,11 +27,9 @@ export class setCreatedPost {
 }
 
 export class IncrementCounter {
-  static readonly type = '[Posts] setCreatedPost';
-  constructor() {}
+  static readonly type = '[Posts] Increment Counter';
 }
 
 export class DecrementCounter {
-  static readonly type = '[Posts] setCreatedPost';
-  constructor() {}
+  static readonly type = '[Posts] Decrement Counter';
 }
