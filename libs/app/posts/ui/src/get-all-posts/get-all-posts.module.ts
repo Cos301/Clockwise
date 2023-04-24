@@ -6,6 +6,7 @@ import { PostsModule } from '@mp/app/posts/data-access';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { GetAllPostsComponent } from './get-all-posts.component';
+import { SinglePost } from '../single-post';
 
 @NgModule({
   declarations: [GetAllPostsComponent],
@@ -16,6 +17,7 @@ import { GetAllPostsComponent } from './get-all-posts.component';
     ReactiveFormsModule,
     NgxsFormPluginModule,
     PostsModule,
+    SinglePost
   ],
   exports: [GetAllPostsComponent],
 })
