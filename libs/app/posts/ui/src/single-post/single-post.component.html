@@ -1,11 +1,15 @@
-<div id="container">   
-    <h2>{{this.myUsername}}</h2><br/>
-    <div id="timebarContainer">
-        <div id="timebar"></div>
-        <div id="minutesLeft"><p>{{this.minutesLeft}} Minutes Left</p></div>
-    </div>
+<div id="container">  
+    <div id="imageAndUsername">
+        <img src="assets/placeholderAssets/view-post.jpg" />
+        <div>{{this.myUsername}}</div>
+    </div> 
 
-    <img src="assets/placeholderAssets/view-post.jpg" />
+    <div id="timebar">
+        <div id="innerTimebar" [style]="getTimebarStyle()"></div>
+    </div>
+    
+
+    <img id="mainImage" src="assets/placeholderAssets/view-post.jpg" />
 
     <div id="toolbar">
         <img src="assets/placeholderAssets/thumbs-up.png"/>

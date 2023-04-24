@@ -8,12 +8,22 @@ import { Component, Input } from '@angular/core';
 export class SinglePostComponent {
   @Input() myUsername : string;
   @Input() minutesLeft: number;
+  @Input() totalMinutes: 10;
   @Input() datePosted: string;
   @Input() timePosted: string;
   constructor() {
     this.myUsername = "username";
-    this.minutesLeft = 10;
+    this.minutesLeft = 5;
+    this.totalMinutes = 10;
     this.datePosted = "12 March";
     this.timePosted = "13:23";
+  }
+  getTimebarStyle() {
+    return {
+      "width":"50%",
+      "height": "15px",
+      "padding": "0",
+      "background-color":"green"
+    }
   }
 }
