@@ -25,3 +25,13 @@ export class setCreatedPost {
   static readonly type = '[Posts] setCreatedPost';
   constructor(public readonly post: IPost | null) {}
 }
+
+export class IncrementCounter {
+  static readonly type = '[Posts] setCreatedPost';
+  constructor() {}
+}
+
+export class DecrementCounter {
+  static readonly type = '[Posts] setCreatedPost';
+  constructor() {}
+}

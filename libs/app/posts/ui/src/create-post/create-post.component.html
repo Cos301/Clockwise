@@ -1,4 +1,31 @@
-<p>create-post works!</p>
+<div id="postLifeBar">
+    Post Life: {{this.postLife}} Minutes
+</div>
+
+<div>
+    <h1>Choose a file to upload</h1>
+
+    <div class="fileDiv">
+        <h2>selected: {{file ? file.name : ' none' }}</h2>
+        <label class="custom-file-upload">
+            <input type="file"/>
+            Selecte a file
+        </label>
+    </div>
+
+    <h1>Add a caption</h1>
+    <div class="caption">
+        <input type="text" placeholder="caption..."/>
+    </div>
+</div>
+
+<div>
+    <h1>Counter: {{ count }}</h1>
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+</div>
+
+
 <div>
     <button (click)="createPost()">Create a post</button>
 </div>

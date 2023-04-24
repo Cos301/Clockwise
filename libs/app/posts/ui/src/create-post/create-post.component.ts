@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
-import { Select, Store } from '@ngxs/store';
-import { CreatePostState } from '@mp/app/posts/data-access';
-import { CreatePost } from '@mp/app/posts/util';
+import { Select, StateContext, Store } from '@ngxs/store';
+import { CreatePostState, PostStateModel } from '@mp/app/posts/data-access';
+import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -25,11 +25,22 @@ export class CreatePostComponent {
     user_id: "asdasd5a5648ads",
   }
 
+  public file: File | null = null;
 
+
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  onChange: Function | null = null;
+
+  count : number;
+
+  postLife: number;
   constructor(
     private readonly store: Store,
     private readonly fb: FormBuilder,
-  ) { }
+  ) { 
+    this.postLife = 10;
+    this.count = 0;
+  }
   // post_id: string;
   //   caption: string;
   //   comments: IComment[];
@@ -38,8 +49,25 @@ export class CreatePostComponent {
   //   time_remove: Timestamp;
   //   user_id: string;
 
-  
+  @HostListener('change', ['$event.target.files']) emitFiles( event: FileList ) {
+      const file = event && event.item(0);
+      if (this.onChange)
+        this.onChange(file);
+      this.file = file;
+    }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  registerOnChange( fn: Function) {
+    this.onChange = fn;
+  }
+  
+  public increment() {
+    this.store.dispatch(new IncrementCounter());
+  }
+
+  public decrement() {
+    this.store.dispatch(new DecrementCounter());
+  }
   
   public createPost() {
     console.log("🚀 ~ file: create-post.component.ts:42 ~ CreatePostComponent ~ createPost ~ CreatePost:")
