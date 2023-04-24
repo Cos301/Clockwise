@@ -1,5 +1,5 @@
 import * as functions from 'firebase-functions';
-import { IGetAllPostsRequest, IGetAllPostsResponse } from '@mp/api/posts/util';
+import { ICreateCommentRequest, ICreateCommentResponse, IGetAllPostsRequest, IGetAllPostsResponse } from '@mp/api/posts/util';
 import { PostsService } from '@mp/api/posts/feature';
 import { NestFactory } from '@nestjs/core';
 import { CoreModule } from '../core.module';
@@ -8,4 +8,10 @@ export const getAllPosts = functions.https.onCall(async (request: IGetAllPostsRe
   const app = await NestFactory.createApplicationContext(CoreModule);
   const service = app.get(PostsService);
   return service.getAllPosts(request);
+});
+
+export const createComment = functions.https.onCall(async (request: ICreateCommentRequest): Promise<ICreateCommentResponse> => {
+  const app = await NestFactory.createApplicationContext(CoreModule);
+  const service = app.get(PostsService);
+  return service.createComment(request);
 });
