@@ -1,4 +1,4 @@
-name: Lint Stable
+name: Lint Code Base
 
 on:
   push:
@@ -8,7 +8,7 @@ jobs:
   build:
     name: Lint Code
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: fetch
       uses: actions/checkout@v2
