@@ -12,6 +12,8 @@ export class PostsRepository {
       age: 30,
       caption: 'Your mom is a nice person',
     };
+    const postsRef = admin.firestore().collectionGroup('posts');
+    const data = await postsRef.get();
     let posts: IPost[] = [];
     data.forEach(x => posts.push(x.data() as IPost));
     console.log('posts.repository.ts:29 ~ posts:', posts);

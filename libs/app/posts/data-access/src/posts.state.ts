@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IPost } from '@mp/api/posts/util';
-import { CreateComment, GetAllPosts, setAllPosts } from '@mp/app/posts/util';
-
+import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
+import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
