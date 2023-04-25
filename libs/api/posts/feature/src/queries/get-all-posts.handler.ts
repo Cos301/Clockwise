@@ -5,7 +5,7 @@ import { Post } from '../models';
 
 @QueryHandler(GetAllPostsQuery)
 export class GetAllPostsHandler implements IQueryHandler<GetAllPostsQuery> {
-  constructor(private readonly repository: PostsRepository) { }
+  constructor(private readonly repository: PostsRepository) {}
 
   async execute(query: GetAllPostsQuery): Promise<IGetAllPostsResponse> {
     console.log(`${GetAllPostsHandler.name}`);

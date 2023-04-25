@@ -16,9 +16,12 @@ export class PostsService {
   async getAllPosts(
     request: IGetAllPostsRequest
   ): Promise<IGetAllPostsResponse> {
-    return await this.queryBus.execute<GetAllPostsQuery, IGetAllPostsResponse>(
-      new GetAllPostsQuery(request)
-    );
+    const response = await this.queryBus.execute<
+
+      GetAllPostsQuery,
+      IGetAllPostsResponse
+    >(new GetAllPostsQuery(request));
+    return response;
   }
 
   async createComment(request: ICreateCommentRequest): Promise<ICreateCommentResponse> {

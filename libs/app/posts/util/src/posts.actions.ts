@@ -18,3 +18,23 @@ export class CreateComment {
   static readonly type = '[Posts] CreateComment';
   constructor(public readonly comment: ICreateCommentRequest) { }
 }
+
+export class CreatePost {
+  static readonly type = '[Posts] CreatePost';
+  constructor () {
+    console.log("🚀 ~ file: posts.actions.ts:20~ CreatePost ~ CreatePost:")
+  }
+}
+
+export class setCreatedPost {
+  static readonly type = '[Posts] setCreatedPost';
+  constructor(public readonly post: IPost | null) {}
+}
+
+export class IncrementCounter {
+  static readonly type = '[Posts] Increment Counter';
+}
+
+export class DecrementCounter {
+  static readonly type = '[Posts] Decrement Counter';
+}

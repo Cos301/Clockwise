@@ -5,9 +5,12 @@ import { Post } from '../models';
 
 @CommandHandler(CreatePostCommand)
 export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
-  constructor(private publisher: EventPublisher) {}
+  constructor(private publisher: EventPublisher) {
+    console.log("Create Post Handler");
+  }
 
   async execute(command: CreatePostCommand) {
+    
     console.log(`${CreatePostHandler.name}`);
 
     const request = command.request;
@@ -18,8 +21,7 @@ export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
     const time_created = request.post.time_created;
     const time_remove = request.post.time_remove;
     const user_id = request.post.user_id;
-
-
+    
     const data: IPost = {
         post_id,
         caption,
@@ -28,7 +30,6 @@ export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
         time_created: Timestamp.fromDate(new Date()),
         time_remove,
         user_id
-
     };
     const post = this.publisher.mergeObjectContext(Post.fromData(data));
 

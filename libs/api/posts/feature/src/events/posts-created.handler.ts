@@ -7,7 +7,7 @@ export class PostCreatedHandler implements IEventHandler<PostCreatedEvent> {
   constructor(private readonly repository: PostsRepository) {}
 
   async handle(event: PostCreatedEvent) {
-    console.log(`${PostCreatedHandler.name}`);
+    console.log(`${PostCreatedHandler.name} create post event/handler`);
     await this.repository.createPost(event.post);
   }
 }

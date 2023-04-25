@@ -5,11 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { PostsModule } from '@mp/app/posts/data-access';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import { GetAllPostsComponent } from './get-all-posts.component';
-import { SinglePost } from '../single-post';
+import { SinglePostComponent } from './single-post.component';
 
 @NgModule({
-  declarations: [GetAllPostsComponent],
+  declarations: [SinglePostComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -17,8 +16,7 @@ import { SinglePost } from '../single-post';
     ReactiveFormsModule,
     NgxsFormPluginModule,
     PostsModule,
-    SinglePost
   ],
-  exports: [GetAllPostsComponent],
+  exports: [SinglePostComponent],
 })
-export class GetAllPostsModule { }
+export class SinglePost {}

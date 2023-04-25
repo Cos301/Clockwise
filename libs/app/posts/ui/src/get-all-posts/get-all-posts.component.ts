@@ -5,6 +5,16 @@ import { PostsState } from '@mp/app/posts/data-access';
 import { CreateComment, GetAllPosts } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
+import { SinglePost } from '../single-post';
+
+type PostType = {
+  username: string, 
+  caption: string, 
+  minutesLeft: number,
+  imageUrl: string,
+  datePosted: string,
+  timePosted: string
+}
 
 @Component({
   selector: 'get-all-posts',
@@ -16,9 +26,36 @@ export class GetAllPostsComponent {
   @Select(actionsExecuting([GetAllPosts]))
   busy$!: Observable<ActionsExecuting>;
 
-  constructor(
-    private readonly store: Store
-  ) { }
+  posts: PostType[]
+
+  constructor(private readonly store: Store) {
+    this.posts = [
+      {
+        username: 'user', 
+        caption: 'I am a caption', 
+        minutesLeft: 12,
+        imageUrl: 'imageUrl',
+        datePosted: '12 March',
+        timePosted: '12:34'
+      }, 
+      {
+        username: 'user', 
+        caption: 'I am a caption', 
+        minutesLeft: 12,
+        imageUrl: 'imageUrl',
+        datePosted: '12 March',
+        timePosted: '12:34'
+      },
+      {
+        username: 'user', 
+        caption: 'I am a caption', 
+        minutesLeft: 12,
+        imageUrl: 'imageUrl',
+        datePosted: '12 March',
+        timePosted: '12:34'
+      }
+    ]
+  }
 
   @Selector()
   private getAllPosts() {

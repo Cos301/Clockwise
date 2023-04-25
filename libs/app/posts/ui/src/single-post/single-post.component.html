@@ -1,0 +1,23 @@
+<div id="container">  
+    <div id="imageAndUsername">
+        <img src="assets/placeholderAssets/view-post.jpg" />
+        <div>{{this.myUsername}}</div>
+    </div> 
+
+    <div id="timebar">
+        <div id="innerTimebar" [style]="getTimebarStyle()"></div>
+    </div>
+    
+
+    <img id="mainImage" src="assets/placeholderAssets/view-post.jpg" />
+
+    <div id="toolbar">
+        <img src="assets/placeholderAssets/thumbs-up.png"/>
+        <img src="assets/placeholderAssets/comment.png"/>
+        <div><p>{{this.datePosted}} | {{this.timePosted}}</p></div>
+    </div>
+
+    <div id="caption">
+        {{this.caption}}
+    </div>
+</div> 
