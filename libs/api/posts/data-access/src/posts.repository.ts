@@ -5,7 +5,7 @@ import { IPost } from '@mp/api/posts/util';
 @Injectable()
 export class PostsRepository {
   //Fetch all posts from the database
-  async fetchAllPosts() {
+  async fetchAllPosts(): Promise<IPost[]> {
     console.log('Fetch all posts');
     const insertData = {
       name: 'John',
@@ -24,7 +24,11 @@ export class PostsRepository {
       data
     );
 
-    return data;
+    let posts: IPost[] = [];
+    data.forEach(x => posts.push(x.data() as IPost));
+    console.log('posts.repository.ts:29 ~ posts:', posts);
+
+    return posts;
   }
 
   async createPost(post: IPost) {

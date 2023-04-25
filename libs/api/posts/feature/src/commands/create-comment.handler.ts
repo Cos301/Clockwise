@@ -9,6 +9,7 @@ export class CreateCommentHandler implements ICommandHandler<CreateCommentComman
 
   async execute(command: CreateCommentCommand) {
     console.log(`${CreateCommentHandler.name}`);
+    console.log('create-comment.handler.ts ~ command: ', command);
     const { userId, text } = command.request;
     const data: IComment = {
       user_id: userId, text, time_created: Timestamp.now(), comment_id: 'some_random_text'

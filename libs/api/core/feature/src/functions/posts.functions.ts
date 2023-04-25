@@ -11,6 +11,7 @@ export const getAllPosts = functions.https.onCall(async (request: IGetAllPostsRe
 });
 
 export const createComment = functions.https.onCall(async (request: ICreateCommentRequest): Promise<ICreateCommentResponse> => {
+  console.log('posts.functions.ts:14 ~ request: ', request);
   const app = await NestFactory.createApplicationContext(CoreModule);
   const service = app.get(PostsService);
   return service.createComment(request);

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { doc, docData, Firestore } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 import { Functions, httpsCallable } from '@angular/fire/functions';
 
-import { GetAllPostsQuery, IGetAllPostsResponse } from '@mp/api/posts/util';
+import { ICreateCommentRequest, ICreateCommentResponse, IGetAllPostsRequest, IGetAllPostsResponse } from '@mp/api/posts/util';
 
 @Injectable()
 export class PostsApi {
@@ -11,11 +11,19 @@ export class PostsApi {
     private readonly functions: Functions
   ) { }
 
-  async getAllPosts() {
+  async getAllPosts(request: IGetAllPostsRequest) {
     console.log('getAllPosts callable');
-    return await httpsCallable<GetAllPostsQuery, IGetAllPostsResponse>(
+    return await httpsCallable<IGetAllPostsRequest, IGetAllPostsResponse>(
       this.functions,
       'getAllPosts'
-    )();
+    )(request);
+  }
+
+  async createComment(request: ICreateCommentRequest) {
+    console.log('createComment callable');
+    return await httpsCallable<ICreateCommentRequest, ICreateCommentResponse>(
+      this.functions,
+      'createComment',
+    )(request);
   }
 }
