@@ -1,0 +1,49 @@
+import { Component } from '@angular/core';
+import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
+import { Select, Selector, Store } from '@ngxs/store';
+import { ChatState } from '@mp/app/chat/data-access';
+import { GetAllChats } from '@mp/app/chat/util';
+import { IChat } from '@mp/api/chat/util';
+import { Observable } from 'rxjs';
+// import { SingleChat } from '../single-chat';
+
+type ChatType = {
+    username: string,
+    //  unread : boolean,
+}
+
+@Component({
+    selector: 'get-all-chats',
+    templateUrl: './get-all-chats.component.html',
+    styleUrls: ['./get-all-chats.component.scss'],
+})
+export class GetAllChatsComponent {
+    @Select(ChatState.posts) chats$!: Observable<IChat[] | null>;
+    @Select(actionsExecuting([GetAllChats]))
+    busy$!: Observable<ActionsExecuting>;
+
+    posts: ChatType[]
+
+    constructor(private readonly store: Store) {
+        this.posts = [
+            {
+                username: 'user1',
+            },
+            {
+                username: 'user2',
+            },
+            {
+                username: 'user3',
+            }
+        ]
+    }
+
+    @Selector()
+    private GetAllChats() {
+        return this.store.select(state => state.chats.chats)
+    }
+
+    public CallAllChats() {
+        this.store.dispatch(new GetAllChats());
+    }
+}

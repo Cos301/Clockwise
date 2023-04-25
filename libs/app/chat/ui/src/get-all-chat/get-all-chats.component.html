@@ -1,0 +1,9 @@
+<div id="ChatContainer">
+    <div *ngFor="let chat of chats">
+        <single-chat />
+    </div>
+</div>
+
+<div>
+    <button (click)="callAllChats()">Get All Chats</button>
+</div>
