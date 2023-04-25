@@ -5,6 +5,7 @@ import { GetAllPosts, setAllPosts, CreatePost, setCreatedPost, IncrementCounter 
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
+import produce from 'immer';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostsStateModel {
   posts: IPost[];
@@ -48,16 +49,27 @@ export class PostsState {
     return state.count;
   }
 
+  @Action(setAllPosts)
+  setAllPosts(ctx : StateContext<PostsStateModel>, { posts }: setAllPosts) {
+    return ctx.setState(
+      produce((draft) => {
+        draft.posts = posts;
+      })
+    );
+  }
+
   @Action(GetAllPosts)
   async getAllPosts(ctx: StateContext<PostsStateModel>) {
 
     console.log('🚀 ~ file: posts.state.ts:47 ~ PostsState ~ getAllPosts ');
     try {
       const responseRef = await this.postsApi.getAllPosts();
+
       const response = responseRef.data;
+
       console.log(
         '🚀 ~ file: posts.state.ts:47 ~ PostsState ~ getAllPosts ~ response:',
-        response
+      response
       );
 
       return ctx.dispatch(new setAllPosts(response.posts));
