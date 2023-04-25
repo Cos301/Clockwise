@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
-import { Select, StateContext, Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { CreatePostState, PostStateModel } from '@mp/app/posts/data-access';
 import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
@@ -12,11 +12,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent {
-  @Select(CreatePostState.post) post$!: Observable<IPost | null>;
-  @Select(CreatePostState.count) count$!: Observable<PostStateModel | null>;
+  @Select(CreatePostState.post) post!: Observable<IPost | null>;
+  @Select(CreatePostState) count$!: Observable<PostStateModel>;
+
   @Select(actionsExecuting([CreatePost]))
   busy$!: Observable<ActionsExecuting>;
-  count : number;
   postDataForm = {
     post_id: "dsaasd5a5648ads",
     caption: "This is a caption",
@@ -28,6 +28,7 @@ export class CreatePostComponent {
   }
 
   public file: File | null = null;
+  public count: number;
 
 
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -38,8 +39,8 @@ export class CreatePostComponent {
     private readonly store: Store,
     private readonly fb: FormBuilder,
   ) { 
-    this.count = this.store.selectSnapshot(state => state.count);
     this.postLife = 10;
+    this.count = 1;
   }
   // post_id: string;
   //   caption: string;
@@ -62,10 +63,12 @@ export class CreatePostComponent {
   }
   
   public increment() {
+    this.count++;
     this.store.dispatch(new IncrementCounter());
   }
 
   public decrement() {
+    this.count--;
     this.store.dispatch(new DecrementCounter());
   }
   

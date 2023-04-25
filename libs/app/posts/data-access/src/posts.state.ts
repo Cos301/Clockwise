@@ -15,6 +15,7 @@ export interface PostsStateModel {
   // time_created: Timestamp;
   // time_remove: Timestamp;
   // user_id: string;
+  count: number;
 }
 
 @State<PostsStateModel>({
@@ -28,6 +29,7 @@ export interface PostsStateModel {
     // time_created: Timestamp.now(),
     // time_remove: Timestamp.now(),
     // user_id: ''
+    count: 0
   },
 })
 @Injectable()
@@ -39,6 +41,11 @@ export class PostsState {
   @Selector()
   static posts(state: PostsStateModel) {
     return state.posts;
+  }
+
+  @Selector()
+  static count(state: PostStateModel) {
+    return state.count;
   }
 
   @Action(GetAllPosts)
@@ -98,7 +105,7 @@ export interface PostStateModel {
       status: '',
       errors: {},
     },
-    count: 0
+    count: 1
   },
 })
 @Injectable()
@@ -107,9 +114,15 @@ export class CreatePostState {
     private readonly postsApi: PostsApi,
     private readonly store: Store
   ) {}
+
   @Selector()
   static post(state: PostStateModel) {
     return state.post;
+  }
+
+  @Selector()
+  static count(state: PostStateModel){
+    return state.count;
   }
 
   @Action(IncrementCounter)
@@ -121,12 +134,6 @@ export class CreatePostState {
     })
     console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.count)
   }
-
-  @Selector()
-  static count(state: PostStateModel) {
-    return state.count;
-  }
-
 
   @Action(CreatePost)
   async createPost(ctx: StateContext<PostStateModel>) {

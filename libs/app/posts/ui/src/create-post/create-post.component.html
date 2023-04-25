@@ -19,10 +19,11 @@
     </div>
 </div>
 
-<div>
-    <h1>Counter: {{ count }}</h1>
-    <button (click)="increment()">Increment</button>
-    <button (click)="decrement()">Decrement</button>
+<div id="counter">
+    <div>Spend:</div>
+    <button (click)="increment()">+</button>
+    <div>{{this.count}} hours</div>
+    <button (click)="decrement()">-</button>
 </div>
 
 

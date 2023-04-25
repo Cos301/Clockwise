@@ -9,6 +9,15 @@ h2 {
   margin-top: 30px;
 }
 
+.post-container {
+  padding-top: 25px;
+}
+
+mp-time-bar {
+  z-index: 500;
+  position:fixed;
+}
+
 #minutesLeft {
   color: black;
   z-index: 2;
