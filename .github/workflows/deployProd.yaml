@@ -1,0 +1,36 @@
+name: Deploy Production 
+
+on: 
+  push:
+    branches: [stable]
+    
+jobs: 
+  deploy:
+    name: Deploy Porduction
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    environment: production
+    steps:
+      - name: Wait for unit tests to succeed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'RunUnitTests'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: |
+         yarn install --frozen-lockfile
+      - name: Deploy Firebase
+        run: yarn deploy:prod
+      - name: deploy app
+        run: yarn deploy:app:prod
+      - name: deploy api
+        run: yarn deploy:api:prod
