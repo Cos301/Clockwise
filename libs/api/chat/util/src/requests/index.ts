@@ -1,1 +1,1 @@
-export * from './get-chat.request'
+export * from './get-all-chats.request'

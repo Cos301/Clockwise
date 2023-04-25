@@ -1,1 +1,1 @@
-export * from './chat.interfaces'
+export * from './chat.interface'

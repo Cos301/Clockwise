@@ -1,18 +1,18 @@
 import {
-    AccountDetailsUpdatedEvent,
-    AddressDetailsUpdatedEvent,
-    ContactDetailsUpdatedEvent,
-    IAccountDetails,
-    IAddressDetails,
-    IContactDetails,
-    IOccupationDetails,
-    IPersonalDetails,
-    IProfile,
-    OccupationDetailsUpdatedEvent,
-    PersonalDetailsUpdatedEvent,
-    ProfileCreatedEvent,
-    ProfileStatus,
-    ProfileStatusUpdatedEvent
+  AccountDetailsUpdatedEvent,
+  AddressDetailsUpdatedEvent,
+  ContactDetailsUpdatedEvent,
+  IAccountDetails,
+  IAddressDetails,
+  IContactDetails,
+  IOccupationDetails,
+  IPersonalDetails,
+  IProfile,
+  OccupationDetailsUpdatedEvent,
+  PersonalDetailsUpdatedEvent,
+  ProfileCreatedEvent,
+  ProfileStatus,
+  ProfileStatusUpdatedEvent
 } from '@mp/api/profiles/util';
 import { AggregateRoot } from '@nestjs/cqrs';
 
