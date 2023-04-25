@@ -11,7 +11,7 @@ export class CreateCommentHandler implements ICommandHandler<CreateCommentComman
     console.log(`${CreateCommentHandler.name}`);
     const { userId, text } = command.request;
     const data: IComment = {
-      user_id: userId, text, time_created: Timestamp.now(), comment_id: 'some_random_text'
+      user_id: userId, text, time_created: Timestamp.now(), comment_id: 'some_random_text', comment_children: []
     }
   }
 }

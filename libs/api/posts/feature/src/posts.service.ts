@@ -2,8 +2,10 @@ import { QueryBus } from '@nestjs/cqrs';
 import { Injectable } from '@nestjs/common';
 import {
   GetAllPostsQuery,
+  IComment,
   IGetAllPostsRequest,
   IGetAllPostsResponse,
+  IPost,
 } from '@mp/api/posts/util';
 
 @Injectable()
@@ -13,8 +15,11 @@ export class PostsService {
   async getAllPosts(
     request: IGetAllPostsRequest
   ): Promise<IGetAllPostsResponse> {
-    return await this.queryBus.execute<GetAllPostsQuery, IGetAllPostsResponse>(
-      new GetAllPostsQuery(request)
-    );
+    const response = await this.queryBus.execute<
+    
+      GetAllPostsQuery,
+      IGetAllPostsResponse
+    >(new GetAllPostsQuery(request));
+    return response;
   }
 }

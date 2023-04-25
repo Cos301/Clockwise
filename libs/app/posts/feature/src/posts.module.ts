@@ -7,6 +7,7 @@ import {GetAllPostsModule , CreatePostModule} from '@mp/app/posts/ui';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PostsPage } from './posts.page';
 import { PostsRouting } from './posts.routing';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { TimeBarComponent } from '@mp/global-ui';
 
 @NgModule({

@@ -5,4 +5,5 @@ export interface IComment {
   text: string;
   time_created: Timestamp;
   user_id: string;
+  comment_children: string[];
 }
