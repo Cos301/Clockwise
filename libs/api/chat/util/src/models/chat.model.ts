@@ -6,7 +6,7 @@ import { ChatCreatedEvent } from '../events/chat-created.event';
 
 export class Chat extends AggregateRoot implements IChat {
   constructor(
-    public chatId: string,
+    public chat_id: string,
     public messages: {content: string, sender: IUser, time_created: Timestamp}[],
     public participants: IUser[]
    ) {
@@ -15,7 +15,7 @@ export class Chat extends AggregateRoot implements IChat {
 
   static fromData(chat: IChat): Chat {
     const instance = new Chat(
-        chat.chatId,
+        chat.chat_id,
         chat.messages,
         chat.participants
     );
@@ -30,7 +30,7 @@ export class Chat extends AggregateRoot implements IChat {
 
   toJSON(): IChat {
     return {
-      chatId: this.chatId,
+      chat_id: this.chat_id,
       messages: this.messages,
       participants: this.participants,
     };
