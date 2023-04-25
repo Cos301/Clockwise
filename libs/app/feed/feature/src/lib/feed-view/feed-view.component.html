@@ -1,0 +1,29 @@
+<div style="overflow: auto;height: 100%">
+<div class="feed_posts" *ngFor="let post of posts">
+  <div class="post"  >
+    <img src="assets/profile/profile-photo.png" alt="Image"  class="profile-photo">
+    <h2 style="display: inline-block;">{{myUsername}}</h2>
+    <mp-time-bar></mp-time-bar>
+
+    <img src="{{post.src}}" alt="Image" class="photo">
+
+    <div id="toolbar">
+
+      <img src="assets/placeholderAssets/thumbs-up.png"/>
+      <img src="assets/placeholderAssets/comment.png"/>
+      <img src="assets/icons/envelope.png" style="right:8px;height:25px">
+    </div>
+
+  </div>
+  <div class="post-footer">
+    <p class="post-bio">
+      {{myUsername}} <br/>
+    </p>
+<div style="justify-content: end;align-items: center">
+    <p >
+      {{caption}}
+    </p>
+</div>
+  </div>
+</div>
+</div>

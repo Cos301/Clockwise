@@ -1,12 +1,9 @@
 #container {
-    height: 70px;
-    background-color: greenyellow;
+  background-color: white;
     display: flex;
-    position: relative;
-}
-
-#container > * {
-    height: 50%;
-    background-color: goldenrod;
-    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  justify-content: space-evenly;
+  max-height: 30px;
 }

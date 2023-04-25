@@ -96,6 +96,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('@mp/app/login/feature').then((m) => m.LoginModule),
   },
+  {
+    path: 'feed',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('@mp/app/feed/feature').then((m) => m.AppFeedFeatureModule),
+  }
 ];
 
 @NgModule({

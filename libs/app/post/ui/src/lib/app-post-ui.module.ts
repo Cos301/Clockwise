@@ -5,7 +5,7 @@ import { TimeBarComponent } from '@mp/app/global-ui';
 
 @NgModule({
   imports: [CommonModule, TimeBarComponent],
-  declarations: [PostComponentComponent], 
+  declarations: [PostComponentComponent],
   exports: [PostComponentComponent]
 })
 export class AppPostUiModule {}
