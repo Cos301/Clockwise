@@ -22,6 +22,11 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: '/home/dashboard',
       },
+      {
+        path: 'chat',
+        loadChildren: () =>
+          import('@mp/app/chat/feature').then((m) => m.ChatModule),
+      }
     ],
   },
   {
@@ -35,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRouting {}
+export class HomeRouting { }
