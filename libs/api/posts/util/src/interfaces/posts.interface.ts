@@ -1,5 +1,6 @@
 import { Timestamp } from 'firebase-admin/firestore';
 import { IComment } from './comments.interface';
+import { IUser } from '@mp/api/users/util';
 
 export interface IPost{
     post_id: string;
@@ -8,7 +9,7 @@ export interface IPost{
     img_url: string;
     time_created: Timestamp;
     time_remove: Timestamp;
-    user_id: string;
+    user: IUser;
     
 
 }

@@ -2,6 +2,8 @@ import {
     IComment,
     IPost    
 } from '@mp/api/posts/util';
+import { Timestamp } from 'firebase-admin/firestore';
+import { IUser } from '@mp/api/users/util';
 
 import { AggregateRoot } from '@nestjs/cqrs';
 
@@ -13,7 +15,7 @@ export class Post extends AggregateRoot implements IPost {
     public comments: IComment[],
     public time_created: FirebaseFirestore.Timestamp,
     public time_remove: FirebaseFirestore.Timestamp,
-    public user_id: string
+    public user: IUser
    ) {
     super();
   }
@@ -26,7 +28,7 @@ export class Post extends AggregateRoot implements IPost {
         post.comments,
         post.time_created,
         post.time_remove,
-        post.user_id
+        post.user
     );
     return instance;
   }
