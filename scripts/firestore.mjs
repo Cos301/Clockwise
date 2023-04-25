@@ -189,7 +189,7 @@ const generateMockData = async () => {
     const posts = [
       {
         post_id: '1111',
-        user: db.collection('users').doc('1'),
+        user_id: "u1",
         comments: [
           db.collection('comments').doc('11111'),
           db.collection('comments').doc('11112'),
@@ -197,12 +197,12 @@ const generateMockData = async () => {
         img_url:
           'https://firebasestorage.googleapis.com/v0/b/clockwise-12e44.appspot.com/o/1%2Fposts%2F1111%2Fpost.jpg?alt=media&token=1b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b5b',
         caption: 'I dont know what this url is',
-        time_created: '2020-01-01T00:00:00.000Z',
-        time_remove: '2020-01-01T00:00:00.000Z',
+        time_created: created,
+        time_remove: remove,
       },
       {
         post_id: '1112',
-        user: db.collection('users').doc('2'),
+        user_id: "u2",
         comments: [
           db.collection('comments').doc('11113'),
           db.collection('comments').doc('11114'),
@@ -216,7 +216,7 @@ const generateMockData = async () => {
       },
       {
         post_id: '1113',
-        user: db.collection('users').doc('3'),
+        user_id: "u3",
         comments: [db.collection('comments').doc('11116')],
         img_url:
           'https://firebasestorage.googleapis.com/v0/b/clockwise-12e44.appspot.com/o/1%2Fposts%2F1111%2Fpost.jpg?alt=media&token=1b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b5b',
@@ -226,7 +226,7 @@ const generateMockData = async () => {
       },
       {
         post_id: '1114',
-        user: db.collection('users').doc('2'),
+        user_id: "u4",
         comments: [
           db.collection('comments').doc('11117'),
           db.collection('comments').doc('11118'),
