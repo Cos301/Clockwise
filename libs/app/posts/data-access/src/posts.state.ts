@@ -211,7 +211,7 @@ export class CreatePostState {
       //return ctx.dispatch(new setCreatedPost(null));
       const responseRef = await this.postsApi.createPost(request);
       const response = responseRef.data;
-      console.log("🚀 ~ file: posts.state.ts:162 ~ CreatePostState ~ createPost ~ response:", response)
+      console.log("🚀 ~ file: posts.state.ts:214 ~ CreatePostState ~ createPost ~ response:", response)
 
       return ctx.dispatch(new setCreatedPost(response.post));
 

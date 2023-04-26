@@ -4,7 +4,7 @@ import { NgxsModule } from '@ngxs/store';
 import { PostsState, CreatePostState } from './posts.state';
 import { PostsApi } from './posts.api';
 @NgModule({
-  imports: [CommonModule, NgxsModule.forFeature([PostsState, CreatePostState])], 
+  imports: [CommonModule, NgxsModule.forFeature([PostsState]), NgxsModule.forFeature([CreatePostState])], 
   providers: [PostsApi],
 })
 export class PostsModule {

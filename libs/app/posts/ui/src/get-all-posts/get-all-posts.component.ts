@@ -76,4 +76,5 @@ export class GetAllPostsComponent {
       userId: 'some_user_id'
     }));
   }
+  
 }
