@@ -5,14 +5,19 @@ import { IAddressDetails } from './address-details.interface';
 import { IContactDetails } from './contact-details.interface';
 import { IOccupationDetails } from './occupation-details.interface';
 import { IPersonalDetails } from './personal-details.interface';
+import { IPost } from '@mp/api/posts/util';
 
 export interface IProfile {
-  userId: string;
-  accountDetails?: IAccountDetails | null | undefined;
-  personalDetails?: IPersonalDetails | null | undefined;
-  contactDetails?: IContactDetails | null | undefined;
-  addressDetails?: IAddressDetails | null | undefined;
-  occupationDetails?: IOccupationDetails | null | undefined;
-  status?: ProfileStatus | null | undefined;
-  created?: Timestamp | null | undefined;
+  user_id: string;
+  username: string;
+  password: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  bio: string;
+  gen_score: number;
+  pfp_url: string;
+  posts: IPost[];
+  time_created: Timestamp;
+  time_remove: Timestamp;
 }
