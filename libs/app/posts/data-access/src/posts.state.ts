@@ -98,15 +98,13 @@ export class PostsState {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostStateModel {
   post: IPost | null;
-  postDataForm: {
+  createPostForm: {
     model: {
       post_id: string | null;
       caption: string | null;
-      comments: IComment[];
       img_url: string | null;
-      time_created: Timestamp | null;
-      time_remove: Timestamp | null;
       user_id: string | null;
+      postLife: number;
     };
     dirty: false;
     status: string;
@@ -115,18 +113,16 @@ export interface PostStateModel {
   count: number
 }
 @State<PostStateModel>({
-  name: 'post',
+  name: 'createPost',
   defaults: {
     post: null,
-    postDataForm: {
+    createPostForm: {
       model: {
         post_id: '',
         caption: '',
-        comments: [],
         img_url: '',
-        time_created: Timestamp.now(),
-        time_remove: Timestamp.now(),
         user_id: '',
+        postLife: 10,
       },
       dirty: false,
       status: '',
@@ -178,11 +174,14 @@ export class CreatePostState {
       const user_id = state.postDataForm.model.user_id;
 */
       const post_id = '123_asdas_23';
-      const caption = 'caption';
+      const caption = state.createPostForm.model.caption;
       const comments : IComment[] = [];
-      const img_url = 'img_url';
+      const img_url = state.createPostForm.model.img_url;
       const time_created = Timestamp.fromDate(new Date());
-      const time_remove = Timestamp.fromDate(new Date());
+      const postLife = state.createPostForm.model.postLife == null ? 10 : state.createPostForm.model.postLife;
+      const dateRemoved = new Date();
+      dateRemoved.setHours(postLife);
+      const time_remove = Timestamp.fromDate(dateRemoved);
       const user_id = 'dabshknl678798';
       if (
         !post_id ||
@@ -207,11 +206,10 @@ export class CreatePostState {
           user_id,
         },
       };
-      //console.log("🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:", request)
-      //return ctx.dispatch(new setCreatedPost(null));
+      console.log("🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:", request)
       const responseRef = await this.postsApi.createPost(request);
       const response = responseRef.data;
-      console.log("🚀 ~ file: posts.state.ts:162 ~ CreatePostState ~ createPost ~ response:", response)
+      console.log("🚀 ~ file: posts.state.ts:214 ~ CreatePostState ~ createPost ~ response:", response)
 
       return ctx.dispatch(new setCreatedPost(response.post));
 

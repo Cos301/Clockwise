@@ -20,7 +20,7 @@ export class PostsApi {
   }
 
   async createPost(request: ICreatePostRequest) {
-    console.log('getAllPosts callable');
+    console.log('createPost callable');
     return await httpsCallable<ICreatePostRequest, ICreatePostResponse>(
       this.functions,
       'createPost'

@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 import { SinglePost } from '../single-post';
 
 type PostType = {
-  username: string, 
-  caption: string, 
+  username: string,
+  caption: string,
   minutesLeft: number,
   imageUrl: string,
   datePosted: string,
@@ -31,24 +31,24 @@ export class GetAllPostsComponent {
   constructor(private readonly store: Store) {
     this.posts = [
       {
-        username: 'user', 
-        caption: 'I am a caption', 
-        minutesLeft: 12,
-        imageUrl: 'imageUrl',
-        datePosted: '12 March',
-        timePosted: '12:34'
-      }, 
-      {
-        username: 'user', 
-        caption: 'I am a caption', 
+        username: 'user',
+        caption: 'I am a caption',
         minutesLeft: 12,
         imageUrl: 'imageUrl',
         datePosted: '12 March',
         timePosted: '12:34'
       },
       {
-        username: 'user', 
-        caption: 'I am a caption', 
+        username: 'user',
+        caption: 'I am a caption',
+        minutesLeft: 12,
+        imageUrl: 'imageUrl',
+        datePosted: '12 March',
+        timePosted: '12:34'
+      },
+      {
+        username: 'user',
+        caption: 'I am a caption',
         minutesLeft: 12,
         imageUrl: 'imageUrl',
         datePosted: '12 March',
@@ -72,8 +72,9 @@ export class GetAllPostsComponent {
     this.store.dispatch(new CreateComment({
       text: 'some_text',
       ownerId: 'some_owner_id',
-      postId: 'some_post_id',
+      postId: 'post_id_test',
       userId: 'some_user_id'
     }));
   }
+
 }

@@ -6,26 +6,33 @@ import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/ut
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Timestamp } from '@angular/fire/firestore';
 @Component({
   selector: 'create-post',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent {
-  @Select(CreatePostState.post) post!: Observable<IPost | null>;
-  @Select(CreatePostState) count$!: Observable<PostStateModel>;
-
+  @Select(CreatePostState.post) post$!: Observable<IPost | null>;
   @Select(actionsExecuting([CreatePost]))
   busy$!: Observable<ActionsExecuting>;
-  postDataForm = {
-    post_id: "dsaasd5a5648ads",
-    caption: "This is a caption",
-    comments: [],
-    img_url: "https://www.google.com",
-    time_created: new Date(),
-    time_remove: new Date(),
-    user_id: "asdasd5a5648ads",
-  }
+  @Select(CreatePostState) count$!: Observable<PostStateModel>;
+  
+  createPostForm = this.fb.group({
+    postLife: [10, [Validators.minLength(1), Validators.maxLength(24)]],
+    caption: ['', [Validators.minLength(5), Validators.maxLength(100)]],
+    img_url: ['example_image.com', [Validators.minLength(1), Validators.maxLength(300)]],
+  });
+  
+  // postDataForm = {
+  //   post_id: "dsaasd5a5648ads",
+  //   caption: "This is a caption",
+  //   comments: [],
+  //   img_url: "https://www.google.com",
+  //   time_created: Timestamp.fromDate(new Date()),
+  //   time_remove: new Date(),
+  //   user_id: "asdasd5a5648ads",
+  // }
 
   public file: File | null = null;
   public count: number;
@@ -74,7 +81,7 @@ export class CreatePostComponent {
   
   public createPost() {
     console.log("🚀 ~ file: create-post.component.ts:42 ~ CreatePostComponent ~ createPost ~ CreatePost:")
-
+    this.createPostForm
     this.store.dispatch(new CreatePost());
   }
 }

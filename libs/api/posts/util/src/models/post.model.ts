@@ -1,7 +1,7 @@
 import {
     IComment,
     IPost    
-} from '@mp/api/posts/util';
+} from '../interfaces';
 
 import { AggregateRoot } from '@nestjs/cqrs';
 
