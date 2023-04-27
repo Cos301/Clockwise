@@ -23,6 +23,8 @@ export class CreatePostComponent {
     caption: ['', [Validators.minLength(5), Validators.maxLength(100)]],
     img_url: ['example_image.com', [Validators.minLength(1), Validators.maxLength(300)]],
   });
+
+  
   
   // postDataForm = {
   //   post_id: "dsaasd5a5648ads",
@@ -36,6 +38,7 @@ export class CreatePostComponent {
 
   public file: File | null = null;
   public count: number;
+  public imageSrc: string | null;
 
 
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -48,6 +51,7 @@ export class CreatePostComponent {
   ) { 
     this.postLife = 10;
     this.count = 1;
+    this.imageSrc = null;
   }
   // post_id: string;
   //   caption: string;
