@@ -192,7 +192,7 @@ const generateMockData = async () => {
       },
       {
         post_id: '1114',
-        user_id: '2',
+        user_id: '4',
         comments: [
           '/comments/11117',
           '/comments/11118',
