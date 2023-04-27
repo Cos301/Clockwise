@@ -13,7 +13,7 @@ import {
 export class ChatService {
     constructor(private readonly queryBus: QueryBus, private readonly cmdbus: CommandBus) { }
 
-    async getAllPosts(
+    async getAllChats(
         request: IGetAllChatsRequest
     ): Promise<IGetAllChatsResponse> {
         return await this.queryBus.execute<GetAllChatsQuery, IGetAllChatsResponse>(

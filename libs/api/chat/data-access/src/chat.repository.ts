@@ -20,23 +20,23 @@ export class ChatRepository {
                         content: mes.content,
                     });
                 });
-                const users: IUser[] = [];
-                chat.users.forEach((user) => {
-                    users.push({
-                        user_id: user.user_id,
-                        username: user.username,
-                        password: user.password,
-                        first_name: user.first_name,
-                        last_name: user.last_name,
-                        email: user.email,
-                        bio: user.bio,
-                        gen_score: user.gen_score,
-                        pfp_url: user.pfp_url,
-                        posts: user.posts,
-                        time_created: user.time_created,
-                        time_remove: user.time_remove,
-                    });
-                });
+                // const users: IUser[] = [];
+                // chat.users.forEach((user) => {
+                //     users.push({
+                //         user_id: user.user_id,
+                //         username: user.username,
+                //         password: user.password,
+                //         first_name: user.first_name,
+                //         last_name: user.last_name,
+                //         email: user.email,
+                //         bio: user.bio,
+                //         gen_score: user.gen_score,
+                //         pfp_url: user.pfp_url,
+                //         posts: user.posts,
+                //         time_created: user.time_created,
+                //         time_remove: user.time_remove,
+                //     });
+                // });
                 const newChat: IChat = {
                     chat_id: chat.chat_id,
                     users: chat.users,
