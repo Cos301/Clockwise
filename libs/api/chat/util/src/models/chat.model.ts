@@ -1,5 +1,5 @@
 import {
-    // IMessage,
+    IMessage,
     IChat
 } from '@mp/api/chat/util';
 import { IUser } from '@mp/api/users/util';
@@ -10,7 +10,7 @@ export class Chat extends AggregateRoot implements IChat {
     constructor(
         public chat_id: string,
         public users: IUser[],
-        // public messages: IMessage[] 
+        public messages: IMessage[]
     ) {
         super();
     }
@@ -19,7 +19,7 @@ export class Chat extends AggregateRoot implements IChat {
         const instance = new Chat(
             chat.chat_id,
             chat.users,
-            // chat.messages
+            chat.messages
         );
         return instance;
     }
