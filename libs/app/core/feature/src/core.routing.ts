@@ -84,6 +84,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('@mp/app/login/feature').then((m) => m.LoginModule),
   },
+  {
+    path: 'home/chat',
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedIn }, 
+    loadChildren: () =>
+      import('@mp/app/chat/feature').then((m) => m.ChatModule)
+  }
 ];
 
 @NgModule({

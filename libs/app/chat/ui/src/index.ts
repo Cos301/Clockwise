@@ -1,1 +1,1 @@
-export * from './lib/app-chat-ui';
+export * from './chat-ui.module'
