@@ -7,47 +7,55 @@ export class PostsRepository {
   //Fetch all posts from the database
   async fetchAllPosts(): Promise<IPost[]> {
     console.log('Fetch all posts');
-    const insertData = {
-      name: 'John',
-      age: 30,
-      caption: 'Your mom is a nice person',
-    };
+  
     const postsRef = admin.firestore().collectionGroup('posts');
     const posts: IPost[] = [];
-    const data = await postsRef.get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        const post = doc.data() as IPost;
-        //form post
-        const comments: IComment[] = [];
-        post.comments.forEach((com) => {
-
-          comments.push({
-            comment_id: com.comment_id,
-            text: com.text,
-            time_created: com.time_created,
-            user_id: com.user_id,
-            comment_children: com.comment_children,
-          });
+  
+    const snapshot = await postsRef.get();
+  
+    const postPromises = snapshot.docs.map(async (doc) => {
+      const post = doc.data() as IPost;
+      const comments: IComment[] = [];
+  
+      await Promise.all(post.comments.map(async (comment) => {
+        const commentRef: any = comment;
+        const comment_id = commentRef._path.segments[1];
+        const newcomment = await admin.firestore().collection('comments').doc(comment_id).get().then(async (doc) => {
+          const commentData = doc.data() as IComment;
+          const newComment: IComment = {
+            comment_id: commentData.comment_id,
+            text: commentData.text,
+            time_created: commentData.time_created,
+            user_id: commentData.user_id,
+            comment_children: commentData.comment_children,
+          };
+          console.log('Francois -test', newComment);
+          return newComment;
         });
-        const newPost: IPost = {
-          post_id: post.post_id,
-          caption: post.caption,
-          comments: comments,
-          img_url: post.img_url,
-          time_created: post.time_created,
-          time_remove: post.time_remove,
-          user_id: post.user_id,
-        };
-
-        posts.push(newPost);
-      });
-      return posts;
-    });;
-    
+        comments.push(newcomment);
+      }));
+  
+      const newPost: IPost = {
+        post_id: post.post_id,
+        caption: post.caption,
+        comments: await Promise.all(comments),
+        img_url: post.img_url,
+        time_created: post.time_created,
+        time_remove: post.time_remove,
+        user_id: post.user_id,
+      };
+  
+      console.log('newPost:', newPost);
+      posts.push(newPost);
+    });
+  
+    await Promise.all(postPromises);
+  
     console.log('posts.repository.ts:29 ~ posts:', posts);
-
     return posts;
   }
+  
+  
 
   async createPost(post: IPost) {
     return await admin
