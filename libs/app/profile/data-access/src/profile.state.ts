@@ -22,7 +22,7 @@ import {
   UpdateAddressDetails,
   UpdateContactDetails,
   UpdateOccupationDetails,
-  UpdatePersonalDetails,
+  UpdatePersonalDetails
 } from '@mp/app/profile/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import produce from 'immer';  
@@ -79,6 +79,7 @@ export interface ProfileStateModel {
     status: string;
     errors: object;
   };
+  showCreatePost: boolean
 }
 
 @State<ProfileStateModel>({
@@ -132,6 +133,7 @@ export interface ProfileStateModel {
       status: '',
       errors: {},
     },
+    showCreatePost: false
   },
 })
 @Injectable()

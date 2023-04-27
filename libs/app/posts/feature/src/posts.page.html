@@ -10,7 +10,7 @@
 
   <div class="post-container">
     <get-all-posts></get-all-posts>
-    <create-post *ngIf="this.creatPostShown" [cancelInput]="this.hideCreatePost"></create-post>
+    <create-post *ngIf="this.createPostShown$"></create-post>
     <!-- <button (click)="callAllPosts()">Get All Posts</button> -->
   </div>
 

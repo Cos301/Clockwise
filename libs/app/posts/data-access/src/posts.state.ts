@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
-import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts } from '@mp/app/posts/util';
+import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, ShowCreatePost, HideCreatePost, DecrementCounter } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
@@ -110,7 +110,8 @@ export interface PostStateModel {
     status: string;
     errors: object;
   };
-  count: number
+  count: number, 
+  createPostShown: boolean
 }
 @State<PostStateModel>({
   name: 'createPost',
@@ -128,7 +129,8 @@ export interface PostStateModel {
       status: '',
       errors: {},
     },
-    count: 1
+    count: 1, 
+    createPostShown: false
   },
 })
 @Injectable()
@@ -148,6 +150,31 @@ export class CreatePostState {
     return state.count;
   }
 
+  @Selector()
+  static createPostShown(state: PostStateModel) {
+    return state.createPostShown;
+  }
+
+  @Action(ShowCreatePost)
+  showCreatePost(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      createPostShown: true
+    })
+    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
+  }
+
+  @Action(HideCreatePost)
+  hideCreatePost(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      createPostShown: false
+    })
+    console.log("🚀 ~ file: posts.state.ts:175 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
+  }
+
   @Action(IncrementCounter)
   async incrementCounter(ctx: StateContext<PostStateModel>) {
     const state = ctx.getState();
@@ -155,7 +182,17 @@ export class CreatePostState {
       ...state,
       count: state.count + 1
     })
-    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.count)
+    console.log("🚀 ~ file: posts.state.ts:185 ~ PostState ~ Increment counter ~ state:", state.count)
+  }
+
+  @Action(DecrementCounter)
+  async decrementCounter(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      count: state.count - 1
+    })
+    console.log("🚀 ~ file: posts.state.ts:195 ~ PostState ~ Decrement counter ~ state:", state.count)
   }
 
   @Action(CreatePost)

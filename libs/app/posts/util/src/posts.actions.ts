@@ -9,6 +9,18 @@ export class GetAllPosts {
   }
 }
 
+export class ShowCreatePost {
+  static readonly type = '[Posts] ShowCreatePost';
+  constructor () {
+    console.log("🚀 ~ file: posts.actions.ts:15~ ShowCreatePost ~ CreatePost:")
+  }
+}
+
+export class HideCreatePost {
+  static readonly type = '[Posts] HideCreatePost';
+}
+
+
 export class setAllPosts {
   static readonly type = '[Posts] setAllPosts';
   constructor(public readonly posts: IPost[]) { }

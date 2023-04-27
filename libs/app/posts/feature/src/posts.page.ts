@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
+import { CreatePostState } from '@mp/app/posts/data-access';
+import { IPost } from '@mp/api/posts/util';
+import { Observable } from 'rxjs';
+import { ShowCreatePost } from '@mp/app/posts/util';
+import { PostsState } from '@mp/app/posts/data-access';
 
 @Component({
   selector: 'ms-profile-page',
@@ -7,26 +12,19 @@ import { Store } from '@ngxs/store';
   styleUrls: ['./posts.page.scss'],
 })
 export class PostsPage {
-  creatPostShown: boolean;
-  public callBack: any;
+
+  createPostShown$!: Observable<boolean>;
 
   constructor(
-    private readonly store: Store
+    private store: Store
   ) {
-    this.creatPostShown = false;
-    this.callBack = null;
-  }
-
-  public ngOnInit() {
-    this.callBack = this.hideCreatePost.bind(this);
+    // this.store.dispatch(new HideCreatePost())
+    this.createPostShown$ = this.store.select(CreatePostState.createPostShown);
+    console.log('create post shown...', this.createPostShown$);
   }
 
   showCreatePost(): void {
-    this.creatPostShown = true;
-  }
-
-  hideCreatePost(): void {
-    this.creatPostShown = false;
+    this.store.dispatch(new ShowCreatePost())
   }
   
 }
