@@ -10,10 +10,20 @@
 
   <div class="post-container">
     <get-all-posts></get-all-posts>
-    <create-post *ngIf="this.createPostShown$"></create-post>
     <!-- <button (click)="callAllPosts()">Get All Posts</button> -->
   </div>
 
-  <img (click)="showCreatePost()" id="fab"src="assets/images/fab.svg"/>
-
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="setOpen(true)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <create-post (close)="setOpen(false)"></create-post>
+    </ion-content>
+  </ng-template>
+</ion-modal>

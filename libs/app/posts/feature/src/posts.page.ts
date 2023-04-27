@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
+import { EventEmitter } from 'stream';
 import { CreatePostState } from '@mp/app/posts/data-access';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
@@ -12,19 +13,13 @@ import { PostsState } from '@mp/app/posts/data-access';
   styleUrls: ['./posts.page.scss'],
 })
 export class PostsPage {
-
-  createPostShown$!: Observable<boolean>;
+  isModalOpen!: boolean;
 
   constructor(
     private store: Store
-  ) {
-    // this.store.dispatch(new HideCreatePost())
-    this.createPostShown$ = this.store.select(CreatePostState.createPostShown);
-    console.log('create post shown...', this.createPostShown$);
-  }
+  ) {}
 
-  showCreatePost(): void {
-    this.store.dispatch(new ShowCreatePost())
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
-  
 }

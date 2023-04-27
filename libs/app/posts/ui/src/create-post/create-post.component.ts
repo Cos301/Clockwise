@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { CreatePostState } from '@mp/app/posts/data-access';
@@ -19,9 +19,8 @@ export class CreatePostComponent {
   busy$!: Observable<ActionsExecuting>;
   @Select(CreatePostState.count) count$!: Observable<CreatePostState>;
   
+  @Output() close = new EventEmitter();
   
-  @Input() 
-  public cancelInput: (() => void) | undefined;
 
   createPostForm = this.fb.group({
     postLife: [10, [Validators.minLength(1), Validators.maxLength(24)]],
@@ -89,7 +88,7 @@ export class CreatePostComponent {
   }
 
   public cancel() {
-    this.store.dispatch(new HideCreatePost())
+    this.close.emit();
   }
   
   public increment() {
