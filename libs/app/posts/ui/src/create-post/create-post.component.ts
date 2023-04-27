@@ -1,11 +1,11 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { CreatePostState, PostStateModel } from '@mp/app/posts/data-access';
 import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Timestamp } from '@angular/fire/firestore';
 @Component({
   selector: 'create-post',
@@ -18,10 +18,15 @@ export class CreatePostComponent {
   busy$!: Observable<ActionsExecuting>;
   @Select(CreatePostState) count$!: Observable<PostStateModel>;
   
+  
+  @Input() 
+  public cancelInput: (() => void) | undefined;
+
   createPostForm = this.fb.group({
     postLife: [10, [Validators.minLength(1), Validators.maxLength(24)]],
     caption: ['', [Validators.minLength(5), Validators.maxLength(100)]],
     img_url: ['example_image.com', [Validators.minLength(1), Validators.maxLength(300)]],
+    fileSource: new FormControl('', [Validators.required])
   });
 
   
@@ -61,16 +66,32 @@ export class CreatePostComponent {
   //   time_remove: Timestamp;
   //   user_id: string;
 
-  @HostListener('change', ['$event.target.files']) emitFiles( event: FileList ) {
-      const file = event && event.item(0);
-      if (this.onChange)
-        this.onChange(file);
-      this.file = file;
-    }
+  onFileChange(event : any) {
+    const reader = new FileReader();
 
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+
+        this.createPostForm.patchValue({
+          fileSource: reader.result as string
+        })
+      }
+    }
+  }
   // eslint-disable-next-line @typescript-eslint/ban-types
   registerOnChange( fn: Function) {
     this.onChange = fn;
+  }
+
+  public cancel() {
+    if (this.cancelInput) 
+      this.cancelInput();
+    else 
+      console.log("Cancel failed, because undefined");
   }
   
   public increment() {

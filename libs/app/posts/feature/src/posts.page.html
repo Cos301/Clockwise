@@ -10,8 +10,10 @@
 
   <div class="post-container">
     <get-all-posts></get-all-posts>
-    <create-post></create-post>
+    <create-post *ngIf="this.creatPostShown" [cancelInput]="this.hideCreatePost"></create-post>
     <!-- <button (click)="callAllPosts()">Get All Posts</button> -->
   </div>
+
+  <img (click)="showCreatePost()" id="fab"src="assets/images/fab.svg"/>
 
 </ion-content>

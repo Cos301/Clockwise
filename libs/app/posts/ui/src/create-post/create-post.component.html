@@ -2,15 +2,23 @@
     <div id="postLifeBar">
         Post Life: {{this.postLife}} Minutes
     </div>
-  
-    <div class="fileDiv">
-        <h2>selected: {{file ? file.name : ' none' }}</h2>
-        <img [src]="imageSrc" *ngIf="imageSrc" />
-        <label class="custom-file-upload">
-            <input name  type="file"/>
-            Click to select a file
-        </label>
+
+    <img id="uploadedImage" [src]="imageSrc" *ngIf="imageSrc" />
+
+    
+    <div id="headingContainer">
+        <h2 *ngIf="!imageSrc">no file selected...</h2>
     </div>
+    
+    <label class="custom-file-upload">
+        <input 
+            formControlName="fileSource"
+            type="file"
+            (change)="onFileChange($event)"
+        />
+        Click to select a file
+    </label>
+   
 
     <div class="caption">
         <input type="text" placeholder="caption..." />
@@ -24,7 +32,8 @@
     </div>
     
     
-    <div>
+    <div id="submitButton">
         <button (click)="createPost()">Create a post</button>
+        <button (click)="cancel()">Cancel</button>
     </div>
 </form>
