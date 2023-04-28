@@ -1,2 +1,2 @@
-export * from './lib/app-chat-ui';
-export * from './get-all-chat'
+export * from './get-all-chat';
+export * from './send-message';

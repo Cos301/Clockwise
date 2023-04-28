@@ -9,16 +9,16 @@ import { GetAllChatsComponent } from './get-all-chats.component';
 // import { SingleChat } from '../single-chat';
 
 @NgModule({
-    declarations: [GetAllChatsComponent],
-    imports: [
-        CommonModule,
-        IonicModule,
-        NgxSkeletonLoaderModule,
-        ReactiveFormsModule,
-        NgxsFormPluginModule,
-        ChatModule,
-        // SingleChat
-    ],
-    exports: [GetAllChatsComponent],
+  declarations: [GetAllChatsComponent],
+  imports: [
+    CommonModule,
+    IonicModule,
+    NgxSkeletonLoaderModule,
+    ReactiveFormsModule,
+    NgxsFormPluginModule,
+    ChatModule,
+    // SingleChat
+  ],
+  exports: [GetAllChatsComponent],
 })
-export class GetAllChatsModule { }
+export class GetAllChatsModule {}

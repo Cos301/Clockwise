@@ -6,6 +6,7 @@ import {
   CreateMessage,
   IncrementCounter,
   SetCreatedChat,
+  CreateChat,
 } from '@mp/app/chat/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { ChatApi } from './chat.api';
@@ -68,7 +69,7 @@ export class ChatState {
     ctx: StateContext<ChatsStateModel>,
     action: CreateMessage
   ) {
-    console.log('send message');
+    console.log('send message - chat.state.ts');
     try {
       console.log('action: ' + action);
       const responseRef = await this.chatApi.createMessage(action.message);
@@ -141,7 +142,7 @@ export class CreateChatState {
     });
   }
 
-  @Action(CreateMessage)
+  @Action(CreateChat)
   async createChat(ctx: StateContext<ChatStateModel>) {
     try {
       const state = ctx.getState();

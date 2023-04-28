@@ -1,1 +1,1 @@
-export * from './get-all-chats.handler'
+export * from './get-all-chats.handler';

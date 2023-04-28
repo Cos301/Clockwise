@@ -59,12 +59,11 @@ export class ChatRepository {
     return chats;
   }
 
-  async createMessage(chat: IChat, message: IMessage) {
+  async createChat(chat: IChat) {
     return await admin
       .firestore()
       .collection('chats')
       .doc(chat.chat_id)
-      .collection('messages')
-      .add(message);
+      .create(chat);
   }
 }

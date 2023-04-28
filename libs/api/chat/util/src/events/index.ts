@@ -1,1 +1,1 @@
-export * from './message-created.event';
+export * from './chat-created.event';
