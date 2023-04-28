@@ -1,39 +1,37 @@
 <form id='creatPostForm' [formGroup]="createPostForm" ngxsForm="createPost.createPostForm" (submit)="createPost()">
-    <div id="postLifeBar">
-        Post Life: {{this.postLife}} Minutes
-    </div>
+    <div *ngIf="post$ as post">
+        <div id="postLifeBar">
+            Post Life: {{this.postLife}} Minutes
+        </div>
 
-    <img id="uploadedImage" [src]="imageSrc" *ngIf="imageSrc" />
+        <img id="uploadedImage" [src]="imageSrc" *ngIf="imageSrc" />
 
-    
-    <div id="headingContainer">
-        <h2 *ngIf="!imageSrc">no file selected...</h2>
-    </div>
-    
-    <label class="custom-file-upload">
-        <input 
-            formControlName="fileSource"
-            type="file"
-            (change)="onFileChange($event)"
-        />
-        Click to select a file
-    </label>
-   
 
-    <div class="caption">
-        <input type="text" placeholder="caption..." />
-    </div>
-    
-    <div id="counter">
-        <div>Spend:</div>
-        <button id="inc" (click)="increment()">+</button>
-        <div>{{this.count}} hours</div>
-        <button id="dec" (click)="decrement()">-</button>
-    </div>
-    
-    
-    <div id="submitButton">
-        <button (click)="createPost()">Create a post</button>
-        <button (click)="cancel()">Cancel</button>
+        <div id="headingContainer">
+            <h2 *ngIf="!imageSrc">no file selected...</h2>
+        </div>
+
+        <label class="custom-file-upload">
+            <input formControlName="fileSource" type="file" (change)="onFileChange($event)" />
+            Click to select a file
+        </label>
+
+
+        <div class="caption">
+            <input type="text" placeholder="caption..." formControlName="caption"/>
+        </div>
+
+        <div id="counter">
+            <div>Spend:</div>
+            <button type="button" id="inc" (click)="increment()">+</button>
+            <div>{{this.count}} hours</div>
+            <button type="button" id="dec" (click)="decrement()">-</button>
+        </div>
+
+
+        <div id="submitButton">
+            <button>Create a post</button>
+            <button type="button" (click)="cancel()">Cancel</button>
+        </div>
     </div>
 </form>
