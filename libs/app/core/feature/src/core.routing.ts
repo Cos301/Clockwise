@@ -84,6 +84,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('@mp/app/login/feature').then((m) => m.LoginModule),
   },
+  {
+    path: 'chat',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('@mp/app/chat/feature').then((m) => m.ChatModule),
+  }
 ];
 
 @NgModule({
