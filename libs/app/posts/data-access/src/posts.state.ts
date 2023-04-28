@@ -1,10 +1,23 @@
 import { Injectable } from '@angular/core';
 import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
-import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, DecrementCounter, GetUserData } from '@mp/app/posts/util';
+import {
+  IncrementCounter,
+  setCreatedPost,
+  CreatePost,
+  CreateComment,
+  GetAllPosts,
+  setAllPosts,
+  ShowCreatePost,
+  HideCreatePost,
+  DecrementCounter,
+  ResetCounter,
+  GetUserData
+} from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
 import produce from 'immer';
+import { AuthState } from '@mp/app/auth/data-access';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostsStateModel {
   posts: IPost[];
@@ -29,7 +42,7 @@ export interface PostsStateModel {
     // time_created: Timestamp.now(),
     // time_remove: Timestamp.now(),
     // user_id: ''
-    count: 0
+    count: 0,
   },
 })
 @Injectable()
@@ -106,28 +119,23 @@ export class PostsState {
   }
 }
 
-
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostStateModel {
   post: IPost | null;
   createPostForm: {
     model: {
-      post_id: string | null;
+     
       caption: string | null;
       img_url: string | null;
-      user_id: string | null;
+     
       postLife: number;
     };
     dirty: false;
     status: string;
     errors: object;
   };
-  count: number, 
-  createPostShown: boolean,
-  userdata: {
-    username: string | null;
-    user_img_url: string | null;
-  }
+  count: number;
+  createPostShown: boolean;
 }
 @State<PostStateModel>({
   name: 'createPost',
@@ -135,22 +143,16 @@ export interface PostStateModel {
     post: null,
     createPostForm: {
       model: {
-        post_id: '',
         caption: '',
         img_url: '',
-        user_id: '',
         postLife: 10,
       },
       dirty: false,
       status: '',
       errors: {},
     },
-    count: 1, 
+    count: 1,
     createPostShown: false,
-    userdata: {
-      username: '',
-      user_img_url: '',
-    }
   },
 })
 @Injectable()
@@ -166,13 +168,33 @@ export class CreatePostState {
   }
 
   @Selector()
-  static count(state: PostStateModel){
+  static count(state: PostStateModel) {
     return state.count;
   }
 
   @Selector()
   static createPostShown(state: PostStateModel) {
     return state.createPostShown;
+  }
+
+  @Action(ShowCreatePost)
+  showCreatePost(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      createPostShown: true
+    })
+    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
+  }
+
+  @Action(HideCreatePost)
+  hideCreatePost(ctx: StateContext<PostStateModel>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      createPostShown: false
+    })
+    console.log("🚀 ~ file: posts.state.ts:175 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
   }
 
   @Action(IncrementCounter)
@@ -210,49 +232,55 @@ export class CreatePostState {
       const time_remove = state.postDataForm.model.time_remove;
       const user_id = state.postDataForm.model.user_id;
 */
-      const post_id = '123_asdas_23';
-      const caption = state.createPostForm.model.caption;
-      const comments : IComment[] = [];
-      const img_url = state.createPostForm.model.img_url;
+
+      const post_id =
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+
+      const caption = state.createPostForm.model.caption || "Post caption";
+      const comments: IComment[] = [];
+      const img_url = "state.createPostForm.model.img_url test";
       const time_created = Timestamp.fromDate(new Date());
-      const postLife = state.createPostForm.model.postLife == null ? 10 : state.createPostForm.model.postLife;
       const dateRemoved = new Date();
-      dateRemoved.setHours(postLife);
+      const count = state.count;
+      dateRemoved.setHours(count);
+      
       const time_remove = Timestamp.fromDate(dateRemoved);
-      const user_id = 'dabshknl678798';
-      if (
-        !post_id ||
-        !caption ||
-        !comments ||
-        !img_url ||
-        !time_created ||
-        !time_remove ||
-        !user_id
-      ) {
-        return;
-      }
+      const user_id = this.store.selectSnapshot(AuthState.user)?.uid || 'user_id_should not';
+
+      // if (
+      //   !post_id ||
+      //   !caption ||
+      //   !comments ||
+      //   !img_url ||
+      //   !time_created ||
+      //   !time_remove ||
+      //   !user_id
+      // ) {
+      //   return;
+      // }
 
       const request: ICreatePostRequest = {
-        post: {
-          post_id,
-          caption,
-          comments,
-          img_url,
-          time_created,
-          time_remove,
-          user_id,
-        },
+        caption,
+        postLife: count + 1,
+        img_url,
+        post_id,
+        user_id,
       };
-      console.log("🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:", request)
+      console.log(
+        '🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:',
+        request
+      );
       const responseRef = await this.postsApi.createPost(request);
       const response = responseRef.data;
-      console.log("🚀 ~ file: posts.state.ts:214 ~ CreatePostState ~ createPost ~ response:", response)
+      console.log(
+        '🚀 ~ file: posts.state.ts:214 ~ CreatePostState ~ createPost ~ response:',
+        response
+      );
 
-      return ctx.dispatch(new setCreatedPost(response.post));
-
+      return ctx.dispatch(new setCreatedPost(null));
     } catch (error) {
-     return error;
+      return error;
     }
   }
 }
-

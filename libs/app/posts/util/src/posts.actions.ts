@@ -52,3 +52,19 @@ export class IncrementCounter {
 export class DecrementCounter {
   static readonly type = '[Posts] Decrement Counter';
 }
+
+
+export class ShowCreatePost {
+  static readonly type = '[Posts] ShowCreatePost';
+  constructor () {
+    console.log("🚀 ~ file: posts.actions.ts:15~ ShowCreatePost ~ CreatePost:")
+  }
+}
+
+export class HideCreatePost {
+  static readonly type = '[Posts] HideCreatePost';
+}
+
+export class ResetCounter {
+  static readonly type = '[Posts] Reset Counter';
+}

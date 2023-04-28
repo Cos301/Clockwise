@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { CreatePostState } from '@mp/app/posts/data-access';
-import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/util';
+import { CreatePost, DecrementCounter, HideCreatePost, IncrementCounter, ResetCounter } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -14,7 +14,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class CreatePostComponent {
   @Select(CreatePostState.post) post$!: Observable<IPost | null>;
-  @Select(actionsExecuting([CreatePost]))
+  @Select(actionsExecuting([CreatePost, ResetCounter]))
   busy$!: Observable<ActionsExecuting>;
   @Select(CreatePostState.count) count$!: Observable<CreatePostState>;
   
@@ -53,8 +53,9 @@ export class CreatePostComponent {
     private readonly store: Store,
     private readonly fb: FormBuilder,
   ) { 
-    this.postLife = 10;
-    this.count = 1;
+    this.store.dispatch(new ResetCounter());
+    this.postLife = this.store.selectSnapshot(CreatePostState.count);
+    this.count =  this.postLife;
     this.imageSrc = null;
   }
   // post_id: string;
