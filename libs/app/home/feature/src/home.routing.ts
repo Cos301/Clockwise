@@ -27,6 +27,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('@mp/app/posts/feature').then((m) => m.PostsModule),
       },
+      {
+        path: 'chat',
+        loadChildren: () =>
+          import('@mp/app/chat/feature').then((m) => m.ChatModule),
+      }
     ],
   },
   {
