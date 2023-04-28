@@ -1,4 +1,4 @@
-import { IUser, UserCreatedEvent } from '@mp/api/users/util';
+import { IUserProfile, IUser, UserCreatedEvent } from '@mp/api/users/util';
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Timestamp } from 'firebase-admin/firestore';
 
@@ -10,7 +10,8 @@ export class User extends AggregateRoot implements IUser {
     public photoURL?: string | null | undefined,
     public phoneNumber?: string | null | undefined,
     public customClaims?: { [key: string]: any } | null | undefined,
-    public created?: Timestamp | null | undefined
+    public created?: Timestamp | null | undefined,
+    public userProfile?: IUserProfile | null | undefined
   ) {
     super();
   }
@@ -23,7 +24,8 @@ export class User extends AggregateRoot implements IUser {
       user.photoURL,
       user.phoneNumber,
       user.customClaims,
-      user.created
+      user.created,
+      user.userProfile
     );
     return instance;
   }
@@ -41,6 +43,7 @@ export class User extends AggregateRoot implements IUser {
       phoneNumber: this.phoneNumber,
       customClaims: this.customClaims,
       created: this.created,
+      userProfile: this.userProfile,
     };
   }
 }

@@ -1,4 +1,5 @@
 import { Timestamp } from 'firebase-admin/firestore';
+import { IUserProfile } from './userprofile.interface';
 
 export interface IUser {
   id: string;
@@ -8,4 +9,5 @@ export interface IUser {
   phoneNumber?: string | null | undefined;
   customClaims?: { [key: string]: any } | null | undefined;
   created?: Timestamp | null | undefined;
+  userProfile?: IUserProfile | null | undefined;
 }
