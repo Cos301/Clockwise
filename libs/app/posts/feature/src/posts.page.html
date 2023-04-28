@@ -1,7 +1,16 @@
-<mp-time-bar />
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-title class="ion-align-items-center">
+      Explore
+    </ion-title>
+  </ion-toolbar>
+  <mp-time-bar/>
+</ion-header>
+
+
+
 
 <ion-content [fullscreen]="true">
-
   <div class="post-container">
     <get-all-posts></get-all-posts>
   </div>
@@ -11,7 +20,6 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
 
 <ion-modal [isOpen]="isModalOpen">
   <ng-template>
@@ -20,3 +28,4 @@
     </ion-content>
   </ng-template>
 </ion-modal>
+</ion-content>
