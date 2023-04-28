@@ -105,6 +105,6 @@ export class AccountDetailsComponent {
 
   callAllChats() {
     console.log('callAllChats');
-    this.store.dispatch(new GetAllChats());
+    this.store.dispatch(new GetAllChats({chat:null}));
   }
 }

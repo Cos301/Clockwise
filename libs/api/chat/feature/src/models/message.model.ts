@@ -6,7 +6,7 @@ import { Reference } from "firebase-admin/database";
 export class Message extends AggregateRoot implements IMessage {
     constructor(
         public message_id: string,
-        public from: Reference,
+        public from: string,
         public timestamp: Timestamp,
         public content: string,
     ) {

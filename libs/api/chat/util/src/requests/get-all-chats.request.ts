@@ -1,5 +1,5 @@
 import { IChat } from '../interfaces';
 
 export interface IGetAllChatsRequest {
-    chat: IChat[];
+    chat: IChat[] | null | undefined;
 }

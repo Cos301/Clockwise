@@ -18,14 +18,14 @@ type ChatType = {
     styleUrls: ['./get-all-chats.component.scss'],
 })
 export class GetAllChatsComponent {
-    @Select(ChatState.posts) chats$!: Observable<IChat[] | null>;
+    @Select(ChatState.chats) chats$!: Observable<IChat[] | null>;
     @Select(actionsExecuting([GetAllChats]))
     busy$!: Observable<ActionsExecuting>;
 
-    posts: ChatType[]
+    chats: ChatType[]
 
     constructor(private readonly store: Store) {
-        this.posts = [
+        this.chats = [
             {
                 username: 'user1',
             },
@@ -44,6 +44,6 @@ export class GetAllChatsComponent {
     }
 
     public CallAllChats() {
-        this.store.dispatch(new GetAllChats());
+        this.store.dispatch(new GetAllChats({chat:null}));
     }
 }

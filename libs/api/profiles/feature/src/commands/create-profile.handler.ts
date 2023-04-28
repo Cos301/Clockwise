@@ -14,7 +14,7 @@ implements ICommandHandler<CreateProfileCommand>
 constructor(private publisher: EventPublisher) {}
 
 async execute(command: CreateProfileCommand) {
-  console.log('${CreateProfileHandler.name}');
+  console.log(`${CreateProfileHandler.name}`);
 
   const request = command.request;
   const userId = request.user.id;

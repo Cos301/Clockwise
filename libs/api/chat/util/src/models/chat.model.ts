@@ -1,7 +1,4 @@
-import {
-    IMessage,
-    IChat
-} from '@mp/api/chat/util';
+import { IChat, IMessage } from '../interfaces';
 import { IUser } from '@mp/api/users/util';
 
 import { AggregateRoot } from '@nestjs/cqrs';
@@ -9,8 +6,8 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class Chat extends AggregateRoot implements IChat {
     constructor(
         public chat_id: string,
-        public users: IUser[],
-        public messages: IMessage[]
+        public users: IUser[] | null | undefined,
+        public messages: IMessage[] | null | undefined
     ) {
         super();
     }
