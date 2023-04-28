@@ -26,12 +26,12 @@ const generateMockData = async () => {
     const users = [
       {
         id: '1',
-        email: undefined,
-        displayName: undefined,
-        photoURL: undefined,
-        phoneNumber: undefined,
-        customClaims: undefined,
-        created: undefined,
+        email: null,
+        displayName: null,
+        photoURL: null,
+        phoneNumber: null,
+        customClaims: null,
+        created: null,
         userProfile: {
           user_id: '1',
           username: 'jonDoe',
@@ -50,12 +50,12 @@ const generateMockData = async () => {
       },
       {
         id: '2',
-        email: undefined,
-        displayName: undefined,
-        photoURL: undefined,
-        phoneNumber: undefined,
-        customClaims: undefined,
-        created: undefined,
+        email: null,
+        displayName: null,
+        photoURL: null,
+        phoneNumber: null,
+        customClaims: null,
+        created: null,
         userProfile: {
           user_id: '2',
           username: 'janeDoe',
@@ -74,12 +74,12 @@ const generateMockData = async () => {
       },
       {
         id: '3',
-        email: undefined,
-        displayName: undefined,
-        photoURL: undefined,
-        phoneNumber: undefined,
-        customClaims: undefined,
-        created: undefined,
+        email: null,
+        displayName: null,
+        photoURL: null,
+        phoneNumber: null,
+        customClaims: null,
+        created: null,
         userProfile: {
           user_id: '3',
           username: 'janDoe',
@@ -98,12 +98,12 @@ const generateMockData = async () => {
       },
       {
         id: '4',
-        email: undefined,
-        displayName: undefined,
-        photoURL: undefined,
-        phoneNumber: undefined,
-        customClaims: undefined,
-        created: undefined,
+        email: null,
+        displayName: null,
+        photoURL: null,
+        phoneNumber: null,
+        customClaims: null,
+        created: null,
         userProfile: {
           user_id: '4',
           username: 'janaDoe',
@@ -132,13 +132,13 @@ const generateMockData = async () => {
         messages: [
           {
             message_id: '123',
-            from: db.collection('users').doc('1'),
+            from: '1',
             timestamp: created,
             content: 'hello',
           },
           {
             message_id: '124',
-            from: db.collection('users').doc('2'),
+            from: '2',
             timestamp: created,
             content: 'hey',
           },
@@ -153,13 +153,13 @@ const generateMockData = async () => {
         messages: [
           {
             message_id: '125',
-            from: db.collection('users').doc('3'),
+            from: '3',
             timestamp: created,
             content: 'hello',
           },
           {
             message_id: '126',
-            from: db.collection('users').doc('1'),
+            from: '1',
             timestamp: created,
             content: 'hey',
           },
@@ -174,13 +174,13 @@ const generateMockData = async () => {
         messages: [
           {
             message_id: '127',
-            from: db.collection('users').doc('3'),
+            from: '3',
             timestamp: created,
             content: 'Hello there',
           },
           {
             message_id: '128',
-            from: db.collection('users').doc('2'),
+            from: '2',
             timestamp: created,
             content: 'General Kenobi',
           },
@@ -195,26 +195,26 @@ const generateMockData = async () => {
         messages: [
           {
             message_id: '129',
-            from: db.collection('users').doc('3'),
+            from: '3',
             timestamp: created,
             content:
               'Have you ever heard the tragedy of darth plagous the wize?',
           },
           {
             message_id: '130',
-            from: db.collection('users').doc('4'),
+            from: '4',
             timestamp: created,
             content: 'No. Blocked',
           },
           {
             message_id: '131',
-            from: db.collection('users').doc('3'),
+            from: '3',
             timestamp: created,
             content: 'I thought not.',
           },
           {
             message_id: '132',
-            from: db.collection('users').doc('3'),
+            from: '3',
             timestamp: created,
             content: "It's not a story the jedi would tell",
           },
@@ -337,7 +337,7 @@ const generateMockData = async () => {
     ];
 
     for (const user of users) {
-      await db.collection('users').doc(user.user_id).set(user);
+      await db.collection('users').doc(user.userProfile.user_id).set(user);
     }
 
     for (const chat of chats) {

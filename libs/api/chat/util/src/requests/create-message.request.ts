@@ -3,7 +3,7 @@ import { Timestamp } from "firebase-admin/firestore";
 
 export interface ICreateMessageRequest {
     message_id: string;
-    from: Reference;
+    from: string;
     timestamp: Timestamp;
     content: string;
 }
