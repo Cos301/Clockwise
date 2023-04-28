@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
+import { IChat, /*IMessage */ } from '@mp/api/chat/util';
+import { GetAllChats, SetAllChats } from '@mp/app/chat/util';
+
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import { IChat } from '@mp/api/chat/util';
 import { ChatApi } from './chat.api';
-import { IGetChatRequest } from '@mp/api/chat/util';
+import { Timestamp } from '@angular/fire/firestore';
 
 export interface ChatStateModel {
-    recent_chats: Promise<IChat[]>;
+    chats: IChat[];
 }
 
 @State<ChatStateModel>({
-    name: 'chat',
+    name: 'chats',
     defaults: {
-        recent_chats: Promise.resolve([]),
+        chats: [],
     },
 })
+
 @Injectable()
 export class ChatState {
     constructor(
@@ -22,13 +25,19 @@ export class ChatState {
     ) { }
 
     @Selector()
-    static chats(state: ChatStateModel) {
-        return state.recent_chats;
+    static posts(state: ChatStateModel) {
+        return state.chats;
     }
 
-    @Action(IGetChatRequest)
-    async setChats(ctx: StateContext<ChatStateModel>, { profile }: SetChats) {
-        ctx.patchState({ recent_chats: this.chatApi.getRecentChats$("") });
+    @Action(GetAllChats)
+    async getAllPosts(ctx: StateContext<ChatStateModel>) {
+        try {
+            const responseRef = await this.chatApi.GetAllChats();
+            const response = responseRef.data;
+            return ctx.dispatch(new SetAllChats(response.chats));
+        } catch (error) {
+            return error;
+        }
     }
 }
 

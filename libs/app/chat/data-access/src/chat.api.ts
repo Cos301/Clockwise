@@ -11,10 +11,11 @@ export class ChatApi {
         private readonly functions: Functions
     ) { }
 
-    async GetAllPosts() {
+    async GetAllChats() {
+        console.log('GetAllChats in chat.api.ts');
         return await httpsCallable<IGetAllChatsRequest, IGetAllChatsResponse>(
             this.functions,
-            'getAllPosts'
+            'getAllChats'
         )();
     }
 }

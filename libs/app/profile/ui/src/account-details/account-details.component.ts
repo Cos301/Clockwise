@@ -3,9 +3,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IProfile } from '@mp/api/profiles/util';
 import { ProfileState } from '@mp/app/profile/data-access';
 import { Logout, UpdateAccountDetails } from '@mp/app/profile/util';
+
+
+import { GetAllChats } from '@mp/app/chat/util';
+
+
 import {
-    ActionsExecuting,
-    actionsExecuting
+  ActionsExecuting,
+  actionsExecuting
 } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -88,7 +93,7 @@ export class AccountDetailsComponent {
   constructor(
     private readonly fb: FormBuilder,
     private readonly store: Store
-  ) {}
+  ) { }
 
   logout() {
     this.store.dispatch(new Logout());
@@ -96,5 +101,10 @@ export class AccountDetailsComponent {
 
   updateAccountDetails() {
     this.store.dispatch(new UpdateAccountDetails());
+  }
+
+  callAllChats() {
+    console.log('callAllChats');
+    this.store.dispatch(new GetAllChats());
   }
 }

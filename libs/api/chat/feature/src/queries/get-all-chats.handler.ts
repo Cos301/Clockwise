@@ -7,6 +7,7 @@ export class GetAllChatsHandler implements IQueryHandler<GetAllChatsQuery> {
     constructor(private readonly repository: ChatRepository) { }
 
     async execute(query: GetAllChatsQuery) {
+        console.log('GetAllChatsHandler in get-all-chats.handler.ts');
         const data = await this.repository.GetAllChats();
         return data;
     }

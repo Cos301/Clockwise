@@ -1,7 +1,7 @@
 import { ProfilesRepository } from '@mp/api/profiles/data-access';
 import {
-    IUpdateAddressDetailsResponse,
-    UpdateAddressDetailsCommand
+  IUpdateAddressDetailsResponse,
+  UpdateAddressDetailsCommand
 } from '@mp/api/profiles/util';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { Profile } from '../models';
@@ -9,12 +9,12 @@ import { Profile } from '../models';
 @CommandHandler(UpdateAddressDetailsCommand)
 export class UpdateAddressDetailsHandler
   implements
-    ICommandHandler<UpdateAddressDetailsCommand, IUpdateAddressDetailsResponse>
+  ICommandHandler<UpdateAddressDetailsCommand, IUpdateAddressDetailsResponse>
 {
   constructor(
     private readonly publisher: EventPublisher,
     private readonly repository: ProfilesRepository
-  ) {}
+  ) { }
 
   async execute(command: UpdateAddressDetailsCommand) {
     console.log(`${UpdateAddressDetailsHandler.name}`);
@@ -29,9 +29,9 @@ export class UpdateAddressDetailsHandler
       Profile.fromData(profileData)
     );
 
-    // if (!request.profile.addressDetails)
-    //   throw new Error('Profile address details not found');
-    // profile.updateAddressDetails(request.profile.addressDetails);
+    if (!request.profile.addressDetails)
+      throw new Error('Profile address details not found');
+    profile.updateAddressDetails(request.profile.addressDetails);
     profile.commit();
 
     const response: IUpdateAddressDetailsResponse = { profile };

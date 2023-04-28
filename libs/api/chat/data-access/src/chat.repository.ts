@@ -6,6 +6,7 @@ import { IUser } from '@mp/api/users/util';
 @Injectable()
 export class ChatRepository {
     async GetAllChats(): Promise<IChat[]> {
+        console.log('GetAllChats in chat.repository.ts');
         const chatsRef = admin.firestore().collectionGroup('chats');
         const chats: IChat[] = [];
         const data = await chatsRef.get().then((snapshot) => {

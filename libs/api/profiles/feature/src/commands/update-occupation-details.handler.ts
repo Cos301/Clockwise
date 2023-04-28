@@ -1,7 +1,7 @@
 import { ProfilesRepository } from '@mp/api/profiles/data-access';
 import {
-    IUpdateOccupationDetailsResponse,
-    UpdateOccupationDetailsCommand
+  IUpdateOccupationDetailsResponse,
+  UpdateOccupationDetailsCommand
 } from '@mp/api/profiles/util';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { Profile } from '../models';
@@ -9,15 +9,15 @@ import { Profile } from '../models';
 @CommandHandler(UpdateOccupationDetailsCommand)
 export class UpdateOccupationDetailsHandler
   implements
-    ICommandHandler<
-      UpdateOccupationDetailsCommand,
-      IUpdateOccupationDetailsResponse
-    >
+  ICommandHandler<
+    UpdateOccupationDetailsCommand,
+    IUpdateOccupationDetailsResponse
+  >
 {
   constructor(
     private readonly publisher: EventPublisher,
     private readonly repository: ProfilesRepository
-  ) {}
+  ) { }
 
   async execute(command: UpdateOccupationDetailsCommand) {
     console.log(`${UpdateOccupationDetailsHandler.name}`);
@@ -32,9 +32,9 @@ export class UpdateOccupationDetailsHandler
       Profile.fromData(profileData)
     );
 
-    // if (!request.profile.occupationDetails)
-    //   throw new Error('Profile occupation details not found');
-    // profile.updateOccupationDetails(request.profile.occupationDetails);
+    if (!request.profile.occupationDetails)
+      throw new Error('Profile occupation details not found');
+    profile.updateOccupationDetails(request.profile.occupationDetails);
     profile.commit();
 
     const response: IUpdateOccupationDetailsResponse = { profile };

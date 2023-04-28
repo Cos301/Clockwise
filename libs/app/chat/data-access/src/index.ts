@@ -1,3 +1,3 @@
 export * from './chat.api';
-export * from './chats.module';
-export * from './chats.state';
+export * from './chat.module';
+export * from './chat.state';
