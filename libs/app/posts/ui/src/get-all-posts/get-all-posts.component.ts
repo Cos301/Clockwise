@@ -16,8 +16,8 @@ import { IUser } from '@mp/api/users/util';
   templateUrl: './get-all-posts.component.html',
   styleUrls: ['./get-all-posts.component.scss'],
 })
-
 export class GetAllPostsComponent {
+  public loaded = false;
   @Select(PostsState.posts) posts$!: Observable<IPost[] | null>;
   @Select(PostsState.user) users$!: Observable<IUser[]>;
   @Select(actionsExecuting([GetAllPosts, GetUserData, CreateComment]))
@@ -27,6 +27,10 @@ export class GetAllPostsComponent {
   users!: IUser[];
 
   constructor(private readonly store: Store) {
+    setTimeout(() => {
+      this.loaded = true;
+      this.showPosts();
+    }, 2000);
     this.callAllPosts();
     this.getUserData();
     this.posts$.subscribe((posts) => {
@@ -67,6 +71,7 @@ export class GetAllPostsComponent {
     );
   }
 
+
   calcTotalTIme(created: Timestamp, remove: Timestamp) {
     return remove.toDate().getTime() - created.toDate().getTime();
   }
@@ -76,5 +81,12 @@ export class GetAllPostsComponent {
     console.log('Francois', timestamp);
     const timeLeft: number = remove.toDate().getTime() - timestamp;
     return timeLeft.toString();
+  }
+  showPosts() {
+    const postCards = document.getElementsByTagName('single-post');
+    for (let index = 0; index < postCards.length; index++) {
+      postCards.item(index)?.classList.remove('hide');
+      
+    }
   }
 }

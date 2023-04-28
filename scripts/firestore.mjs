@@ -5,6 +5,7 @@ import 'firebase/firestore';
 
 import admin from 'firebase-admin';
 import { Timestamp } from 'firebase-admin/firestore';
+import { randomInt } from 'crypto';
 
 admin.initializeApp({ projectId: 'clockwise-12e44' });
 

@@ -21,3 +21,13 @@
 .wrapper button:active {
   filter: brightness(85%);
 }
+
+ion-list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.hide {
+opacity: 0;
+}

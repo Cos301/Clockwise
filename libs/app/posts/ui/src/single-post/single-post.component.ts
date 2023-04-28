@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { IPost } from '@mp/api/posts/util';
 import { IUser } from '@mp/api/users/util';
-import { GetAllPosts, GetUserData } from '@mp/app/posts/util';
+import { GetAllPosts } from '@mp/app/posts/util';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Observable, Timestamp } from 'rxjs';
 
 @Component({
   selector: 'single-post',
@@ -18,7 +18,7 @@ export class SinglePostComponent {
   busy$!: Observable<ActionsExecuting>;
   constructor(private readonly store: Store) {
   }
-
+  
   getUsername(id: string) {
     const user = this.users.find((user) => user.id === id);
     if (user?.userProfile) {
@@ -36,8 +36,11 @@ export class SinglePostComponent {
   }
 
   getDateCreated() {
-    const date = this.post.time_created.toDate();
-    return date.toString();
+    const time: any = this.post.time_created;
+    const date = new Date(time._seconds * 1000);
+
+    const fullDate: string = date.getDay() + ' ' + this.getMonth(date.getMonth()) + ' ' + date.getFullYear();
+    return fullDate;
   }
 
   getTimebarStyle() {
@@ -47,5 +50,10 @@ export class SinglePostComponent {
       "padding": "0",
       "background-color":"green"
     }
+  }
+
+  getMonth(month: number) {
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[month];
   }
 }
