@@ -1,4 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { IPost } from '@mp/api/posts/util';
+import { GetAllPosts } from '@mp/app/posts/util';
+import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'single-post',
@@ -6,20 +11,23 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./single-post.component.scss'],
 })
 export class SinglePostComponent {
-  @Input() myUsername : string;
-  @Input() minutesLeft: number;
-  @Input() totalMinutes: 10;
-  @Input() datePosted: string;
-  @Input() timePosted: string;
-  @Input() caption: string;
-  constructor() {
-    this.myUsername = "username";
-    this.minutesLeft = 5;
-    this.totalMinutes = 10;
-    this.datePosted = "12 March";
-    this.caption = "I am a caption";
-    this.timePosted = "13:23";
+  @Input() post!: IPost;
+  @Select(actionsExecuting([GetAllPosts]))
+  busy$!: Observable<ActionsExecuting>;
+  constructor(private readonly store: Store) {
+
   }
+
+  getDateCreated() {
+    const date = this.post.time_created.toDate();
+    return date.toString();
+  }
+
+  async getUserData() {
+    console.log('Francois', 'Get user data');
+    this.store.dispatch(new GetAllPosts({}));
+  }
+
   getTimebarStyle() {
     return {
       "width":"50%",

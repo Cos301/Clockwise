@@ -1,12 +1,11 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { CreatePostState } from '@mp/app/posts/data-access';
-import { CreatePost, DecrementCounter, HideCreatePost, IncrementCounter } from '@mp/app/posts/util';
+import { CreatePost, DecrementCounter, IncrementCounter } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Timestamp } from '@angular/fire/firestore';
 
 @Component({
   selector: 'create-post',

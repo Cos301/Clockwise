@@ -1,12 +1,10 @@
 <div id="PostContainer">
     <div *ngFor="let post of posts">
-        <single-post/>
+        <single-post [post]="post" />
     </div>
 </div>
 
 <div class="wrapper">
-    <button (click)="callAllPosts()">Get All Posts</button>
-    <button (click)="createComment()">Create comment</button>
-
-
+    <!-- <button (click)="callAllPosts()">Get All Posts</button> -->
+    <!-- <button (click)="createComment()">Create comment</button> -->
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
-import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, ShowCreatePost, HideCreatePost, DecrementCounter } from '@mp/app/posts/util';
+import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, DecrementCounter } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
@@ -111,7 +111,11 @@ export interface PostStateModel {
     errors: object;
   };
   count: number, 
-  createPostShown: boolean
+  createPostShown: boolean,
+  userdata: {
+    username: string | null;
+    user_img_url: string | null;
+  }
 }
 @State<PostStateModel>({
   name: 'createPost',
@@ -130,7 +134,11 @@ export interface PostStateModel {
       errors: {},
     },
     count: 1, 
-    createPostShown: false
+    createPostShown: false,
+    userdata: {
+      username: '',
+      user_img_url: '',
+    }
   },
 })
 @Injectable()
@@ -153,26 +161,6 @@ export class CreatePostState {
   @Selector()
   static createPostShown(state: PostStateModel) {
     return state.createPostShown;
-  }
-
-  @Action(ShowCreatePost)
-  showCreatePost(ctx: StateContext<PostStateModel>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      createPostShown: true
-    })
-    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
-  }
-
-  @Action(HideCreatePost)
-  hideCreatePost(ctx: StateContext<PostStateModel>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      createPostShown: false
-    })
-    console.log("🚀 ~ file: posts.state.ts:175 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
   }
 
   @Action(IncrementCounter)

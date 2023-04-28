@@ -1,7 +1,7 @@
 <div id="container">  
     <div id="imageAndUsername">
-        <img src="assets/placeholderAssets/view-post.jpg" />
-        <div>{{this.myUsername}}</div>
+        <img src="" />
+        <div>{{post.user_id}}</div>
     </div> 
 
     <div id="timebar">
@@ -9,15 +9,17 @@
     </div>
     
 
-    <img id="mainImage" src="assets/placeholderAssets/view-post.jpg" />
+    <img id="mainImage" src="{{post.img_url}}" />
 
     <div id="toolbar">
-        <img src="assets/placeholderAssets/thumbs-up.png"/>
-        <img src="assets/placeholderAssets/comment.png"/>
-        <div><p>{{this.datePosted}} | {{this.timePosted}}</p></div>
+        <ion-icon name="heart-outline" size="large"></ion-icon>
+        
+        <ion-icon name="chatbox-ellipses-outline" size="large"></ion-icon>
+        <!-- <img src="assets/placeholderAssets/comment.png"/> -->
+        <div><p>12 March 2023</p></div>
     </div>
 
     <div id="caption">
-        {{this.caption}}
+        {{post.caption}}
     </div>
 </div> 
