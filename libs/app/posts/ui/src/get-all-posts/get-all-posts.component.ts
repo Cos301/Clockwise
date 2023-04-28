@@ -5,7 +5,7 @@ import {
 } from '@ngxs-labs/actions-executing';
 import { Select, Selector, Store } from '@ngxs/store';
 import { PostsState } from '@mp/app/posts/data-access';
-import { CreateComment, GetAllPosts } from '@mp/app/posts/util';
+import { CreateComment, GetAllPosts, GetUserData } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { Timestamp } from 'firebase-admin/firestore';
@@ -42,6 +42,10 @@ export class GetAllPostsComponent {
       this.store
     );
     this.store.dispatch(new GetAllPosts({}));
+  }
+
+  public getUserData(userId: string) {
+    this.store.dispatch(new GetUserData(userId));
   }
 
   public createComment() {

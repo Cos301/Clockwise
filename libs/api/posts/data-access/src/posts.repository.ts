@@ -54,6 +54,14 @@ export class PostsRepository {
     console.log('posts.repository.ts:29 ~ posts:', posts);
     return posts;
   }
+
+  async getUserData(userId: string) {
+    const userRef = admin.firestore().collectionGroup('users');
+    const userSnapshot = await userRef.get();
+    console.log('Francois - userSnapshot', userSnapshot);
+    
+    return '';
+  }
   
   
 

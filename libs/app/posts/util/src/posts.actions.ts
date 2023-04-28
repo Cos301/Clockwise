@@ -9,6 +9,20 @@ export class GetAllPosts {
   }
 }
 
+export class GetUserData {
+  static readonly type = '[Posts] GetUserData';
+  constructor(public readonly userId: string) { 
+    console.log(
+      'Francois ~ file: posts.actions.ts:14 ~ GetUserData ~ constructor ~ constructor'
+    );
+  }
+}
+
+export class setUserData {
+  static readonly type = '[Posts] setUserData';
+  constructor(public readonly user: any) { }
+}
+
 export class setAllPosts {
   static readonly type = '[Posts] setAllPosts';
   constructor(public readonly posts: IPost[]) { }

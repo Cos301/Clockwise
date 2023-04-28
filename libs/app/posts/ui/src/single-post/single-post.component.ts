@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IPost } from '@mp/api/posts/util';
-import { GetAllPosts } from '@mp/app/posts/util';
+import { GetAllPosts, GetUserData } from '@mp/app/posts/util';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -23,9 +23,9 @@ export class SinglePostComponent {
     return date.toString();
   }
 
-  async getUserData() {
+  async getUserData(userId: string) {
     console.log('Francois', 'Get user data');
-    this.store.dispatch(new GetAllPosts({}));
+    this.store.dispatch(new GetUserData(userId));
   }
 
   getTimebarStyle() {

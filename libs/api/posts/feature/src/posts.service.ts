@@ -10,6 +10,9 @@ import {
   ICreatePostRequest,
   ICreatePostResponse,
   CreatePostCommand,
+  IGetUserDataRequest,
+  IGetUserDataResponse,
+  GetUserDataQuery,
 } from '@mp/api/posts/util';
 
 @Injectable()
@@ -45,5 +48,12 @@ export class PostsService {
     return await this.cmdBus.execute<CreatePostCommand, ICreatePostResponse>(
       new CreatePostCommand(request)
     );
+  }
+
+  async getUserData(request: IGetUserDataRequest): Promise<IGetUserDataResponse> {
+    return await this.queryBus.execute<
+    GetUserDataQuery,
+    IGetUserDataResponse
+    >(new GetUserDataQuery(request));
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPost, IComment, ICreatePostRequest } from '@mp/api/posts/util';
-import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, DecrementCounter } from '@mp/app/posts/util';
+import { IncrementCounter, setCreatedPost, CreatePost, CreateComment, GetAllPosts, setAllPosts, DecrementCounter, GetUserData } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
@@ -72,6 +72,18 @@ export class PostsState {
 
       return ctx.dispatch(new setAllPosts(response.posts));
     } catch (error) {
+      return error;
+    }
+  }
+
+  @Action(GetUserData)
+  async getUserData(ctx: StateContext<PostsStateModel>, action: GetUserData) {
+    console.log('Francois - posts.state.ts:65 ~ PostsState ~ getUserData');
+    try {
+      const responseRef = await this.postsApi.getUserData(action.userId);
+      console.log(responseRef);
+    }
+    catch (error) {
       return error;
     }
   }
