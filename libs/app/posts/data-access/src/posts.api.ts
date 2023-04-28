@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { Functions, httpsCallable } from '@angular/fire/functions';
-import * as admin from 'firebase-admin';
-import { ICreateCommentRequest, ICreatePostResponse, ICreateCommentResponse, ICreatePostRequest, IGetAllPostsRequest, IGetAllPostsResponse } from '@mp/api/posts/util';
+import { ICreateCommentRequest, ICreatePostResponse, ICreateCommentResponse, ICreatePostRequest, IGetAllPostsRequest, IGetAllPostsResponse, IGetUserDataRequest, IGetUserDataResponse } from '@mp/api/posts/util';
 
 @Injectable()
 export class PostsApi {
@@ -19,12 +18,12 @@ export class PostsApi {
     )(request);
   }
 
-  async getUserData(userId: string) {
-    console.log('getUserData callable');
-    return await httpsCallable<any,any> (
+  async getUserData(request: IGetUserDataRequest) {
+    console.log('Francois - getUserData callable');
+    return await httpsCallable<IGetUserDataRequest,IGetUserDataResponse> (
       this.functions,
       'getUserData'
-    )(userId);
+    )(request);
   }
 
   async createPost(request: ICreatePostRequest) {

@@ -1,12 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import { IComment, IPost } from '@mp/api/posts/util';
+import { IUser, IUserProfile } from '@mp/api/users/util';
+import { user } from 'firebase-functions/v1/auth';
 
 @Injectable()
 export class PostsRepository {
   //Fetch all posts from the database
   async fetchAllPosts(): Promise<IPost[]> {
-    console.log('Fetch all posts');
+    // console.log('Fetch all posts');
   
     const postsRef = admin.firestore().collectionGroup('posts');
     const posts: IPost[] = [];
@@ -29,7 +31,6 @@ export class PostsRepository {
             user_id: commentData.user_id,
             comment_children: commentData.comment_children,
           };
-          console.log('Francois -test', newComment);
           return newComment;
         });
         comments.push(newcomment);
@@ -45,22 +46,31 @@ export class PostsRepository {
         user_id: post.user_id,
       };
   
-      console.log('newPost:', newPost);
       posts.push(newPost);
     });
   
     await Promise.all(postPromises);
   
-    console.log('posts.repository.ts:29 ~ posts:', posts);
     return posts;
   }
 
-  async getUserData(userId: string) {
-    const userRef = admin.firestore().collectionGroup('users');
+
+  async getUserData() {
+    const userRef = admin.firestore().collection('users');
     const userSnapshot = await userRef.get();
-    console.log('Francois - userSnapshot', userSnapshot);
-    
-    return '';
+    const users: IUser[] = [];
+
+    const userPromises = userSnapshot.docs.map(async (doc) => {
+      const userData = doc.data() as IUserProfile;
+      userData.posts = [];
+      const newUser: IUser = {
+        id: userData.user_id,
+        userProfile: userData
+      };
+      users.push(newUser);
+    });
+    await Promise.all(userPromises);
+    return users;
   }
   
   

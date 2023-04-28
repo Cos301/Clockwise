@@ -21,8 +21,8 @@ export class CreateCommentHandler implements ICommandHandler<CreateCommentComman
       user_id: userId, text, time_created: Timestamp.now(), comment_id: 'some_random_text', comment_children: []
     }
 
-    let newCommentId = crypto.randomBytes(16).toString('hex');
-    let newCommentRef = admin.firestore().doc(`/comments/${newCommentId}`);
+    const newCommentId = crypto.randomBytes(16).toString('hex');
+    const newCommentRef = admin.firestore().doc(`/comments/${newCommentId}`);
 
     commentsArray.push(newCommentRef);
     admin.firestore().batch().create(newCommentRef, data).update(postRef, { comments: commentsArray }).commit();

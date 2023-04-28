@@ -9,6 +9,7 @@ import { CreateComment, GetAllPosts, GetUserData } from '@mp/app/posts/util';
 import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { Timestamp } from 'firebase-admin/firestore';
+import { IUser } from '@mp/api/users/util';
 
 @Component({
   selector: 'get-all-posts',
@@ -18,17 +19,23 @@ import { Timestamp } from 'firebase-admin/firestore';
 
 export class GetAllPostsComponent {
   @Select(PostsState.posts) posts$!: Observable<IPost[] | null>;
-  @Select(actionsExecuting([GetAllPosts]))
+  @Select(PostsState.user) users$!: Observable<IUser[]>;
+  @Select(actionsExecuting([GetAllPosts, GetUserData, CreateComment]))
   busy$!: Observable<ActionsExecuting>;
 
   posts!: IPost[];
+  users!: IUser[];
 
   constructor(private readonly store: Store) {
     this.callAllPosts();
+    this.getUserData();
     this.posts$.subscribe((posts) => {
       this.posts = posts || [];
     });
-    console.log('Francois', this.posts);
+
+    this.users$.subscribe((users) => {
+      this.users = users || [];
+    });
   }
 
   @Selector()
@@ -44,8 +51,8 @@ export class GetAllPostsComponent {
     this.store.dispatch(new GetAllPosts({}));
   }
 
-  public getUserData(userId: string) {
-    this.store.dispatch(new GetUserData(userId));
+  public getUserData() {
+    this.store.dispatch(new GetUserData({}));
   }
 
   public createComment() {

@@ -25,6 +25,7 @@ export class PostsService {
   async getAllPosts(
     request: IGetAllPostsRequest
   ): Promise<IGetAllPostsResponse> {
+    console.log('getAllPosts Service');
     const response = await this.queryBus.execute<
       GetAllPostsQuery,
       IGetAllPostsResponse
@@ -51,6 +52,7 @@ export class PostsService {
   }
 
   async getUserData(request: IGetUserDataRequest): Promise<IGetUserDataResponse> {
+    console.log('Francois - getUserData Service', request);
     return await this.queryBus.execute<
     GetUserDataQuery,
     IGetUserDataResponse

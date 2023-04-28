@@ -10,14 +10,15 @@ import {
   ShowCreatePost,
   HideCreatePost,
   DecrementCounter,
-  ResetCounter,
-  GetUserData
+  GetUserData,
+  setUserData
 } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
 import { Timestamp } from '@angular/fire/firestore';
 import produce from 'immer';
 import { AuthState } from '@mp/app/auth/data-access';
+import { IUser } from '@mp/api/users/util';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostsStateModel {
   posts: IPost[];
@@ -29,6 +30,7 @@ export interface PostsStateModel {
   // time_remove: Timestamp;
   // user_id: string;
   count: number;
+  users: IUser[];
 }
 
 @State<PostsStateModel>({
@@ -43,6 +45,7 @@ export interface PostsStateModel {
     // time_remove: Timestamp.now(),
     // user_id: ''
     count: 0,
+    users: []
   },
 })
 @Injectable()
@@ -54,6 +57,11 @@ export class PostsState {
   @Selector()
   static posts(state: PostsStateModel) {
     return state.posts;
+  }
+
+  @Selector()
+  static user(state: PostsStateModel) {
+    return state.users;
   }
 
   @Selector()
@@ -93,12 +101,23 @@ export class PostsState {
   async getUserData(ctx: StateContext<PostsStateModel>, action: GetUserData) {
     console.log('Francois - posts.state.ts:65 ~ PostsState ~ getUserData');
     try {
-      const responseRef = await this.postsApi.getUserData(action.userId);
-      console.log(responseRef);
+      const responseRef = await this.postsApi.getUserData(action.request);
+      const response = responseRef.data;
+
+      return ctx.dispatch(new setUserData(response.users));
     }
     catch (error) {
       return error;
     }
+  }
+
+  @Action(setUserData)
+  setUserData(ctx: StateContext<PostsStateModel>, { users }: setUserData) {
+    return ctx.setState(
+      produce((draft) => {
+        draft.users = users;
+      })
+    );
   }
 
   @Action(CreateComment)

@@ -1,4 +1,5 @@
-import { ICreateCommentRequest, IGetAllPostsRequest, IPost } from '@mp/api/posts/util';
+import { ICreateCommentRequest, IGetAllPostsRequest, IGetUserDataRequest, IPost } from '@mp/api/posts/util';
+import { IUser } from '@mp/api/users/util';
 
 export class GetAllPosts {
   static readonly type = '[Posts] GetAllPosts';
@@ -11,16 +12,16 @@ export class GetAllPosts {
 
 export class GetUserData {
   static readonly type = '[Posts] GetUserData';
-  constructor(public readonly userId: string) { 
+  constructor(public readonly request: IGetUserDataRequest) { 
     console.log(
-      'Francois ~ file: posts.actions.ts:14 ~ GetUserData ~ constructor ~ constructor'
+      'Francois ~ file: posts.actions.ts:14 ~ GetUserData'
     );
   }
 }
 
 export class setUserData {
   static readonly type = '[Posts] setUserData';
-  constructor(public readonly user: any) { }
+  constructor(public readonly users: IUser[]) { }
 }
 
 export class setAllPosts {

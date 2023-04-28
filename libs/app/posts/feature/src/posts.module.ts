@@ -5,9 +5,11 @@ import { IonicModule } from '@ionic/angular';
 import {GetAllPostsModule , CreatePostModule} from '@mp/app/posts/ui';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PostsPage } from './posts.page';
-import { PostsRouting } from './posts.routing';
+import { PostsRouting } from './posts.routing'
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { TimeBarComponent } from '@mp/global-ui';
+import { TimeBarComponent } from 'libs/global-ui/src/lib/time-bar/time-bar.component';
+
+
 
 @NgModule({
   imports: [
