@@ -7,7 +7,7 @@ export interface IUser {
   displayName?: string | null | undefined;
   photoURL?: string | null | undefined;
   phoneNumber?: string | null | undefined;
-  customClaims?: { [key: string]: any } | null | undefined;
+  customClaims?: { [key: string]: any | null | undefined} | null | undefined;
   created?: Timestamp | null | undefined;
   userProfile?: IUserProfile | null | undefined;
 }
