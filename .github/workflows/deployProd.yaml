@@ -28,9 +28,6 @@ jobs:
           cache: 'yarn'
       - run: |
          yarn install --frozen-lockfile
-      - name: Deploy Firebase
-        run: yarn deploy:prod
-      - name: deploy app
-        run: yarn deploy:app:prod
-      - name: deploy api
-        run: yarn deploy:api:prod
+      - name: Deploy 
+        run: yarn shipit:prod
+
