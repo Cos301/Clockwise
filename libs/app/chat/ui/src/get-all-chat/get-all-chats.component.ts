@@ -4,6 +4,7 @@ import { Select, Selector, Store } from '@ngxs/store';
 import { ChatState } from '@mp/app/chat/data-access';
 import { GetAllChats } from '@mp/app/chat/util';
 import { IChat } from '@mp/api/chat/util';
+
 import { Observable } from 'rxjs';
 // import { SingleChat } from '../single-chat';
 
@@ -38,10 +39,7 @@ export class GetAllChatsComponent {
         ]
     }
 
-    @Selector()
-    private GetAllChats() {
-        return this.store.select(state => state.chats.chats)
-    }
+    
 
     public CallAllChats() {
         this.store.dispatch(new GetAllChats({chat:null}));

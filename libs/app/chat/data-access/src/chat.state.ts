@@ -54,6 +54,7 @@ export class ChatState {
 
   @Action(GetAllChats)
   async getAllChats(ctx: StateContext<ChatsStateModel>, action: GetAllChats) {
+    console.log('GetAllChats in chat.state.ts');
     try {
       const responseRef = await this.chatApi.getAllChats(action.request);
       const response = responseRef.data;

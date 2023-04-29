@@ -1,17 +1,18 @@
 <div id="container">
     <div>
-        <img src={{this.profilePhotoUrl}}/>
+        <img onerror="this.src='https://media.istockphoto.com/id/871752462/vector/default-gray-placeholder-man.jpg?s=612x612&w=0&k=20&c=4aUt99MQYO4dyo-rPImH2kszYe1EcuROC6f2iMQmn8o='"
+            src={{getProfilePhoto()}} />
     </div>
     <div>
         <div>
-            <div id="chatName">{{this.chatName}}</div><br/>
+            <div id="chatName">{{getName()}}</div><br />
             <div>
                 <div id="msgPreview">
-                    {{this.msgPreview}}
+                    {{messagegPreview()}}
                 </div>
             </div>
         </div>
     </div>
-    <div id="time">{{this.time}}</div>
-    <div id="unread">{{this.unreadCount}}</div>
+    <div id="time">{{lastMessageTime()}}</div>
+    <div id="unread">{{messageCount()}}</div>
 </div>

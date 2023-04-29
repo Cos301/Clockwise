@@ -13,8 +13,10 @@ export class GetAllChatsHandler implements IQueryHandler<GetAllChatsQuery> {
   async execute(query: GetAllChatsQuery) {
     console.log('GetAllChatsHandler in get-all-chats.handler.ts');
     const data = await this.repository.GetAllChats();
+     
     // const chats: IChat[] = [];
     // data.forEach((x) => chats.push(x as IChat))
+    // console.log(chats);
     return data;
   }
 }

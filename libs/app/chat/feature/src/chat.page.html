@@ -1,7 +1,11 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <mp-chat-search/>
-    <mp-message-container/>
+
+    <!-- <button (click)="CallAllChats()">Get All chats</button> -->
   </div>
-  <button (click)="getAllChats()">Get all</button>
+  <div *ngFor="let chat of chats;">
+   <div style="height: 4px;"></div>
+    <mp-message-bubble [chat]="chat"></mp-message-bubble>
+  </div>
 </ion-content>
