@@ -143,7 +143,6 @@ export interface PostStateModel {
   post: IPost | null;
   createPostForm: {
     model: {
-     
       caption: string | null;
       img_url: string | null;
      
@@ -259,6 +258,8 @@ export class CreatePostState {
       const caption = state.createPostForm.model.caption || "Post caption";
       const comments: IComment[] = [];
       const img_url = "state.createPostForm.model.img_url test";
+      const file_img_url = state.createPostForm.model.img_url || "test image ";
+
       const time_created = Timestamp.fromDate(new Date());
       const dateRemoved = new Date();
       const count = state.count;
@@ -282,14 +283,14 @@ export class CreatePostState {
       const request: ICreatePostRequest = {
         caption,
         postLife: count + 1,
-        img_url,
+        img_url : file_img_url,
         post_id,
         user_id,
       };
-      console.log(
-        '🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:',
-        request
-      );
+      // console.log(
+      //   '🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:',
+      //   request
+      // );
       const responseRef = await this.postsApi.createPost(request);
       const response = responseRef.data;
       console.log(

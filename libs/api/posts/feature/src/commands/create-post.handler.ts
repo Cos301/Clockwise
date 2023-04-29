@@ -22,6 +22,7 @@ export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
     // const time_remove = request.post.time_remove;
     const user_id = request.user_id;
     const postLife = request.postLife;
+    
     //const post_id = "post_id_test";
     //const caption = "caption_test";
 
@@ -35,7 +36,7 @@ export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
         post_id,
         caption,
         comments : [],
-        img_url,
+        img_url : img_url,
         time_created: time_created,
         time_remove,
         user_id

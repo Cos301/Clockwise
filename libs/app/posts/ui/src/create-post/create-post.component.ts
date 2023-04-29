@@ -77,7 +77,9 @@ export class CreatePostComponent {
         this.imageSrc = reader.result as string;
 
         this.createPostForm.patchValue({
-          fileSource: reader.result as string
+          // fileSource: reader.result as string,
+          img_url: reader.result as string,
+
         })
       }
     }
