@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { GetAllChatsComponent } from './get-all-chats.component'
+import { ChatSearchComponent } from './chat-search.component';
 
 @NgModule({
-  declarations: [GetAllChatsComponent],
+  declarations: [ChatSearchComponent],
   imports: [CommonModule, IonicModule],
-  exports: [GetAllChatsComponent],
+  exports: [ChatSearchComponent],
 })
-export class GetAllChat {}
+export class ChatSearch {}

@@ -1,26 +1,10 @@
 {
   "name": "app-chat-ui",
-  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/app/chat/ui/src",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
+  "sourceRoot": "libs/app/chat/ui/src",
+  "prefix": "mp",
   "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/app/chat/ui",
-        "main": "libs/app/chat/ui/src/index.ts",
-        "tsConfig": "libs/app/chat/ui/tsconfig.lib.json",
-        "assets": ["libs/app/chat/ui/*.md"]
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/app/chat/ui/**/*.ts"]
-      }
-    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -33,6 +17,16 @@
           "ci": true,
           "codeCoverage": true
         }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/app/chat/ui/**/*.ts",
+          "libs/app/chat/ui/**/*.html"
+        ]
       }
     }
   },

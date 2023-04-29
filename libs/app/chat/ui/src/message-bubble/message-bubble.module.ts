@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { GetAllChatsComponent } from './get-all-chats.component'
+import { MessageBubbleComponent } from './message-bubble.component';
 
 @NgModule({
-  declarations: [GetAllChatsComponent],
+  declarations: [MessageBubbleComponent],
   imports: [CommonModule, IonicModule],
-  exports: [GetAllChatsComponent],
+  exports: [MessageBubbleComponent],
 })
-export class GetAllChat {}
+export class MessageBubble{}

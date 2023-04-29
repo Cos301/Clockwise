@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'in-chat',
+  selector: 'mp-in-chat',
   templateUrl: './in-chat.component.html',
-  styleUrls: ['./in-chat.component.scss'],
+  styleUrls: ['./in-chat.component.scss']
 })
 export class InChatComponent {
   @Input() chatHistory: any | undefined;

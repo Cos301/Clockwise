@@ -13,7 +13,7 @@ type ChatType = {
 }
 
 @Component({
-    selector: 'get-all-chats',
+    selector: 'mp-get-all-chats',
     templateUrl: './get-all-chats.component.html',
     styleUrls: ['./get-all-chats.component.scss'],
 })

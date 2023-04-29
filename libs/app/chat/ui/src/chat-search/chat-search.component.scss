@@ -1,0 +1,16 @@
+input[type=text] {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    /*TODO: change to var(--stdFont) in producion */
+    font-family: "Merriweather";
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+input[type=text]:focus {
+    outline: none !important;
+}

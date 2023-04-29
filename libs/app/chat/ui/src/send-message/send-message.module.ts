@@ -20,4 +20,4 @@ import { ChatModule } from "@mp/app/chat/data-access";
     ],
     exports: [SendMessageComponent]
 })
-export class SendMessageModule {}
+export class SendMessage {}
