@@ -1,4 +1,7 @@
 <ion-content [fullscreen]="true">
-  <mp-chat-search/>
-  <mp-message-container/>
+  <div id="container">
+    <mp-chat-search/>
+    <mp-message-container/>
+  </div>
+  <button (click)="getAllChats()">Get all</button>
 </ion-content>

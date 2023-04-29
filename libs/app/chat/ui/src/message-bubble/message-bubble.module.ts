@@ -4,8 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { MessageBubbleComponent } from './message-bubble.component';
 
 @NgModule({
-  declarations: [MessageBubbleComponent],
-  imports: [CommonModule, IonicModule],
+  declarations: [],
+  imports: [CommonModule, IonicModule, MessageBubbleComponent],
   exports: [MessageBubbleComponent],
 })
 export class MessageBubble{}

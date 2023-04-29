@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { MessageContainerComponent } from './message-container.component';
+import { MessagesContainerComponent } from './messages-container.component';
 
 @NgModule({
-  declarations: [MessageContainerComponent],
-  imports: [CommonModule, IonicModule],
-  exports: [MessageContainerComponent],
+  declarations: [],
+  imports: [CommonModule, IonicModule, MessagesContainerComponent],
+  exports: [MessagesContainerComponent],
 })
 export class MessageContainer {}

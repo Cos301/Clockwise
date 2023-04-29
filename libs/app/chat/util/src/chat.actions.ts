@@ -2,7 +2,7 @@ import { IChat, IGetAllChatsRequest, ICreateMessageRequest } from '@mp/api/chat/
 
 
 export class GetAllChats {
-    static readonly type = '[Chat] GetAllChat';
+    static readonly type = '[Chat] GetAllChats';
     constructor(public readonly request: IGetAllChatsRequest) {
         console.log('GetAllChats in chat.actions.ts');
     }
