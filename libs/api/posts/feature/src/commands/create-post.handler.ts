@@ -27,6 +27,7 @@ export class CreatePostHandler implements ICommandHandler<CreatePostCommand> {
     //const caption = "caption_test";
 
     //const img_url = "img_url_test";
+    
     const dateRemoved = new Date();
     dateRemoved.setHours(postLife);
       
