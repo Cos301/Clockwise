@@ -7,7 +7,8 @@ import {
   ActionsExecuting,
 } from '@ngxs-labs/actions-executing';
 import { Observable } from 'rxjs';
-import { IChat,  IMessage  } from '@mp/api/chat/util';
+import { IChat, IMessage } from '@mp/api/chat/util';
+import { AuthState } from '@mp/app/auth/data-access';
 
 @Component({
   selector: 'ms-profile-page',
@@ -46,10 +47,10 @@ export class ChatPage {
     //set the state of the messages
     console.log('here are the messages: ', messages);
 
-    if (messages) 
+    if (messages)
       this.currentChatMessages = messages;
-     
-    
+
+
     this.isChatPageOpen = true;
   }
 
@@ -62,14 +63,24 @@ export class ChatPage {
     this.isChatPageOpen = false;
   }
 
-  public test(chat: any) : boolean {
-    
+  public test(chat: any): boolean {
     const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-    console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery)
     if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
       return true;
-      
+
     return false;
+  }
+
+  public testList(chat: any): boolean {
+    const user_id = this.store.selectSnapshot(AuthState.user)?.uid;
+
+    let inChat = false;
+    chat.users.forEach((user: any) => {
+      if (user.userProfile.user_id === user_id) {
+        inChat = true;
+      }
+    });
+    return inChat;
   }
 
   clearText() {

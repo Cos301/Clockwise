@@ -25,7 +25,7 @@ const generateMockData = async () => {
   try {
     const users = [
       {
-        id: '1',
+        id: 'xj3fV47De1Hhbr19F5hKeSLy2vJo',
         email: null,
         displayName: null,
         photoURL: null,
@@ -33,7 +33,7 @@ const generateMockData = async () => {
         customClaims: null,
         created: null,
         userProfile: {
-          user_id: '1',
+          user_id: 'xj3fV47De1Hhbr19F5hKeSLy2vJo',
           username: 'jonDoe',
           password: 'password1',
           first_name: 'Bob',
@@ -126,13 +126,13 @@ const generateMockData = async () => {
       {
         chat_id: '10',
         users: [
-          db.collection('users').doc('xjIP0HPStw9pUxEIWEcnRkn52fjK'),
+          db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
           db.collection('users').doc('2'),
         ],
         messages: [
           {
             message_id: '154',
-            from: 'xjIP0HPStw9pUxEIWEcnRkn52fjK',
+            from: 'xj3fV47De1Hhbr19F5hKeSLy2vJo',
             timestamp: created,
             content: 'Hello Thomas user test',
           },
@@ -147,13 +147,13 @@ const generateMockData = async () => {
       {
         chat_id: '11',
         users: [
-          db.collection('users').doc('1'),
+          db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
           db.collection('users').doc('2'),
         ],
         messages: [
           {
             message_id: '123',
-            from: '1',
+            from: 'xj3fV47De1Hhbr19F5hKeSLy2vJo',
             timestamp: created,
             content: 'hello',
           },
@@ -168,7 +168,7 @@ const generateMockData = async () => {
       {
         chat_id: '12',
         users: [
-          db.collection('users').doc('1'),
+          db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
           db.collection('users').doc('3'),
         ],
         messages: [
@@ -180,7 +180,7 @@ const generateMockData = async () => {
           },
           {
             message_id: '126',
-            from: '1',
+            from: 'xj3fV47De1Hhbr19F5hKeSLy2vJo',
             timestamp: created,
             content: 'hey',
           },
@@ -297,7 +297,7 @@ const generateMockData = async () => {
     const comments = [
       {
         comment_id: '11111',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
         text: 'What a loser of a post, get better noob',
         time_created: created,
       },
@@ -327,13 +327,13 @@ const generateMockData = async () => {
       },
       {
         comment_id: '11116',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
         text: 'Great post! Very inspiring!',
         time_created: created,
       },
       {
         comment_id: '11117',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
         text: 'Why do you want to do this to yourself?',
         time_created: created,
       },
@@ -351,7 +351,7 @@ const generateMockData = async () => {
       },
       {
         comment_id: '11120',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('xj3fV47De1Hhbr19F5hKeSLy2vJo'),
         text: "And just to be clear, I'm not trying to be mean, I'm just trying to help you out I don't want to offend you in any way, shape or form. This post was made with sugar spice and everything nice.",
         time_created: created,
       },
