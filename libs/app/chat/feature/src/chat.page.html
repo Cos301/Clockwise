@@ -15,6 +15,6 @@
   </div> 
   
 
-  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]="this.currentChatMessages"/>
+  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]="this.currentChatMessages" (closeModal)="closeModal()"/>
 
 </ion-content>

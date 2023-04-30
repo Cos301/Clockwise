@@ -57,6 +57,11 @@ export class ChatPage {
     this.store.dispatch(new GetAllChats({ chat: null }));
   }
 
+  public closeModal() {
+    console.log('Calling close in parent');
+    this.isChatPageOpen = false;
+  }
+
   public test(chat: any) : boolean {
     
     const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;

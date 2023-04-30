@@ -42,7 +42,7 @@
     <ion-grid>
 
 
-      <ng-container *ngIf="cmp() !== chat.from; else notCurrentUser">
+      <ng-container *ngIf="getCurrentUserId() !== chat.from; else notCurrentUser">
 
         <ion-row>
 
