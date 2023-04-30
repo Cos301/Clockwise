@@ -1,21 +1,36 @@
-.username_heading{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.col1{
+  flex: 1;
+  max-width: 20%;
   background-color: #ceeebf;
+  align-items: center;
+}
+.col2{
+  flex: 1;
+  max-width: 20%;
+  background-color: #ceeebf;
+  align-items: center;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 2rem;
-  margin-top: 30px;
+.col3{
+  flex: 1;
+  max-width: 53.33%;
+  background-color: #ceeebf;
+  align-items: center;
 }
+
+
+.container{
+  display: flex;
+  width: 100%;
+  background-color: #ceeebf;;
+}
+
 
 .profile_picture{
-  max-height: 40px;
-  max-width: 40px;
-  margin-top: 25px;
+  max-height: 50px;
+  max-width: 50px;
+  margin-top: 5rem;
+  margin-right: 0;
 }
 
 .message-container {
@@ -73,5 +88,18 @@ h1 {
   margin-top: 10px;
   background-color: white;
   text-align: center;
+}
+
+#back{
+  background-color: #ceeebf;
+  top: 10px ;
+  left : 0 ;
+  border: none;
+  padding: 0 ;
+  float: left;
+}
+
+.test{
+  display: inline;
 }
 
