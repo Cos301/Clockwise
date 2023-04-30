@@ -7,6 +7,7 @@ import { MessageContainer, ChatSearch, MessageBubble } from '@mp/app/chat/ui';
 import { ChatRouting } from './chat.routing';
 import { NgxsModule } from '@ngxs/store';
 import { ChatState, ChatModule as ChatModuleDataAccess } from '@mp/app/chat/data-access';
+import {InChat} from '@mp/app/chat/ui';
 
 @NgModule({
   declarations: [ChatPage],
@@ -18,7 +19,8 @@ import { ChatState, ChatModule as ChatModuleDataAccess } from '@mp/app/chat/data
     ChatSearch, 
     ChatModuleDataAccess,
     MessageBubble,
-    NgxsModule.forFeature([ChatState])
+    NgxsModule.forFeature([ChatState]), 
+    InChat
   ],
   exports: [ChatPage],
 })

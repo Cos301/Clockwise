@@ -3,11 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IProfile } from '@mp/api/profiles/util';
 import { ProfileState } from '@mp/app/profile/data-access';
 import { Logout, UpdateAccountDetails } from '@mp/app/profile/util';
-
-
-import { GetAllChats } from '@mp/app/chat/util';
-
-
+import { CreateChat } from '@mp/app/chat/util';
+import { Timestamp } from '@angular/fire/firestore';
+import { IChat, ICreateChatRequest } from '@mp/api/chat/util';
 import {
   ActionsExecuting,
   actionsExecuting
@@ -103,8 +101,17 @@ export class AccountDetailsComponent {
     this.store.dispatch(new UpdateAccountDetails());
   }
 
-  callAllChats() {
-    console.log('callAllChats');
-    this.store.dispatch(new GetAllChats({chat:null}));
+  createChat() {
+    console.log('createChat');
+    const chatObj : IChat = {
+      chat_id : "15",
+      users: [],
+      messages: [],
+    };
+    const req : ICreateChatRequest = {
+      chat: chatObj,
+    }
+    
+    this.store.dispatch(new CreateChat(req));
   }
 }

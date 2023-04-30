@@ -2,6 +2,8 @@ import * as functions from 'firebase-functions';
 import {
   ICreateMessageRequest,
   ICreateMessageResponse,
+  ICreateChatRequest,
+  ICreateChatResponse,
   IGetAllChatsRequest,
   IGetAllChatsResponse,
 } from '@mp/api/chat/util';
@@ -23,5 +25,13 @@ export const createMessage = functions.https.onCall(
     const app = await NestFactory.createApplicationContext(CoreModule);
     const service = app.get(ChatService);
     return service.createMessage(request);
+  }
+);
+
+export const createChat = functions.https.onCall(
+  async (request: ICreateChatRequest): Promise<ICreateChatResponse> => {
+    const app = await NestFactory.createApplicationContext(CoreModule);
+    const service = app.get(ChatService);
+    return service.createChat(request);
   }
 );

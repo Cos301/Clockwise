@@ -6,6 +6,10 @@
   </div>
   <div *ngFor="let chat of chats;">
    <div style="height: 4px;"></div>
-    <mp-message-bubble [chat]="chat"></mp-message-bubble>
+    <mp-message-bubble (chatPageOpen)="chatPageOpen($event)" [chat]="chat"></mp-message-bubble>
   </div>
+  
+
+  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]=""/>
+
 </ion-content>

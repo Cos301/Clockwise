@@ -1,4 +1,5 @@
-import { IChat, IGetAllChatsRequest, ICreateMessageRequest } from '@mp/api/chat/util';
+import { IChat, IGetAllChatsRequest, ICreateMessageRequest, ICreateChatRequest } from '@mp/api/chat/util';
+
 
 
 export class GetAllChats {
@@ -24,7 +25,7 @@ export class CreateMessage {
 
 export class CreateChat {
     static readonly type = '[Chat] CreateChat';
-    constructor() { 
+    constructor(public readonly chat: ICreateChatRequest) { 
         console.log("chat created");
     }
 }

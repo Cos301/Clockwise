@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
 
 
 @Component({
-  selector: 'send-message',
+  // selector: 'send-message',
   templateUrl: './send-message.component.html',
   styleUrls: ['./send-message.component.scss'],
 })
@@ -62,8 +62,8 @@ export class SendMessageComponent {
     this.store.dispatch(new IncrementCounter());
   }
 
-  public createChat() {
-    this.createChatForm;
-    this.store.dispatch(new CreateChat());
-  }
+  // public createChat() {
+  //   this.createChatForm;
+  //   this.store.dispatch(new CreateChat(chat:{chat_id: "1", users: ['user1', 'user2'], messages: ['message1', 'message2']}));
+  // }
 }

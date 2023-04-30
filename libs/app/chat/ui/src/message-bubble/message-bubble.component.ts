@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IChat } from '@mp/api/chat/util';
 
 @Component({
@@ -14,6 +14,9 @@ export class MessageBubbleComponent {
   @Input() time: string;
   @Input() unreadCount: number;
   @Input() chat!: IChat;
+
+  @Output() chatPageOpen = new EventEmitter<boolean>();
+  
   constructor() {
     this.chatName = 'Chat Name';
     this.profilePhotoUrl = 'profile-photo.png';
@@ -64,5 +67,9 @@ export class MessageBubbleComponent {
     const hours = Math.floor(timestamp._nanoseconds / 36000000);
     //console.log("🚀 ~ file: message-bubble.component.ts:62 ~ MessageBubbleComponent ~ lastMessageTime ~ data:", hours)
     return hours + ":" + minutes;
+  }
+  
+  openChatPage(): void {
+    this.chatPageOpen.emit(true);
   }
 }

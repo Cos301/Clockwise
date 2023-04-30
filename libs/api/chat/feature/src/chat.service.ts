@@ -6,7 +6,10 @@ import {
     IGetAllChatsResponse,
     ICreateMessageRequest,
     ICreateMessageResponse,
+    ICreateChatRequest,
+    ICreateChatResponse,
     CreateMessageCommand,
+    CreateChatCommand
 } from '@mp/api/chat/util';
 
 @Injectable()
@@ -26,4 +29,11 @@ export class ChatService {
             new CreateMessageCommand(request)
         );
     }
+
+    async createChat(request: ICreateChatRequest): Promise<ICreateChatResponse> {
+        return await this.cmdbus.execute<CreateChatCommand, ICreateChatResponse>(
+            new CreateChatCommand(request)
+        );
+    }
+
 }
