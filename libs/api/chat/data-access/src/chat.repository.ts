@@ -15,8 +15,6 @@ export class ChatRepository {
       const chat = doc.data() as IChat;
       const users: IUser[] = [];
 
-      //   console.log('Jason chat.message: ', chat.messages);
-
       if (chat.users != null) {
         await Promise.all(
           chat.users.map(async (user) => {
@@ -32,8 +30,6 @@ export class ChatRepository {
                 if (userData.userProfile != null) {
                   userData.userProfile.posts = [];
                 }
-                console.log('Jason - test', userData);
-
                 return userData;
               });
 
@@ -49,13 +45,11 @@ export class ChatRepository {
         users: users,
         messages: chat.messages,
       };
-      // console.log('Jason - newChat', newChat);
 
       chats.push(newChat);
     });
 
     await Promise.all(chatPromises);
-    // console.log('Jason - chats', chats);
     return chats;
   }
 

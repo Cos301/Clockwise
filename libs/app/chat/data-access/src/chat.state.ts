@@ -146,13 +146,14 @@ export class CreateChatState {
   @Action(CreateChat)
   async createChat(ctx: StateContext<ChatStateModel>) {
     try {
+      console.log("Jason - create Chat.state")
       const state = ctx.getState();
-      const chat_id = state.createChatForm.model.chat_id;
-      const users = state.createChatForm.model.users;
-      const messages = state.createChatForm.model.messages;
-      if (!chat_id || !users || !messages) {
-        return;
-      }
+      const chat_id = "15";
+      const users = null;
+      const messages = null;
+      // if (!chat_id || !users || !messages) {
+      //   return;
+      // }
       const request: ICreateChatRequest = {
         chat: {
           chat_id: chat_id,
