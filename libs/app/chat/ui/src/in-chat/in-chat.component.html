@@ -1,7 +1,34 @@
-<div class="username_heading">
-  <img src="assets/logos/Logo.svg" alt="profile picture" class="profile_picture">
-  <h1>{{this.currentUser}}</h1>
+
+<div class="container">
+
+  <!-- Display a back button in one row and in the second row display an img and h1 tag in the same line in the middle of the page horizontally-->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button fill="clear" (click)="goBack()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="10">
+        <ion-row>
+
+       <ion-col style="justify-content: right;display: flex;margin-bottom: 25%" size="4">
+          <img src="assets/logos/Logo.svg" alt="user" class="profile_picture">
+       </ion-col>
+
+          <ion-col style="align-items: center;display: flex;left:0.5rem" size="8">
+            <h1 class="user-name" style="font-size: 25px">{{this.currentUser}}</h1>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </div>
+
 
 
 

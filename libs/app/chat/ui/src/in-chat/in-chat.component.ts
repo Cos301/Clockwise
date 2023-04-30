@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'mp-in-chat',
@@ -13,5 +14,14 @@ export class InChatComponent {
 
   sendMessage() {
     alert("Message sent");
+  }
+
+  constructor(private location: Location) {
+  }
+
+  goBack() {
+    //set the location to /home
+    this.location.go('/home/chat');
+
   }
 }
