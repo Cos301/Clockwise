@@ -36,7 +36,7 @@ const generateMockData = async () => {
           user_id: '1',
           username: 'jonDoe',
           password: 'password1',
-          first_name: 'jon',
+          first_name: 'Bob',
           last_name: 'doe',
           email: 'jonDoe@gmail.com',
           bio: 'live love laugh',
@@ -60,7 +60,7 @@ const generateMockData = async () => {
           user_id: '2',
           username: 'janeDoe',
           password: 'password2',
-          first_name: 'jane',
+          first_name: 'Alice',
           last_name: 'doe',
           email: 'janeDoe@gmail.com',
           bio: 'live love laugh',
@@ -84,7 +84,7 @@ const generateMockData = async () => {
           user_id: '3',
           username: 'janDoe',
           password: 'password3',
-          first_name: 'jan',
+          first_name: 'Neil',
           last_name: 'doe',
           email: 'janDoe@gmail.com',
           bio: 'YODO',
@@ -123,6 +123,27 @@ const generateMockData = async () => {
     ];
 
     const chats = [
+      {
+        chat_id: '10',
+        users: [
+          db.collection('users').doc('xjIP0HPStw9pUxEIWEcnRkn52fjK'),
+          db.collection('users').doc('2'),
+        ],
+        messages: [
+          {
+            message_id: '154',
+            from: 'xjIP0HPStw9pUxEIWEcnRkn52fjK',
+            timestamp: created,
+            content: 'Hello Thomas user test',
+          },
+          {
+            message_id: '155',
+            from: '2',
+            timestamp: created,
+            content: 'Hello wilco',
+          },
+        ],
+      },
       {
         chat_id: '11',
         users: [

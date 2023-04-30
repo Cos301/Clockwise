@@ -4,9 +4,6 @@
 </div>
 
 
-
-
-
 <div class="message-container">
 
   <div *ngFor="let chat of chatHistory">
@@ -15,7 +12,7 @@
     <ion-grid>
 
 
-      <ng-container *ngIf="chat.username === 'John'; else notCurrentUser">
+      <ng-container *ngIf="cmp() !== chat.from; else notCurrentUser">
 
         <ion-row>
 
@@ -23,8 +20,8 @@
 
           <ion-col size="8">
             <div class="message user-one">
-              <p class="message-text">{{ chat.message }}</p>
-              <p class="message-time">{{ chat.time }}</p>
+              <p class="message-text">{{ chat.content }}</p>
+              <p class="message-time">{{ chat.timestamp }}</p>
             </div>
           </ion-col>
 
@@ -38,8 +35,8 @@
 
           <ion-col size="8">
             <div class="message user-two">
-              <p class="message-text">{{ chat.message }}</p>
-              <p class="message-time">{{ chat.time }}</p>
+              <p class="message-text">{{ chat.content }}</p>
+              <p class="message-time">{{ chat.timestamp }}</p>
             </div>
           </ion-col>
 

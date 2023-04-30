@@ -43,11 +43,14 @@ h1 {
 .user-one {
   background-color:#c8e6c9 ; /* Lighter green background for user one */
   align-self: flex-start;
+  right : 0 ;
+  width: 100%;
 }
 
 .user-two {
   background-color: #87bb64; /* Darker green background for user two */
   align-self: flex-end;
+ 
 }
 
 .message-text {

@@ -1,15 +1,20 @@
 <ion-content [fullscreen]="true">
   <div id="container">
-    <mp-chat-search/>
+    <!-- Chat search, needs access to data... -->
+    <div class="chatSearchContainer">
+      <input (focus)="clearText()" [(ngModel)]="searchQuery"
+          type="text" placeholder=" 🔎︎ search..."/>
+    </div>
+  
 
     <!-- <button (click)="CallAllChats()">Get All chats</button> -->
   </div>
   <div *ngFor="let chat of chats;">
    <div style="height: 4px;"></div>
-    <mp-message-bubble (chatPageOpen)="chatPageOpen($event)" [chat]="chat"></mp-message-bubble>
-  </div>
+    <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages)" [chat]="chat"></mp-message-bubble>
+  </div> 
   
 
-  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]=""/>
+  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]="this.currentChatMessages"/>
 
 </ion-content>

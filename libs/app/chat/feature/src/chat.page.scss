@@ -2,83 +2,100 @@ ion-content {
     --ion-background-color: var(--clExtraLight);
   }
 
-  mp-in-chat {
-    position: absolute;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    height: calc(100% - 57px);
-  }
+.chatSearchContainer input[type=text] {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  /*TODO: change to var(--stdFont) in producion */
+  font-family: "Merriweather";
+  font-size: 1.1rem;
+  text-align: center;
+}
 
-  #container {
-    padding: 10px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 0;
-    font-size: 2rem;
-    margin-top: 30px;
-  }
-  
-  #minutesLeft {
-    color: black;
-    z-index: 2;
-    position: relative;
-    text-align: center;
-  }
-  
-  #minutesLeft p {
-    font-family: var(--stdFont);
-    padding-top: 4px;
-    margin-top: 0;
-  }
-  
-  #timebarContainer {
-    background-color: white;
-    width: 60%;
-    position: relative;
-  }
-  
-  #timebar, #timebarContainer {
-    height: 26px;
-    margin-left: 20%;
-    border-radius: 13px;
-  }
-  
-  #timebar {
-    width: 50%;
-    position: absolute;
-    margin-left: 0;
-    background-color: var(--clDarkPrimary);
-  }
-  
-  img {
-    width: 100%;
-    margin-top: 20px;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-  }
-  
-  #toolbar {
-    display: grid;
-    grid-template-columns: 30px 30px 1fr;
-    padding: 2px;
-    background-color: var(--clPrimary);
-  }
-  
-  #toolbar p {
-    margin: 0;
-    text-align: right;
-    padding-right: 2px;
-    margin-top: 4px;
-  }
-  
-  #toolbar div {
-    font-size: 1.2rem;
-  }
-  
-  #toolbar img {
-    width: 30px;
-    margin-top: 0;
-  }
+.chatSearchContainer input[type=text]:focus {
+  outline: none !important;
+}
+
+mp-in-chat {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: calc(100% - 57px);
+}
+
+#container {
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+#minutesLeft {
+  color: black;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+}
+
+#minutesLeft p {
+  font-family: var(--stdFont);
+  padding-top: 4px;
+  margin-top: 0;
+}
+
+#timebarContainer {
+  background-color: white;
+  width: 60%;
+  position: relative;
+}
+
+#timebar, #timebarContainer {
+  height: 26px;
+  margin-left: 20%;
+  border-radius: 13px;
+}
+
+#timebar {
+  width: 50%;
+  position: absolute;
+  margin-left: 0;
+  background-color: var(--clDarkPrimary);
+}
+
+img {
+  width: 100%;
+  margin-top: 20px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+#toolbar {
+  display: grid;
+  grid-template-columns: 30px 30px 1fr;
+  padding: 2px;
+  background-color: var(--clPrimary);
+}
+
+#toolbar p {
+  margin: 0;
+  text-align: right;
+  padding-right: 2px;
+  margin-top: 4px;
+}
+
+#toolbar div {
+  font-size: 1.2rem;
+}
+
+#toolbar img {
+  width: 30px;
+  margin-top: 0;
+}

@@ -7,7 +7,8 @@ import {
   ActionsExecuting,
 } from '@ngxs-labs/actions-executing';
 import { Observable } from 'rxjs';
-import { IChat } from '@mp/api/chat/util';
+import { IChat,  IMessage  } from '@mp/api/chat/util';
+
 @Component({
   selector: 'ms-profile-page',
   templateUrl: './chat.page.html',
@@ -20,8 +21,10 @@ export class ChatPage {
   //This variable is being used for test purposes
   chats!: IChat[];
   currentUser = 'John';
+  currentChatMessages: IMessage[] | null | undefined;
 
   isChatPageOpen: boolean;
+  searchQuery: string;
 
   constructor(private readonly store: Store) {
     setTimeout(() => {
@@ -36,13 +39,40 @@ export class ChatPage {
       );
     });
     this.isChatPageOpen = false;
+    this.searchQuery = "";
   }
 
-  public chatPageOpen(event: any) {
+  public populateChatPage(messages: IMessage[] | null | undefined) {
+    //set the state of the messages
+    console.log('here are the messages: ', messages);
+
+    if (messages) 
+      this.currentChatMessages = messages;
+     
+    
     this.isChatPageOpen = true;
   }
 
   public CallAllChats() {
     this.store.dispatch(new GetAllChats({ chat: null }));
   }
+
+  public test(chat: any) : boolean {
+    
+    const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
+    console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery)
+    if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
+      return true;
+      
+    return false;
+  }
+
+  clearText() {
+    this.searchQuery = "";
+  }
+  hasChanged(e: Event) {
+    const target = e.target as HTMLInputElement;
+    this.searchQuery = target.value;
+  }
+
 }
