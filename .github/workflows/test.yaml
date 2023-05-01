@@ -1,0 +1,20 @@
+name: RunUnitTests
+
+on:
+  push:
+    
+jobs:
+  test:
+    name: testCode 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Wait for builds to succeed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Build app on Push'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
