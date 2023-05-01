@@ -2,6 +2,9 @@ ion-content {
     --ion-background-color: var(--clExtraLight);
   }
 
+  .chatContainer {
+    padding: 10px;
+  }
 .chatSearchContainer input[type=text] {
   background-color: #ffffff;
   border: none;

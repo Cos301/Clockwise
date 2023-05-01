@@ -9,17 +9,19 @@
 
     <!-- <button (click)="CallAllChats()">Get All chats</button> -->
   </div>
-  <div *ngFor="let chat of chats;">
-    <div *ngIf="testList(chat)">
-      <div style="height: 4px;"></div>
-      <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)"
-        (currentUser)="currentUser = $event" [chat]="chat" [myUserId]="getUserId()"></mp-message-bubble>
+  <div class="chatContainer">
+    <div *ngFor="let chat of chats;">
+      <div *ngIf="testList(chat)">
+        <div style="height: 4px;"></div>
+        <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)"
+          (currentUser)="currentUser = $event" [chat]="chat" [myUserId]="getUserId()"></mp-message-bubble>
+      </div>
     </div>
   </div>
 
-  <div>
+  <!-- <div>
     <button (click)="newChat()">Start a new chat</button>
-  </div>
+  </div> -->
 
   <div *ngIf="isNewChatOpen">
     <div>Start a new chat</div>
