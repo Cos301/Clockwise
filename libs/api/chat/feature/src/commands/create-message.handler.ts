@@ -29,7 +29,6 @@ export class CreateMessageHandler
         content: content,
       }
     };
-
     messagesArray.push(data.message);
 
     return await admin

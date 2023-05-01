@@ -50,7 +50,7 @@ export class ChatPage {
   public populateChatPage(messages: IMessage[] | null | undefined, chatId: string) {
     //set the state of the messages
     console.log('here are the messages: ', messages);
-
+    this.store.dispatch(new SetCurrentChatId(chatId))
     if (messages) 
       this.currentChatMessages = messages;
 
@@ -74,9 +74,16 @@ export class ChatPage {
     return false;
   }
 
+  public newChat() {
+
+    //make a call to the api to get the chat list....
+
+    return false;
+  }
+
   public test(chat: any): boolean {
     const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-    console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery)
+    // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
     if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
       return true;
 
