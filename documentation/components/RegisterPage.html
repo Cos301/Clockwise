@@ -1,0 +1,1163 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mystery-shopper documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mystery-shopper documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  RegisterPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/app/register/feature/src/register.page.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ms-register-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./register.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./register.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#busy$" >busy$</a>
+                            </li>
+                            <li>
+                                <a href="#registerForm" >registerForm</a>
+                            </li>
+                            <li>
+                                <a href="#showPassword" >showPassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#register" >register</a>
+                            </li>
+                            <li>
+                                <a href="#toggleShowPassword" >toggleShowPassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#email" >email</a>
+                                </li>
+                                <li>
+                                    <a href="#password" >password</a>
+                                </li>
+                                <li>
+                                    <a href="#passwordConfirm" >passwordConfirm</a>
+                                </li>
+                                <li>
+                                    <a href="#name" >name</a>
+                                </li>
+                                <li>
+                                    <a href="#emailError" >emailError</a>
+                                </li>
+                                <li>
+                                    <a href="#nameError" >nameError</a>
+                                </li>
+                                <li>
+                                    <a href="#passwordError" >passwordError</a>
+                                </li>
+                                <li>
+                                    <a href="#passwordConfirmError" >passwordConfirmError</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, store: Store)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">libs/app/register/feature/src/register.page.ts:98</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="register"></a>
+                    <span class="name">
+                        <span ><b>register</b></span>
+                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>register()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">libs/app/register/feature/src/register.page.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleShowPassword"></a>
+                    <span class="name">
+                        <span ><b>toggleShowPassword</b></span>
+                        <a href="#toggleShowPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleShowPassword()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">libs/app/register/feature/src/register.page.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="busy$"></a>
+                    <span class="name">
+                        <span ><b>busy$</b></span>
+                        <a href="#busy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;ActionsExecuting&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Select(undefined)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/app/register/feature/src/register.page.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerForm"></a>
+                    <span class="name">
+                        <span ><b>registerForm</b></span>
+                        <a href="#registerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    email: [
+      &#x27;&#x27;,
+      [Validators.email, Validators.minLength(6), Validators.maxLength(64)],
+    ],
+    password: [
+      &#x27;&#x27;, 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
+    passwordConfirm: [
+      &#x27;&#x27;, 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
+    name: [
+      &#x27;&#x27;,
+      [Validators.minLength(0), Validators.maxLength(64)]
+    ]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/app/register/feature/src/register.page.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPassword"></a>
+                    <span class="name">
+                        <span ><b>showPassword</b></span>
+                        <a href="#showPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/app/register/feature/src/register.page.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>email()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">libs/app/register/feature/src/register.page.ts:39</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="password"></a>
+                        <span class="name"><b>password</b><a href="#password"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>password()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">libs/app/register/feature/src/register.page.ts:43</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="passwordConfirm"></a>
+                        <span class="name"><b>passwordConfirm</b><a href="#passwordConfirm"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>passwordConfirm()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">libs/app/register/feature/src/register.page.ts:49</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <span class="name"><b>name</b><a href="#name"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>name()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">libs/app/register/feature/src/register.page.ts:55</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emailError"></a>
+                        <span class="name"><b>emailError</b><a href="#emailError"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>emailError()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">libs/app/register/feature/src/register.page.ts:59</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nameError"></a>
+                        <span class="name"><b>nameError</b><a href="#nameError"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>nameError()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">libs/app/register/feature/src/register.page.ts:70</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="passwordError"></a>
+                        <span class="name"><b>passwordError</b><a href="#passwordError"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>passwordError()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">libs/app/register/feature/src/register.page.ts:81</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="passwordConfirmError"></a>
+                        <span class="name"><b>passwordConfirmError</b><a href="#passwordConfirmError"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>passwordConfirmError()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">libs/app/register/feature/src/register.page.ts:91</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+import { Register } from &#x27;@mp/app/register/util&#x27;;
+import {
+    ActionsExecuting,
+    actionsExecuting
+} from &#x27;@ngxs-labs/actions-executing&#x27;;
+import { Select, Store } from &#x27;@ngxs/store&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;ms-register-page&#x27;,
+  templateUrl: &#x27;./register.page.html&#x27;,
+  styleUrls: [&#x27;./register.page.scss&#x27;],
+})
+export class RegisterPage {
+  @Select(actionsExecuting([Register]))
+  busy$!: Observable&lt;ActionsExecuting&gt;;
+  registerForm &#x3D; this.fb.group({
+    email: [
+      &#x27;&#x27;,
+      [Validators.email, Validators.minLength(6), Validators.maxLength(64)],
+    ],
+    password: [
+      &#x27;&#x27;, 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
+    passwordConfirm: [
+      &#x27;&#x27;, 
+      [Validators.minLength(6), Validators.maxLength(64)]
+    ],
+    name: [
+      &#x27;&#x27;,
+      [Validators.minLength(0), Validators.maxLength(64)]
+    ]
+  });
+  showPassword &#x3D; false;
+
+  get email() {
+    return this.registerForm.get(&#x27;email&#x27;);
+  }
+
+  get password() {
+    console.log(&#x27;password&#x27;);
+    console.log(this.registerForm.get(&#x27;password&#x27;));
+    return this.registerForm.get(&#x27;password&#x27;);
+  }
+
+  get passwordConfirm() {
+    console.log(&#x27;password confirm&#x27;);
+    console.log(this.registerForm.get(&#x27;passwordConfirm&#x27;));
+    return this.registerForm.get(&#x27;passwordConfirm&#x27;);
+  }
+
+  get name() {
+    return this.registerForm.get(&#x27;name&#x27;);
+  }
+
+  get emailError(): string {
+    if (this.email?.errors?.[&#x27;email&#x27;]) return &#x27;Email is invalid&#x27;;
+    if (this.email?.errors?.[&#x27;required&#x27;]) return &#x27;Email is required&#x27;;
+    if (this.email?.errors?.[&#x27;minlength&#x27;])
+      return &#x27;Email should be longer than 6 characters&#x27;;
+    if (this.email?.errors?.[&#x27;maxlength&#x27;])
+      return &#x27;Email should be shorter than 64 characters&#x27;;
+
+    return &#x27;Email is invalid&#x27;;
+  }
+
+  get nameError() : string {
+    if (this.name?.errors?.[&#x27;name&#x27;]) return &#x27;name is invalid&#x27;;
+    if (this.name?.errors?.[&#x27;required&#x27;]) return &#x27;name is required&#x27;;
+    if (this.name?.errors?.[&#x27;minlength&#x27;])
+      return &#x27;name should be longer than 6 characters&#x27;;
+    if (this.name?.errors?.[&#x27;maxlength&#x27;])
+      return &#x27;name should be shorter than 64 characters&#x27;;
+
+    return &#x27;name is invalid&#x27;;
+  }
+
+  get passwordError(): string {
+    if (this.password?.errors?.[&#x27;required&#x27;]) return &#x27;Password is required&#x27;;
+    if (this.password?.errors?.[&#x27;minlength&#x27;])
+      return &#x27;Password should be longer than 6 characters&#x27;;
+    if (this.password?.errors?.[&#x27;maxlength&#x27;])
+      return &#x27;Password should be shorter than 64 characters&#x27;;
+
+    return &#x27;Password is invalid&#x27;;
+  }
+
+  get passwordConfirmError(): string {
+    if (this.passwordConfirm?.errors?.[&#x27;required&#x27;]) return &#x27;Password confimation is required&#x27;;
+
+    if (this.password?.value !&#x3D; this.passwordConfirm?.value)
+      return &quot;Passwords do not match&quot;;
+
+    return &quot;Passwords do not match&quot;
+  }
+
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly store: Store
+  ) {}
+
+  register() {
+    if (this.registerForm.valid) {
+      this.store.dispatch(new Register());
+    }
+  }
+
+  toggleShowPassword() {
+    this.showPassword &#x3D; !this.showPassword;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- This is the header section 
+&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
+      &lt;ion-back-button defaultHref&#x3D;&quot;/&quot;&gt;&lt;/ion-back-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;ion-title&gt;Register&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+ ***************** Completed --&gt;
+
+&lt;!-- Section below contains the body of the page --&gt;
+&lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-grid&gt;
+
+    &lt;!-- this row contains the logo --&gt;
+    &lt;ion-row&gt;
+        &lt;h1&gt;Sign up&lt;/h1&gt;
+    &lt;/ion-row&gt;
+
+    
+    &lt;img class&#x3D;&quot;image&quot; src&#x3D;&quot;assets/logos/logo-animated.gif&quot; alt&#x3D;&quot;The Clockwise logo&quot;/&gt;
+    
+
+    &lt;ion-row&gt;
+      &lt;p&gt;Take the first step...&lt;/p&gt;
+    &lt;/ion-row&gt;
+
+    &lt;ion-row size&#x3D;&quot;12&quot;&gt;
+
+
+      &lt;ion-col&gt;
+        &lt;form [formGroup]&#x3D;&quot;registerForm&quot; ngxsForm&#x3D;&quot;register.registerForm&quot; (submit)&#x3D;&quot;register()&quot;&gt;
+          &lt;ion-list&gt;
+
+            &lt;div class&#x3D;&quot;myError&quot;&gt;
+              &lt;div *ngIf&#x3D;&quot;name?.invalid &amp;&amp; (name?.dirty || name?.touched)&quot;&gt;
+                {{ nameError }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;email?.invalid &amp;&amp; (email?.dirty || email?.touched)&quot;&gt;
+                {{ emailError }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;password?.invalid &amp;&amp; (password?.dirty || password?.touched)&quot;&gt;
+                {{ passwordError }}
+              &lt;/div&gt;
+              &lt;div *ngIf&#x3D;&quot;passwordConfirm?.value !&#x3D;&#x3D; password?.value &amp;&amp; (passwordConfirm?.dirty || passwordConfirm?.touched)&quot;&gt;
+                {{ passwordConfirmError }}
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Name input --&gt;
+            &lt;ion-item [ngClass]&#x3D;&quot;{&#x27;invalid&#x27;: name?.invalid &amp;&amp; (name?.dirty || name?.touched)}&quot;&gt;
+              &lt;ion-input type&#x3D;&quot;text&quot; minlength&#x3D;&quot;3&quot; maxlength&#x3D;&quot;64&quot; placeholder&#x3D;&quot;Enter name&quot; required&#x3D;&quot;true&quot;
+                autocomplete&#x3D;&quot;name&quot; formControlName&#x3D;&quot;name&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+
+            &lt;!-- Email input --&gt;
+            &lt;ion-item [ngClass]&#x3D;&quot;{&#x27;invalid&#x27;: email?.invalid &amp;&amp; (email?.dirty || email?.touched)}&quot;&gt;
+              &lt;ion-input type&#x3D;&quot;email&quot; minlength&#x3D;&quot;6&quot; maxlength&#x3D;&quot;64&quot; placeholder&#x3D;&quot;Enter email&quot; required&#x3D;&quot;true&quot;
+                autocomplete&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+
+            &lt;!-- Password input --&gt;
+            &lt;ion-item [ngClass]&#x3D;&quot;{&#x27;invalid&#x27;: password?.invalid &amp;&amp; (password?.dirty || password?.touched)}&quot;&gt;
+              &lt;ion-input [type]&#x3D;&quot;showPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot; minlength&#x3D;&quot;6&quot; maxlength&#x3D;&quot;64&quot;
+                placeholder&#x3D;&quot;Enter password&quot; required&#x3D;&quot;true&quot; autocomplete&#x3D;&quot;password&quot;
+                formControlName&#x3D;&quot;password&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+
+            &lt;!-- Confirm password input --&gt;
+            &lt;ion-item [ngClass]&#x3D;&quot;{&#x27;invalid&#x27;: passwordConfirm?.value !&#x3D;&#x3D; password?.value &amp;&amp; (passwordConfirm?.dirty || passwordConfirm?.touched)}&quot;&gt;
+              &lt;ion-input [type]&#x3D;&quot;showPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+                placeholder&#x3D;&quot;Confirm password&quot; required&#x3D;&quot;true&quot; autocomplete&#x3D;&quot;password&quot;
+                formControlName&#x3D;&quot;passwordConfirm&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+
+            
+            &lt;ion-button expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!this.registerForm.valid || (busy$ | async)&quot; type&#x3D;&quot;submit&quot;&gt;
+              &lt;ion-spinner *ngIf&#x3D;&quot;busy$ | async&quot;&gt;&lt;/ion-spinner&gt;
+              &lt;ion-text&gt;SignUp&lt;/ion-text&gt;
+            &lt;/ion-button&gt;
+
+          &lt;/ion-list&gt;
+
+          &lt;ion-grid class&#x3D;&quot;ion-padding&quot;&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col&gt;
+                
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+
+            &lt;!-- this row contains the forgot password and register links --&gt;
+            &lt;!-- TODO : Add the forgot password and register links when ready
+            &lt;ion-row class&#x3D;&quot;ion-padding-top&quot;&gt;
+              &lt;ion-col class&#x3D;&quot;ion-text-center&quot;&gt;
+                Already have an account?
+                &lt;ion-nav-link routerLink&#x3D;&quot;/login&quot;&gt;
+                  &lt;ion-text color&#x3D;&quot;primary&quot;&gt;Login&lt;/ion-text&gt;
+                &lt;/ion-nav-link&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col class&#x3D;&quot;ion-text-center&quot;&gt;
+                Having trouble?
+                &lt;ion-nav-link routerLink&#x3D;&quot;/forgot&quot;&gt;
+                  &lt;ion-text color&#x3D;&quot;primary&quot;&gt;Forgot Password&lt;/ion-text&gt;
+                &lt;/ion-nav-link&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;--&gt;
+
+
+          &lt;/ion-grid&gt;
+        &lt;/form&gt;
+      &lt;/ion-col&gt;
+
+      &lt;!-- End of form--&gt;
+
+    &lt;/ion-row&gt;
+    &lt;!--******************************** Completed --&gt;
+
+    &lt;div class&#x3D;&quot;images&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/images/tree.svg&quot; /&gt;
+      &lt;img src&#x3D;&quot;assets/images/bush.svg&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/ion-grid&gt;
+
+  
+
+&lt;/ion-content&gt;
+
+&lt;ion-footer collapse&#x3D;&quot;condense&quot; class&#x3D;&quot;ion-padding ion-text-center&quot;&gt;
+  &lt;ms-copyright-component&gt;&lt;/ms-copyright-component&gt;
+&lt;/ion-footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./register.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+ion-content {
+  top: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: visible; //Necessary to be able to scroll on page  
+}
+
+//To create a card with a fixed width and padding on the items inside it.
+ion-card{
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 0;
+  //align items neatly on card
+  ion-item {
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  ion-item:last-child {
+    margin-bottom: 10px;
+  }
+}
+//**************************************************************************
+
+ion-footer{
+  //the footer css to make it stick to the bottom of the page
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+form{
+  //position inputs under one another with an equal margin and the inputs must have a color of white and border radius 20px
+  ion-item{
+    margin-bottom: 10px;
+    border-radius: 20px;
+   
+      //space between the label a
+      ion-label{
+       font-size: 30px;
+      }
+
+  }
+  background-color: rgba(0, 0, 0 ,0);
+}
+
+.list-ios {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+ion-grid{
+  //the color of the grid must be #c9d8bf
+  background-color: var(--clExtraLight);
+  top: 0;
+}
+
+ion-content::part(scroll) {
+  background-color: var(--clExtraLight);
+}
+
+h1 {
+  position: absolute;
+  top: 20px;
+  margin-bottom: 0;
+}
+
+.myError {
+  height: 30px;
+  display: block;
+  color: var(--clDanger);
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.myError &gt; * {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  background-color: var(--clExtraLight);
+}
+
+ion-item {
+  //account for the border
+  margin: 5px;
+}
+
+ion-item.invalid {
+  border: 5px solid var(--clDanger);
+  margin: 0;
+  --highlight-background:var(--clDanger);
+}
+
+ion-icon{
+  top : 10px;
+}
+
+.images img {
+  position: absolute;
+}
+
+.images img:nth-child(1) {
+  left: -120px; 
+  top: 650px;
+  scale: 0.5;
+}
+
+.images img:nth-child(2) {
+  right: -55px;
+  top: 770px;
+  scale: 0.5;
+}
+
+
+h1, p {
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0;
+  font-family: var(--stdFont);
+}
+
+img {
+  width: 50%;
+  margin-left: 25%;
+  position: absolute;
+  top: 80px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 200px;
+}
+
+.header-slogan{
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+ion-button {
+  color: black;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- This is the header section <ion-header [translucent]="true">  <ion-toolbar>    <ion-buttons slot="start">      <ion-back-button defaultHref="/"></ion-back-button>    </ion-buttons>    <ion-title>Register</ion-title>  </ion-toolbar></ion-header> ***************** Completed --><!-- Section below contains the body of the page --><ion-content [fullscreen]="true">  <ion-grid>    <!-- this row contains the logo -->    <ion-row>        <h1>Sign up</h1>    </ion-row>        <img class="image" src="assets/logos/logo-animated.gif" alt="The Clockwise logo"/>        <ion-row>      <p>Take the first step...</p>    </ion-row>    <ion-row size="12">      <ion-col>        <form [formGroup]="registerForm" ngxsForm="register.registerForm" (submit)="register()">          <ion-list>            <div class="myError">              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">                {{ nameError }}              </div>              <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">                {{ emailError }}              </div>              <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">                {{ passwordError }}              </div>              <div *ngIf="passwordConfirm?.value !== password?.value && (passwordConfirm?.dirty || passwordConfirm?.touched)">                {{ passwordConfirmError }}              </div>            </div>            <!-- Name input -->            <ion-item [ngClass]="{\'invalid\': name?.invalid && (name?.dirty || name?.touched)}">              <ion-input type="text" minlength="3" maxlength="64" placeholder="Enter name" required="true"                autocomplete="name" formControlName="name"></ion-input>            </ion-item>            <!-- Email input -->            <ion-item [ngClass]="{\'invalid\': email?.invalid && (email?.dirty || email?.touched)}">              <ion-input type="email" minlength="6" maxlength="64" placeholder="Enter email" required="true"                autocomplete="email" formControlName="email"></ion-input>            </ion-item>            <!-- Password input -->            <ion-item [ngClass]="{\'invalid\': password?.invalid && (password?.dirty || password?.touched)}">              <ion-input [type]="showPassword ? \'text\' : \'password\'" minlength="6" maxlength="64"                placeholder="Enter password" required="true" autocomplete="password"                formControlName="password"></ion-input>            </ion-item>            <!-- Confirm password input -->            <ion-item [ngClass]="{\'invalid\': passwordConfirm?.value !== password?.value && (passwordConfirm?.dirty || passwordConfirm?.touched)}">              <ion-input [type]="showPassword ? \'text\' : \'password\'"                placeholder="Confirm password" required="true" autocomplete="password"                formControlName="passwordConfirm"></ion-input>            </ion-item>                        <ion-button expand="block" [disabled]="!this.registerForm.valid || (busy$ | async)" type="submit">              <ion-spinner *ngIf="busy$ | async"></ion-spinner>              <ion-text>SignUp</ion-text>            </ion-button>          </ion-list>          <ion-grid class="ion-padding">            <ion-row>              <ion-col>                              </ion-col>            </ion-row>            <!-- this row contains the forgot password and register links -->            <!-- TODO : Add the forgot password and register links when ready            <ion-row class="ion-padding-top">              <ion-col class="ion-text-center">                Already have an account?                <ion-nav-link routerLink="/login">                  <ion-text color="primary">Login</ion-text>                </ion-nav-link>              </ion-col>            </ion-row>            <ion-row>              <ion-col class="ion-text-center">                Having trouble?                <ion-nav-link routerLink="/forgot">                  <ion-text color="primary">Forgot Password</ion-text>                </ion-nav-link>              </ion-col>            </ion-row>-->          </ion-grid>        </form>      </ion-col>      <!-- End of form-->    </ion-row>    <!--******************************** Completed -->    <div class="images">      <img src="assets/images/tree.svg" />      <img src="assets/images/bush.svg" />    </div>  </ion-grid>  </ion-content><ion-footer collapse="condense" class="ion-padding ion-text-center">  <ms-copyright-component></ms-copyright-component></ion-footer></div>'
+    var COMPONENTS = [{'name': 'AccountDetailsComponent', 'selector': 'ms-profile-account-details-component'},{'name': 'AddressDetailsComponent', 'selector': 'ms-profile-address-details-component'},{'name': 'ChatPageComponent', 'selector': 'mp-chat-page'},{'name': 'ChatsDemoComponent', 'selector': 'mp-chats-demo'},{'name': 'ChatSearchComponent', 'selector': 'mp-chat-search'},{'name': 'ChatSearchComponent', 'selector': 'mp-chat-search'},{'name': 'ContactDetailsComponent', 'selector': 'ms-profile-contact-details-component'},{'name': 'CopyrightComponent', 'selector': 'ms-copyright-component'},{'name': 'CoreShell', 'selector': 'ms-core-shell'},{'name': 'DashboardPage', 'selector': 'ms-dashboard-page'},{'name': 'FeedPageComponent', 'selector': 'mp-feed-page'},{'name': 'FeedViewComponent', 'selector': 'mp-feed-view'},{'name': 'HeaderComponent', 'selector': 'mp-header'},{'name': 'HomePage', 'selector': 'ms-home-page'},{'name': 'ImageContainerComponent', 'selector': 'mp-image-container'},{'name': 'LoginPage', 'selector': 'ms-login-page'},{'name': 'MessageBubbleComponent', 'selector': 'mp-message-bubble'},{'name': 'MessageBubbleComponent', 'selector': 'mp-message-bubble'},{'name': 'MessagesContainerComponent', 'selector': 'mp-messages-container'},{'name': 'MessagesContainerComponent', 'selector': 'mp-messages-container'},{'name': 'NavbarComponent', 'selector': 'mp-navbar'},{'name': 'OccupationDetailsComponent', 'selector': 'ms-profile-occupation-details-component'},{'name': 'PersonalDetailsComponent', 'selector': 'ms-profile-personal-details-component'},{'name': 'PostPageComponent', 'selector': 'mp-post-page'},{'name': 'PrivacyPage', 'selector': 'ms-privacy-page'},{'name': 'ProfileMainPageComponent', 'selector': 'mp-profile-main-page'},{'name': 'ProfilePage', 'selector': 'ms-profile-page'},{'name': 'ProfileStatusComponent', 'selector': 'ms-profile-status-component'},{'name': 'RegisterPage', 'selector': 'ms-register-page'},{'name': 'SearchComponentComponent', 'selector': 'mp-search-component'},{'name': 'TimeBarComponent', 'selector': 'mp-time-bar'},{'name': 'TosPage', 'selector': 'ms-tos-page'},{'name': 'VersionComponent', 'selector': 'ms-version-component'},{'name': 'WelcomePage', 'selector': 'ms-welcome-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RegisterPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RegisterPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

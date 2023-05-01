@@ -1,0 +1,519 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mystery-shopper documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mystery-shopper documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ProfilePage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/app/profile/feature/src/profile.page.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ms-profile-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#profile$" >profile$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profile$"></a>
+                    <span class="name">
+                        <span ><b>profile$</b></span>
+                        <a href="#profile$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IProfile.html" target="_self" >Observable&lt;IProfile | null&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Select(ProfileState.profile)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/app/profile/feature/src/profile.page.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { IProfile } from &#x27;@mp/api/profiles/util&#x27;;
+import { ProfileState } from &#x27;@mp/app/profile/data-access&#x27;;
+import { Select } from &#x27;@ngxs/store&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;ms-profile-page&#x27;,
+  templateUrl: &#x27;./profile.page.html&#x27;,
+  styleUrls: [&#x27;./profile.page.scss&#x27;],
+})
+export class ProfilePage {
+  @Select(ProfileState.profile) profile$!: Observable&lt;IProfile | null&gt;;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;ion-content [fullscreen]&#x3D;&quot;true&quot;&gt;
+  &lt;mp-time-bar [startMinutes]&#x3D;10 /&gt;
+  &lt;ion-header collapse&#x3D;&quot;condense&quot;&gt;
+    &lt;ion-toolbar&gt;
+      &lt;ion-title size&#x3D;&quot;large&quot; class&#x3D;&quot;ion-align-items-center&quot;&gt;
+        Profile
+        &lt;ng-container *ngIf&#x3D;&quot;(profile$ | async) as profile;&quot;&gt;
+          &lt;ion-icon
+            *ngIf&#x3D;&quot;profile.status &#x3D;&#x3D; &#x27;Incomplete&#x27;&quot;
+            color&#x3D;&quot;danger&quot;
+            name&#x3D;&quot;alert-circle-outline&quot;&gt;&lt;/ion-icon&gt;
+          &lt;ion-icon
+            *ngIf&#x3D;&quot;profile.status &#x3D;&#x3D; &#x27;Complete&#x27;&quot;
+            color&#x3D;&quot;success&quot;
+            name&#x3D;&quot;checkmark-circle-outline&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ng-container&gt;
+      &lt;/ion-title&gt;
+    &lt;/ion-toolbar&gt;
+  &lt;/ion-header&gt;
+
+  &lt;!-- The following calls account, personal,contact, address and occupation details components --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;(profile$ | async) as profile; else noProfile&quot;&gt;
+    &lt;ms-profile-account-details-component&gt;&lt;/ms-profile-account-details-component&gt;
+    &lt;ms-profile-personal-details-component&gt;&lt;/ms-profile-personal-details-component&gt;
+    &lt;ms-profile-contact-details-component&gt;&lt;/ms-profile-contact-details-component&gt;
+    &lt;ms-profile-address-details-component&gt;&lt;/ms-profile-address-details-component&gt;
+    &lt;ms-profile-occupation-details-component&gt;&lt;/ms-profile-occupation-details-component&gt;
+  &lt;/ng-container&gt;
+   &lt;!-- ***************************************************************************************** --&gt;
+
+
+
+  &lt;!-- If Profile details have not yet been saved, show skeleton loader --&gt;
+  &lt;ng-template #noProfile&gt;
+    &lt;ion-grid&gt;
+      &lt;ion-row&gt;
+        &lt;ion-col&gt;
+
+          &lt;!-- Card to prompt the user to enter their details--&gt;
+          &lt;ion-card class&#x3D;&quot;profile_incomplete&quot;&gt;
+            &lt;ion-card-header&gt;
+              &lt;ion-card-title&gt;Account Incomplete&lt;/ion-card-title&gt;
+            &lt;/ion-card-header&gt;
+
+            &lt;ion-card-content&gt;
+              Please click the profile button below to save your details.
+            &lt;/ion-card-content&gt;
+          &lt;/ion-card&gt;
+
+          &lt;ngx-skeleton-loader
+            count&#x3D;&quot;3&quot;
+            [theme]&#x3D;&quot;{height: &#x27;150px&#x27;}&quot;
+            appearance&#x3D;&quot;line&quot;&gt;&lt;/ngx-skeleton-loader&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+  &lt;/ng-template&gt;
+  &lt;!-- End of #noProfile --&gt;
+
+  &lt;!-- If Profile details have been saved, show profile details --&gt;
+  &lt;ng-template #profile&gt;
+
+    &lt;!-- Header TODO: center the text and add the Time bar component--&gt;
+    &lt;ion-header&gt;
+      &lt;ion-toolbar&gt;
+        &lt;ion-title size&#x3D;&quot;large&quot; &gt;Clockwise&lt;/ion-title&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-header&gt;
+    &lt;!-- End of Header --&gt;
+
+    &lt;div class&#x3D;&quot;scrollable-div&quot;&gt;
+        &lt;img class&#x3D;&quot;content&quot; src&#x3D;&quot;assets/logos/logo-animated.gif&quot;/&gt;
+      &lt;ion-card class&#x3D;&quot;username&quot;&gt;
+        &lt;ion-card-content style&#x3D;&quot;text-align: center;&quot;&gt;
+
+          Username
+          &lt;ion-icon name&#x3D;&quot;create&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+
+      &lt;div  class&#x3D;&quot;posts-container&quot;&gt;
+
+        &lt;ion-grid&gt;
+
+        &lt;!-- TODO: When backend is ready
+          &lt;ion-row *ngFor&#x3D;&quot;let post of posts&quot;&gt;
+              &lt;ion-col size&#x3D;&quot;6&quot; *ngFor&#x3D;&quot;let image of post.images&quot;&gt;
+             &lt;img src&#x3D;&quot;{{image}}&quot; style&#x3D;&quot;width: 100%; height: auto;&quot;&gt;
+             &lt;/ion-col&gt;
+           &lt;/ion-row&gt;
+        --&gt;
+       &lt;/ion-grid&gt;
+     &lt;/div&gt;
+
+   &lt;/div&gt;
+
+ &lt;/ng-template&gt;
+ &lt;!-- End of #profile --&gt;
+
+
+
+&lt;/ion-content&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./profile.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-title {
+  display: flex;
+}
+
+ion-card-title {
+  display: flex;
+  color: white;
+}
+
+ion-card-title &gt; ion-icon {
+  margin-top: 0px;
+}
+
+
+
+.profile_incomplete{
+  background-color: #70ad47;
+  color: white;
+}
+
+.profile-image{
+  width: 110%;
+  height: 110%;
+
+}
+
+.profile-card{
+  border-radius: 50px;
+  max-height: 105px;
+  margin: auto;
+}
+
+.edit_button{
+  margin-top:5px;
+  color: #edae49;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+ion-content{
+  --background: #d1e7c7;
+}
+
+.scrollable-div {
+  position: fixed;
+  top: 180px;
+  right: 0;
+  bottom: 150px;
+  left: 0;
+  background-color: #9ad077;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.content {
+  width: 33%;
+  height: 30%;
+  overflow-y: scroll;
+  position: absolute;
+  left: 35%;
+  transform: translateX(0%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+}
+
+.posts-container{
+  width: 100%;
+  margin-top: 90px;
+
+}
+
+.username{
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0);
+  top:60px;
+  font-size: 20px;
+  font-weight: bolder;
+  color:black;
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true">  <mp-time-bar [startMinutes]=10 />  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large" class="ion-align-items-center">        Profile        <ng-container *ngIf="(profile$ | async) as profile;">          <ion-icon            *ngIf="profile.status == \'Incomplete\'"            color="danger"            name="alert-circle-outline"></ion-icon>          <ion-icon            *ngIf="profile.status == \'Complete\'"            color="success"            name="checkmark-circle-outline"></ion-icon>        </ng-container>      </ion-title>    </ion-toolbar>  </ion-header>  <!-- The following calls account, personal,contact, address and occupation details components -->  <ng-container *ngIf="(profile$ | async) as profile; else noProfile">    <ms-profile-account-details-component></ms-profile-account-details-component>    <ms-profile-personal-details-component></ms-profile-personal-details-component>    <ms-profile-contact-details-component></ms-profile-contact-details-component>    <ms-profile-address-details-component></ms-profile-address-details-component>    <ms-profile-occupation-details-component></ms-profile-occupation-details-component>  </ng-container>   <!-- ***************************************************************************************** -->  <!-- If Profile details have not yet been saved, show skeleton loader -->  <ng-template #noProfile>    <ion-grid>      <ion-row>        <ion-col>          <!-- Card to prompt the user to enter their details-->          <ion-card class="profile_incomplete">            <ion-card-header>              <ion-card-title>Account Incomplete</ion-card-title>            </ion-card-header>            <ion-card-content>              Please click the profile button below to save your details.            </ion-card-content>          </ion-card>          <ngx-skeleton-loader            count="3"            [theme]="{height: \'150px\'}"            appearance="line"></ngx-skeleton-loader>        </ion-col>      </ion-row>    </ion-grid>  </ng-template>  <!-- End of #noProfile -->  <!-- If Profile details have been saved, show profile details -->  <ng-template #profile>    <!-- Header TODO: center the text and add the Time bar component-->    <ion-header>      <ion-toolbar>        <ion-title size="large" >Clockwise</ion-title>      </ion-toolbar>    </ion-header>    <!-- End of Header -->    <div class="scrollable-div">        <img class="content" src="assets/logos/logo-animated.gif"/>      <ion-card class="username">        <ion-card-content style="text-align: center;">          Username          <ion-icon name="create"></ion-icon>        </ion-card-content>      </ion-card>      <div  class="posts-container">        <ion-grid>        <!-- TODO: When backend is ready          <ion-row *ngFor="let post of posts">              <ion-col size="6" *ngFor="let image of post.images">             <img src="{{image}}" style="width: 100%; height: auto;">             </ion-col>           </ion-row>        -->       </ion-grid>     </div>   </div> </ng-template> <!-- End of #profile --></ion-content></div>'
+    var COMPONENTS = [{'name': 'AccountDetailsComponent', 'selector': 'ms-profile-account-details-component'},{'name': 'AddressDetailsComponent', 'selector': 'ms-profile-address-details-component'},{'name': 'ChatPageComponent', 'selector': 'mp-chat-page'},{'name': 'ChatsDemoComponent', 'selector': 'mp-chats-demo'},{'name': 'ChatSearchComponent', 'selector': 'mp-chat-search'},{'name': 'ChatSearchComponent', 'selector': 'mp-chat-search'},{'name': 'ContactDetailsComponent', 'selector': 'ms-profile-contact-details-component'},{'name': 'CopyrightComponent', 'selector': 'ms-copyright-component'},{'name': 'CoreShell', 'selector': 'ms-core-shell'},{'name': 'DashboardPage', 'selector': 'ms-dashboard-page'},{'name': 'FeedPageComponent', 'selector': 'mp-feed-page'},{'name': 'FeedViewComponent', 'selector': 'mp-feed-view'},{'name': 'HeaderComponent', 'selector': 'mp-header'},{'name': 'HomePage', 'selector': 'ms-home-page'},{'name': 'ImageContainerComponent', 'selector': 'mp-image-container'},{'name': 'LoginPage', 'selector': 'ms-login-page'},{'name': 'MessageBubbleComponent', 'selector': 'mp-message-bubble'},{'name': 'MessageBubbleComponent', 'selector': 'mp-message-bubble'},{'name': 'MessagesContainerComponent', 'selector': 'mp-messages-container'},{'name': 'MessagesContainerComponent', 'selector': 'mp-messages-container'},{'name': 'NavbarComponent', 'selector': 'mp-navbar'},{'name': 'OccupationDetailsComponent', 'selector': 'ms-profile-occupation-details-component'},{'name': 'PersonalDetailsComponent', 'selector': 'ms-profile-personal-details-component'},{'name': 'PostPageComponent', 'selector': 'mp-post-page'},{'name': 'PrivacyPage', 'selector': 'ms-privacy-page'},{'name': 'ProfileMainPageComponent', 'selector': 'mp-profile-main-page'},{'name': 'ProfilePage', 'selector': 'ms-profile-page'},{'name': 'ProfileStatusComponent', 'selector': 'ms-profile-status-component'},{'name': 'RegisterPage', 'selector': 'ms-register-page'},{'name': 'SearchComponentComponent', 'selector': 'mp-search-component'},{'name': 'TimeBarComponent', 'selector': 'mp-time-bar'},{'name': 'TosPage', 'selector': 'ms-tos-page'},{'name': 'VersionComponent', 'selector': 'ms-version-component'},{'name': 'WelcomePage', 'selector': 'ms-welcome-page'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProfilePage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfilePage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
