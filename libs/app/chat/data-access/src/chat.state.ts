@@ -3,10 +3,12 @@ import { IChat, IMessage, ICreateChatRequest } from '@mp/api/chat/util';
 import {
   GetAllChats,
   SetAllChats,
+  SetCurrentChatId,
   CreateMessage,
   IncrementCounter,
   SetCreatedChat,
   CreateChat,
+  SetMessages,
 } from '@mp/app/chat/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { ChatApi } from './chat.api';
@@ -16,6 +18,7 @@ import produce from 'immer';
 export interface ChatsStateModel {
   chats: IChat[];
   count: number;
+  currentChatId: string;
 }
 
 @State<ChatsStateModel>({
@@ -23,6 +26,7 @@ export interface ChatsStateModel {
   defaults: {
     chats: [],
     count: 0,
+    currentChatId: '10',
   },
 })
 @Injectable()
@@ -30,7 +34,7 @@ export class ChatState {
   constructor(
     private readonly chatApi: ChatApi,
     private readonly store: Store
-  ) {}
+  ) { }
 
   @Selector()
   static chats(state: ChatsStateModel) {
@@ -40,6 +44,21 @@ export class ChatState {
   @Selector()
   static count(StateContext: ChatsStateModel) {
     return StateContext.count;
+  }
+
+  @Selector()
+  static currentChatId(StateContext: ChatsStateModel) {
+    return StateContext.currentChatId;
+  }
+
+  @Action(SetCurrentChatId)
+  setCurrentChatId(ctx: StateContext<ChatsStateModel>, { currentChatId }: SetCurrentChatId) {
+    console.log('Pull the lever');
+    return ctx.setState(
+      produce((draft) => {
+        draft.currentChatId = currentChatId;
+      })
+    );
   }
 
   @Action(SetAllChats)
@@ -72,18 +91,29 @@ export class ChatState {
   ) {
     console.log('send message - chat.state.ts');
     try {
-      console.log('action: ' + action);
+      console.log('action: ', action);
       const responseRef = await this.chatApi.createMessage(action.message);
       const response = responseRef.data;
 
-      console.log('response: ' + response);
+      console.log('Jason response: ', response);
 
-      return null;
+      return ctx.dispatch(new SetMessages(response.messages));
     } catch (error) {
       return error;
     }
   }
+
+  @Action(SetMessages)
+  async setMessages(ctx: StateContext<ChatsStateModel>, { messages }: SetMessages) {
+    console.log('Pull the lever - setMessages in chat.state.ts');
+    return ctx.setState(
+      produce((draft) => {
+        draft.chats.find((chat) => chat.chat_id === draft.currentChatId)!.messages = messages;
+      })
+    );
+  }
 }
+
 
 export interface ChatStateModel {
   chat: IChat | null;
@@ -122,7 +152,7 @@ export class CreateChatState {
   constructor(
     private readonly chatApi: ChatApi,
     private readonly store: Store
-  ) {}
+  ) { }
 
   @Selector()
   static chat(state: ChatStateModel) {
@@ -146,13 +176,14 @@ export class CreateChatState {
   @Action(CreateChat)
   async createChat(ctx: StateContext<ChatStateModel>) {
     try {
+      console.log("Jason - create Chat.state")
       const state = ctx.getState();
-      const chat_id = state.createChatForm.model.chat_id;
-      const users = state.createChatForm.model.users;
-      const messages = state.createChatForm.model.messages;
-      if (!chat_id || !users || !messages) {
-        return;
-      }
+      const chat_id = "15";
+      const users = null;
+      const messages = null;
+      // if (!chat_id || !users || !messages) {
+      //   return;
+      // }
       const request: ICreateChatRequest = {
         chat: {
           chat_id: chat_id,

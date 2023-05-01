@@ -15,8 +15,6 @@ export class ChatRepository {
       const chat = doc.data() as IChat;
       const users: IUser[] = [];
 
-      //   console.log('Jason chat.message: ', chat.messages);
-
       if (chat.users != null) {
         await Promise.all(
           chat.users.map(async (user) => {
@@ -32,12 +30,11 @@ export class ChatRepository {
                 if (userData.userProfile != null) {
                   userData.userProfile.posts = [];
                 }
-                console.log('Jason - test', userData);
-
                 return userData;
               });
 
             if (newUser.userProfile) {
+              // console.log("Jason - newUser", newUser.userProfile?.user_id);
               users.push(newUser);
             }
           })
@@ -49,14 +46,28 @@ export class ChatRepository {
         users: users,
         messages: chat.messages,
       };
-      // console.log('Jason - newChat', newChat);
 
+      console.log("Jason - newChat", newChat.chat_id, newChat.messages);
+      if (newChat.users != null) {
+        newChat.users.forEach((user) => {
+          console.log("Jason - user", user.userProfile?.user_id);
+        });
+      }
       chats.push(newChat);
     });
 
     await Promise.all(chatPromises);
-    // console.log('Jason - chats', chats);
     return chats;
+  }
+
+  async createMessage(chat_id: string | null | undefined, data: IMessage) {
+    if (chat_id == null) {
+      return;
+    }
+    const chatRef = admin.firestore().collection('chats').doc(chat_id);
+    return await chatRef.update({
+      messages: admin.firestore.FieldValue.arrayUnion(data),
+    });
   }
 
   async createChat(chat: IChat) {

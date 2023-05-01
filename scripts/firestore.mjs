@@ -25,7 +25,7 @@ const generateMockData = async () => {
   try {
     const users = [
       {
-        id: '1',
+        id: 'nO0Sk4MTGTZTKgCkhoywmnuQb3Ii',
         email: null,
         displayName: null,
         photoURL: null,
@@ -33,10 +33,10 @@ const generateMockData = async () => {
         customClaims: null,
         created: null,
         userProfile: {
-          user_id: '1',
+          user_id: 'nO0Sk4MTGTZTKgCkhoywmnuQb3Ii',
           username: 'jonDoe',
           password: 'password1',
-          first_name: 'jon',
+          first_name: 'Bob',
           last_name: 'doe',
           email: 'jonDoe@gmail.com',
           bio: 'live love laugh',
@@ -60,7 +60,7 @@ const generateMockData = async () => {
           user_id: '2',
           username: 'janeDoe',
           password: 'password2',
-          first_name: 'jane',
+          first_name: 'Alice',
           last_name: 'doe',
           email: 'janeDoe@gmail.com',
           bio: 'live love laugh',
@@ -84,7 +84,7 @@ const generateMockData = async () => {
           user_id: '3',
           username: 'janDoe',
           password: 'password3',
-          first_name: 'jan',
+          first_name: 'Neil',
           last_name: 'doe',
           email: 'janDoe@gmail.com',
           bio: 'YODO',
@@ -124,15 +124,36 @@ const generateMockData = async () => {
 
     const chats = [
       {
+        chat_id: '10',
+        users: [
+          db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
+          db.collection('users').doc('2'),
+        ],
+        messages: [
+          {
+            message_id: '154',
+            from: 'nO0Sk4MTGTZTKgCkhoywmnuQb3Ii',
+            timestamp: created,
+            content: 'Hello Thomas user test',
+          },
+          {
+            message_id: '155',
+            from: '2',
+            timestamp: created,
+            content: 'Hello wilco',
+          },
+        ],
+      },
+      {
         chat_id: '11',
         users: [
-          db.collection('users').doc('1'),
+          db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
           db.collection('users').doc('2'),
         ],
         messages: [
           {
             message_id: '123',
-            from: '1',
+            from: 'nO0Sk4MTGTZTKgCkhoywmnuQb3Ii',
             timestamp: created,
             content: 'hello',
           },
@@ -147,7 +168,7 @@ const generateMockData = async () => {
       {
         chat_id: '12',
         users: [
-          db.collection('users').doc('1'),
+          db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
           db.collection('users').doc('3'),
         ],
         messages: [
@@ -159,7 +180,7 @@ const generateMockData = async () => {
           },
           {
             message_id: '126',
-            from: '1',
+            from: 'nO0Sk4MTGTZTKgCkhoywmnuQb3Ii',
             timestamp: created,
             content: 'hey',
           },
@@ -276,7 +297,7 @@ const generateMockData = async () => {
     const comments = [
       {
         comment_id: '11111',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
         text: 'What a loser of a post, get better noob',
         time_created: created,
       },
@@ -306,13 +327,13 @@ const generateMockData = async () => {
       },
       {
         comment_id: '11116',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
         text: 'Great post! Very inspiring!',
         time_created: created,
       },
       {
         comment_id: '11117',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
         text: 'Why do you want to do this to yourself?',
         time_created: created,
       },
@@ -330,7 +351,7 @@ const generateMockData = async () => {
       },
       {
         comment_id: '11120',
-        user: db.collection('users').doc('1'),
+        user: db.collection('users').doc('nO0Sk4MTGTZTKgCkhoywmnuQb3Ii'),
         text: "And just to be clear, I'm not trying to be mean, I'm just trying to help you out I don't want to offend you in any way, shape or form. This post was made with sugar spice and everything nice.",
         time_created: created,
       },

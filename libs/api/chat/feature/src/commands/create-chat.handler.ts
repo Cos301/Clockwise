@@ -11,12 +11,12 @@ export class CreateChatHandler implements ICommandHandler<CreateChatCommand> {
 
     async execute(command: CreateChatCommand){
 
-        console.log(`${CreateChatHandler.name}`);
+        console.log("create chat handler");
 
         const request = command.request;
         const chat_id = request.chat.chat_id;
         const users = request.chat.users;
-        const messages = request.chat.messages;
+        const messages = null;
 
         const data: IChat = {
             chat_id,
@@ -24,6 +24,7 @@ export class CreateChatHandler implements ICommandHandler<CreateChatCommand> {
             messages
         };
 
+        console.log("Jason message to be created:", data)
         const chat = this.publisher.mergeObjectContext(Chat.fromData(data));
         console.log(`${CreateChatHandler.name} post`, chat);
 

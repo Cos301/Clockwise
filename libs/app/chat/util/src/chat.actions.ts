@@ -1,4 +1,5 @@
-import { IChat, IGetAllChatsRequest, ICreateMessageRequest } from '@mp/api/chat/util';
+import { IChat, IGetAllChatsRequest, ICreateMessageRequest, ICreateChatRequest, IMessage } from '@mp/api/chat/util';
+
 
 
 export class GetAllChats {
@@ -14,6 +15,12 @@ export class SetAllChats {
         console.log("set all chats");
     }
 }
+export class SetCurrentChatId {
+    static readonly type = '[CurrentChatId] setCurrentChatId';
+    constructor(public readonly currentChatId: string) {
+        console.log("Set current chat Id");
+    }
+}
 
 export class CreateMessage {
     static readonly type = '[Chat] CreateMessage';
@@ -24,7 +31,7 @@ export class CreateMessage {
 
 export class CreateChat {
     static readonly type = '[Chat] CreateChat';
-    constructor() { 
+    constructor(public readonly chat: ICreateChatRequest) { 
         console.log("chat created");
     }
 }
@@ -40,4 +47,9 @@ export class IncrementCounter {
 
 export class DecrementCounter {
     static readonly type = '[Chats] Decrement Counter';
+}
+
+export class SetMessages {
+    static readonly type = '[Chat] SetMessages';
+    constructor(public readonly messages: IMessage[]) { }
 }

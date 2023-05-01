@@ -1,39 +1,46 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
-import { IMessage } from '@mp/api/chat/util';
+import { ICreateMessageRequest } from '@mp/api/chat/util';
 import { CreateMessageCommand } from '@mp/api/chat/util';
+import { IMessage } from '@mp/api/chat/util';
 import { Timestamp } from 'firebase-admin/firestore';
 import * as admin from 'firebase-admin';
-import * as crypto from 'crypto';
+import { ChatRepository } from '@mp/api/chat/data-access';
 
 @CommandHandler(CreateMessageCommand)
 export class CreateMessageHandler
   implements ICommandHandler<CreateMessageCommand>
 {
-  constructor(private publisher: EventPublisher) {}
+  message_id!: string;
+  from!: string;
+  timestamp!: Timestamp;
+  content!: string;
+
+  constructor(private readonly repository: ChatRepository) {}
 
   async execute(command: CreateMessageCommand) {
     console.log(`${CreateMessageHandler.name}`);
     console.log('create-message.handler.ts ~ command: ', command);
-    const { message_id, content, from } = command.request;
+    const { message_id, content, from } = command.request.message;
+    const { chat_id } = command.request;
 
     const chatRef = admin.firestore().doc(`/chats/${command.request.chat_id}`);
-    const messagesArray = (await chatRef.get()).get('messages');
 
-    const data: IMessage = {
-      message_id: message_id,
-      from: from,
-      timestamp: Timestamp.now(),
-      content: content,
+    const messagesArray = (await chatRef.get()).get('messages');
+    const data: ICreateMessageRequest = {
+      chat_id: chat_id,
+      message: {
+        message_id: message_id,
+        from: from,
+        timestamp: Timestamp.now(),
+        content: content,
+      },
     };
 
-    let newMessageId = crypto.randomBytes(16).toString('hex');
-    let newMessageRef = admin.firestore().doc(`/chats/messages/${newMessageId}`);
+    messagesArray.push(data.message);
 
-    messagesArray.push(newMessageRef);
-    admin
+    return await admin
       .firestore()
       .batch()
-      .create(newMessageRef, data)
       .update(chatRef, { messages: messagesArray })
       .commit();
   }

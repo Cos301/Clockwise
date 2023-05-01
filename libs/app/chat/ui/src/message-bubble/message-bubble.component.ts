@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Injectable, Input, Output } from '@angular/core';
 import { IChat } from '@mp/api/chat/util';
+import { Selector } from '@ngxs/store';
 
 @Component({
   selector: 'mp-message-bubble',
@@ -7,6 +8,7 @@ import { IChat } from '@mp/api/chat/util';
   styleUrls: ['./message-bubble.component.scss'],
   standalone: true,
 })
+
 export class MessageBubbleComponent {
   @Input() chatName: string;
   @Input() profilePhotoUrl: string;
@@ -14,33 +16,43 @@ export class MessageBubbleComponent {
   @Input() time: string;
   @Input() unreadCount: number;
   @Input() chat!: IChat;
+
+  @Output() chatPageOpen = new EventEmitter<boolean>();
+  @Output() currentUser = new EventEmitter<string>();
+
+  
+  public getName() {
+    let name = 'Unknown User';
+    this.chat.users?.forEach((user) => {
+      name = user.userProfile?.first_name + " " + user.userProfile?.last_name|| 'Unknown User';
+    });
+    return name;
+  }
+  
   constructor() {
     this.chatName = 'Chat Name';
     this.profilePhotoUrl = 'profile-photo.png';
     this.msgPreview =
-      'Hi... I am a message preview and I will be displayed I want it to overflowl and displayer over two lines. Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah ';
+      'Hi... I am a message preview and I will be displayed I want it to overflow and displayed over two lines. Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah ';
     this.time = '14:45';
     this.unreadCount = 1;
   }
 
-  getName() {
-    //return this.chat.chat_id;
-    let name = 'Uknown User';
-    this.chat.users?.forEach((user) => {
-      name = user.userProfile?.first_name + " " + user.userProfile?.last_name|| 'Uknown User';
-    });
-    return name;
-  }
+  
+  // public getName() {
+  //   //return this.chat.chat_id;
+    
+  // }
 
   messagegPreview() {
-    return this.chat.messages?.[0].content;
+    return this.chat.messages?.[this.chat.messages?.length - 1].content;
   }
 
 
   getProfilePhoto(){
-    let photo = 'Uknown User';
+    let photo = 'Unknown User';
     this.chat.users?.forEach((user) => {
-      photo = user.userProfile?.pfp_url|| 'Uknown User';
+      photo = user.userProfile?.pfp_url|| 'Unknown User';
       return photo;
     });
     return photo;
@@ -62,7 +74,12 @@ export class MessageBubbleComponent {
     //convert timestamp to 24hr format
     const minutes = Math.floor(timestamp._seconds / 36000000);
     const hours = Math.floor(timestamp._nanoseconds / 36000000);
-    //console.log("🚀 ~ file: message-bubble.component.ts:62 ~ MessageBubbleComponent ~ lastMessageTime ~ data:", hours)
+
     return hours + ":" + minutes;
+  }
+  
+  openChatPage(): void {
+    this.chatPageOpen.emit(true);
+    this.currentUser.emit(this.getName());
   }
 }
