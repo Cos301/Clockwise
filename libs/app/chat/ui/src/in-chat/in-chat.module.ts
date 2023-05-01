@@ -6,6 +6,7 @@ import { ChatModule } from '@mp/app/chat/data-access';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { InChatComponent } from './in-chat.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [InChatComponent],
@@ -16,6 +17,7 @@ import { InChatComponent } from './in-chat.component';
     ReactiveFormsModule,
     NgxsFormPluginModule,
     ChatModule,
+    FormsModule
   ],
   exports: [InChatComponent],
 })

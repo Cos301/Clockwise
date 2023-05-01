@@ -1,5 +1,6 @@
 import { IMessage } from '../interfaces';
 
 export interface ICreateMessageResponse {
-  message: IMessage;
+  chatId: string;
+  messages: IMessage[];
 }

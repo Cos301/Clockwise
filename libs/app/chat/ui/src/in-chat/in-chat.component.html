@@ -51,7 +51,7 @@
           <ion-col size="8">
             <div class="message user-one">
               <p class="message-text">{{ chat.content }}</p>
-              <p class="message-time">{{ chat.timestamp }}</p>
+              <p class="message-time ion-text-right">{{ getTime(chat.timestamp) }}</p>
             </div>
           </ion-col>
 
@@ -87,7 +87,7 @@
 
   <ion-col size="8">
     <div class="input-container" style="bottom: 10px;position: fixed;width: 70%">
-      <ion-input type="text" placeholder="Type a message..." class="input-box" ></ion-input>
+      <ion-input type="text" placeholder="Type a message..." class="input-box" [(ngModel)]="messageContent" #ctrl="ngModel"></ion-input>
     </div>
   </ion-col>
 

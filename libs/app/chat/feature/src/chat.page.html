@@ -11,10 +11,18 @@
   </div>
   <div *ngFor="let chat of chats;">
    <div style="height: 4px;"></div>
-    <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages)" [chat]="chat"></mp-message-bubble>
+    <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)" (currentUser)="currentUser = $event" [chat]="chat"></mp-message-bubble>
   </div> 
+
+  <div>
+    <button (click)="newChat()" >Start a new chat</button>
+  </div>
+
+  <div *ngIf="isNewChatOpen">
+    <div>Start a new chat</div>
+  </div>
   
 
-  <mp-in-chat *ngIf="this.isChatPageOpen" [chatHistory]="this.currentChatMessages" (closeModal)="closeModal()"/>
+  <mp-in-chat *ngIf="this.isChatPageOpen" [currentUser]="currentUser" (closeModal)="closeModal()"/>
 
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetAllChats } from '@mp/app/chat/util';
+import { GetAllChats, SetCurrentChatId } from '@mp/app/chat/util';
 import { ChatState } from '@mp/app/chat/data-access';
 import { Select, Selector, Store } from '@ngxs/store';
 import {
@@ -8,6 +8,7 @@ import {
 } from '@ngxs-labs/actions-executing';
 import { Observable } from 'rxjs';
 import { IChat,  IMessage  } from '@mp/api/chat/util';
+import { AuthState } from '@mp/app/auth/data-access';
 
 @Component({
   selector: 'ms-profile-page',
@@ -20,13 +21,15 @@ export class ChatPage {
   busy$!: Observable<ActionsExecuting>;
   //This variable is being used for test purposes
   chats!: IChat[];
-  currentUser = 'John';
+  currentUser = this.store.selectSnapshot(AuthState.user)?.displayName;
   currentChatMessages: IMessage[] | null | undefined;
 
   isChatPageOpen: boolean;
+  isNewChatOpen: boolean;
   searchQuery: string;
 
   constructor(private readonly store: Store) {
+    console.log("Jason current user", this.currentUser);
     setTimeout(() => {
       const a = '';
     }, 2000);
@@ -39,13 +42,15 @@ export class ChatPage {
       );
     });
     this.isChatPageOpen = false;
+    this.isNewChatOpen = false;
     this.searchQuery = "";
+    
   }
 
-  public populateChatPage(messages: IMessage[] | null | undefined) {
+  public populateChatPage(messages: IMessage[] | null | undefined, chatId: string) {
     //set the state of the messages
     console.log('here are the messages: ', messages);
-
+    this.store.dispatch(new SetCurrentChatId(chatId))
     if (messages) 
       this.currentChatMessages = messages;
      
@@ -62,10 +67,17 @@ export class ChatPage {
     this.isChatPageOpen = false;
   }
 
+  public newChat() {
+
+    //make a call to the api to get the chat list....
+
+    return false;
+  }
+
   public test(chat: any) : boolean {
     
     const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-    console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery)
+    // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
     if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
       return true;
       

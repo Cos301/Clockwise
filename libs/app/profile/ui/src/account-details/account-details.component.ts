@@ -101,17 +101,5 @@ export class AccountDetailsComponent {
     this.store.dispatch(new UpdateAccountDetails());
   }
 
-  createChat() {
-    console.log('createChat');
-    const chatObj : IChat = {
-      chat_id : "15",
-      users: [],
-      messages: [],
-    };
-    const req : ICreateChatRequest = {
-      chat: chatObj,
-    }
-    
-    this.store.dispatch(new CreateChat(req));
-  }
+  
 }

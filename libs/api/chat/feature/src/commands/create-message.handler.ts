@@ -14,28 +14,25 @@ export class CreateMessageHandler
   async execute(command: CreateMessageCommand) {
     console.log(`${CreateMessageHandler.name}`);
     console.log('create-message.handler.ts ~ command: ', command);
-    const { chat_id, message_id, content, from } = command.request;
+    const { message_id, content, from } = command.request.message;
+    const { chat_id } = command.request;
 
     const chatRef = admin.firestore().doc(`/chats/${command.request.chat_id}`);
 
     const messagesArray = (await chatRef.get()).get('messages');
     const data: ICreateMessageRequest = {
       chat_id: chat_id,
-      message_id: message_id,
-      from: from,
-      timestamp: Timestamp.now(),
-      content: content,
+      message:{
+        message_id: message_id,
+        from: from,
+        timestamp: Timestamp.now(),
+        content: content,
+      }
     };
 
-    const mess: IMessage = {
-      message_id: data.message_id,
-      from: data.from,
-      timestamp: data.timestamp,
-      content: data.content,
-    }
+    messagesArray.push(data.message);
 
-    messagesArray.push(mess);
-    admin
+    return await admin
       .firestore()
       .batch()
       .update(chatRef, { messages: messagesArray })

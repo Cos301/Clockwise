@@ -3,10 +3,12 @@ import { IChat, IMessage, ICreateChatRequest } from '@mp/api/chat/util';
 import {
   GetAllChats,
   SetAllChats,
+  SetCurrentChatId,
   CreateMessage,
   IncrementCounter,
   SetCreatedChat,
   CreateChat,
+  SetMessages,
 } from '@mp/app/chat/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { ChatApi } from './chat.api';
@@ -16,6 +18,7 @@ import produce from 'immer';
 export interface ChatsStateModel {
   chats: IChat[];
   count: number;
+  currentChatId: string;
 }
 
 @State<ChatsStateModel>({
@@ -23,6 +26,7 @@ export interface ChatsStateModel {
   defaults: {
     chats: [],
     count: 0,
+    currentChatId: '10',
   },
 })
 @Injectable()
@@ -40,6 +44,21 @@ export class ChatState {
   @Selector()
   static count(StateContext: ChatsStateModel) {
     return StateContext.count;
+  }
+
+  @Selector()
+  static currentChatId(StateContext: ChatsStateModel) {
+    return StateContext.currentChatId;
+  }
+
+  @Action(SetCurrentChatId)
+  setCurrentChatId(ctx: StateContext<ChatsStateModel>, { currentChatId }: SetCurrentChatId) {
+    console.log('Pull the lever');
+    return ctx.setState(
+      produce((draft) => {
+        draft.currentChatId = currentChatId;
+      })
+    );
   }
 
   @Action(SetAllChats)
@@ -70,20 +89,31 @@ export class ChatState {
     ctx: StateContext<ChatsStateModel>,
     action: CreateMessage
   ) {
-    console.log('send message - chat.state.ts');
+    console.log('send message - chat.state.ts'); 
     try {
-      console.log('action: ' + action);
+      console.log('action: ', action);
       const responseRef = await this.chatApi.createMessage(action.message);
       const response = responseRef.data;
 
-      console.log('response: ' + response);
+      console.log('Wilco response: ', responseRef);
 
-      return null;
+      return ctx.dispatch(new SetMessages(response.messages));
     } catch (error) {
       return error;
     }
   }
+  
+  @Action(SetMessages)
+  async setMessages(ctx: StateContext<ChatsStateModel>, { messages }: SetMessages) {
+    console.log('Pull the lever - setMessages in chat.state.ts');
+    return ctx.setState(
+      produce((draft) => {
+        draft.chats.find((chat) => chat.chat_id === draft.currentChatId)!.messages = messages;
+      })
+    );
+  }
 }
+
 
 export interface ChatStateModel {
   chat: IChat | null;
