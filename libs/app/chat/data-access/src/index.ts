@@ -1,1 +1,3 @@
-export * from './lib/app-chat-data-access';
+export * from './chat.api';
+export * from './chat.module';
+export * from './chat.state';

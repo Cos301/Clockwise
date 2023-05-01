@@ -1,7 +1,7 @@
 import { UpdateAuthCommand } from '@mp/api/auth/util';
 import {
-    AccountDetailsUpdatedEvent,
-    ContactDetailsUpdatedEvent
+  AccountDetailsUpdatedEvent,
+  ContactDetailsUpdatedEvent
 } from '@mp/api/profiles/util';
 import { Injectable } from '@nestjs/common';
 import { ICommand, ofType, Saga } from '@nestjs/cqrs';
