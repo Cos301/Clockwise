@@ -62,11 +62,16 @@ export class ChatPage {
     this.store.dispatch(new GetAllChats({ chat: null }));
   }
 
+  // public personList(): IUser[] {
+  //get a list of users to choose who to start a chat with
+  // }
+
   public closeModal() {
     console.log('Calling close in parent');
     this.isChatPageOpen = false;
   }
 
+  //searching the chat
   public test(chat: any): boolean {
     const user_id = this.getUserId();
     let name = '';
@@ -91,8 +96,8 @@ export class ChatPage {
     return false;
   }
 
-  async getUserId(): Promise<string> {
-    const user_id = await this.store.selectSnapshot(AuthState.user)?.uid;
+  getUserId(): string {
+    const user_id = this.store.selectSnapshot(AuthState.user)?.uid;
     if (user_id)
     return user_id;
     else return '';

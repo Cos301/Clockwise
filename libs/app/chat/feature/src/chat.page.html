@@ -5,6 +5,7 @@
       <input (focus)="clearText()" [(ngModel)]="searchQuery" type="text" placeholder=" 🔎︎ search..." />
     </div>
 
+    <!-- <mp-create-new-chat [personList]="personList"/> -->
 
     <!-- <button (click)="CallAllChats()">Get All chats</button> -->
   </div>
@@ -12,7 +13,7 @@
     <div *ngIf="testList(chat)">
       <div style="height: 4px;"></div>
       <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)"
-        (currentUser)="currentUser = $event" [chat]="chat"></mp-message-bubble>
+        (currentUser)="currentUser = $event" [chat]="chat" [myUserId]="getUserId()"></mp-message-bubble>
     </div>
   </div>
 

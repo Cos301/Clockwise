@@ -16,16 +16,25 @@ export class MessageBubbleComponent {
   @Input() time: string;
   @Input() unreadCount: number;
   @Input() chat!: IChat;
+  @Input() myUserId!: string;
 
   @Output() chatPageOpen = new EventEmitter<boolean>();
   @Output() currentUser = new EventEmitter<string>();
 
+
+
   
   public getName() {
     let name = 'Unknown User';
+    // this.chat.users?.forEach((user) => {
+    //   name = user.userProfile?.first_name + " " + user.userProfile?.last_name|| 'Unknown User';
+    // });
+
     this.chat.users?.forEach((user) => {
-      name = user.userProfile?.first_name + " " + user.userProfile?.last_name|| 'Unknown User';
-    });
+      if (this.myUserId != user.id)
+        name = user.userProfile?.first_name + " " + user.userProfile?.last_name;
+    })
+      
     return name;
   }
   
@@ -36,6 +45,7 @@ export class MessageBubbleComponent {
       'Hi... I am a message preview and I will be displayed I want it to overflow and displayed over two lines. Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah  Blah ';
     this.time = '14:45';
     this.unreadCount = 1;
+    // this.myUserId="";
   }
 
   
