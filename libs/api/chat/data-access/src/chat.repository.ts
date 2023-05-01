@@ -34,6 +34,7 @@ export class ChatRepository {
               });
 
             if (newUser.userProfile) {
+              // console.log("Jason - newUser", newUser.userProfile?.user_id);
               users.push(newUser);
             }
           })
@@ -46,6 +47,12 @@ export class ChatRepository {
         messages: chat.messages,
       };
 
+      console.log("Jason - newChat", newChat.chat_id, newChat.messages);
+      if (newChat.users != null) {
+        newChat.users.forEach((user) => {
+          console.log("Jason - user", user.userProfile?.user_id);
+        });
+      }
       chats.push(newChat);
     });
 
