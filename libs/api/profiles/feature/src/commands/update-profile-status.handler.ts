@@ -1,7 +1,7 @@
 import { ProfilesRepository } from '@mp/api/profiles/data-access';
 import {
-    IUpdateProfileStatusResponse,
-    UpdateProfileStatusCommand
+  IUpdateProfileStatusResponse,
+  UpdateProfileStatusCommand
 } from '@mp/api/profiles/util';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { Profile } from '../models';
@@ -13,7 +13,7 @@ export class UpdateProfileStatusHandler
   constructor(
     private readonly publisher: EventPublisher,
     private readonly repository: ProfilesRepository
-  ) {}
+  ) { }
 
   async execute(command: UpdateProfileStatusCommand) {
     console.log(`${UpdateProfileStatusHandler.name}`);

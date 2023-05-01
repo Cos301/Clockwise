@@ -1,20 +1,23 @@
 import {
-    AccountDetailsUpdatedEvent,
-    AddressDetailsUpdatedEvent,
-    ContactDetailsUpdatedEvent,
-    IAccountDetails,
-    IAddressDetails,
-    IContactDetails,
-    IOccupationDetails,
-    IPersonalDetails,
-    IProfile,
-    OccupationDetailsUpdatedEvent,
-    PersonalDetailsUpdatedEvent,
-    ProfileCreatedEvent,
-    ProfileStatus,
-    ProfileStatusUpdatedEvent
+  AccountDetailsUpdatedEvent,
+  AddressDetailsUpdatedEvent,
+  ContactDetailsUpdatedEvent,
+  IAccountDetails,
+  IAddressDetails,
+  IContactDetails,
+  IOccupationDetails,
+  IPersonalDetails,
+  IProfile,
+  OccupationDetailsUpdatedEvent,
+  PersonalDetailsUpdatedEvent,
+  ProfileCreatedEvent,
+  ProfileStatus,
+  ProfileStatusUpdatedEvent,
+  
 } from '@mp/api/profiles/util';
 import { AggregateRoot } from '@nestjs/cqrs';
+import { Timestamp } from 'firebase-admin/firestore';
+import { IPost } from '@mp/api/posts/util';
 
 export class Profile extends AggregateRoot implements IProfile {
   constructor(
@@ -25,7 +28,7 @@ export class Profile extends AggregateRoot implements IProfile {
     public addressDetails?: IAddressDetails | null | undefined,
     public occupationDetails?: IOccupationDetails | null | undefined,
     public status?: ProfileStatus | null | undefined,
-    public created?: FirebaseFirestore.Timestamp | null | undefined
+    public created?: Timestamp | null | undefined
   ) {
     super();
   }
@@ -232,10 +235,11 @@ export class Profile extends AggregateRoot implements IProfile {
       accountDetails: this.accountDetails,
       personalDetails: this.personalDetails,
       contactDetails: this.contactDetails,
-      addressDetails: this.addressDetails,
+      addressDetails: this.addressDetails,    
       occupationDetails: this.occupationDetails,
       status: this.status,
-      created: this.created,
+      created: this.created
+
     };
   }
 }

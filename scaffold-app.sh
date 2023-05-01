@@ -80,3 +80,15 @@ yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=app/aut
 yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=app/user --no-interactive
 yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=app/user --no-interactive
 yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=app/user --no-interactive
+
+# POSTS
+yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=app/posts --no-interactive
+yarn nx generate @nrwl/js:library ui --unitTestRunner=jest --directory=app/posts --no-interactive
+yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=app/posts --no-interactive
+yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=app/posts --no-interactive
+
+# CHAT
+yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=app/chat --no-interactive
+yarn nx generate @nrwl/js:library ui --unitTestRunner=jest --directory=app/chat --no-interactive
+yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=app/chat --no-interactive
+yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=app/chat --no-interactive

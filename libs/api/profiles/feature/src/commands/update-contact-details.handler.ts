@@ -1,7 +1,7 @@
 import { ProfilesRepository } from '@mp/api/profiles/data-access';
 import {
-    IUpdateContactDetailsResponse,
-    UpdateContactDetailsCommand
+  IUpdateContactDetailsResponse,
+  UpdateContactDetailsCommand
 } from '@mp/api/profiles/util';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { Profile } from '../models';
@@ -9,12 +9,12 @@ import { Profile } from '../models';
 @CommandHandler(UpdateContactDetailsCommand)
 export class UpdateContactDetailsHandler
   implements
-    ICommandHandler<UpdateContactDetailsCommand, IUpdateContactDetailsResponse>
+  ICommandHandler<UpdateContactDetailsCommand, IUpdateContactDetailsResponse>
 {
   constructor(
     private readonly publisher: EventPublisher,
     private readonly repository: ProfilesRepository
-  ) {}
+  ) { }
 
   async execute(command: UpdateContactDetailsCommand) {
     console.log(`${UpdateContactDetailsHandler.name}`);

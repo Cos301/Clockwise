@@ -20,14 +20,24 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/home/dashboard',
+        redirectTo: '/home/posts',
       },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('@mp/app/posts/feature').then((m) => m.PostsModule),
+      },
+      {
+        path: 'chat',
+        loadChildren: () =>
+          import('@mp/app/chat/feature').then((m) => m.ChatModule),
+      }
     ],
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home/dashboard',
+    redirectTo: '/home/posts',
   },
 ];
 
@@ -35,4 +45,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRouting {}
+export class HomeRouting { }

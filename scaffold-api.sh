@@ -29,3 +29,13 @@ yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=api/his
 yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=api/eventstore --no-interactive
 yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=api/eventstore --no-interactive
 yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=api/eventstore --no-interactive
+
+# POSTS
+yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=api/posts --no-interactive
+yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=api/posts --no-interactive
+yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=api/posts --no-interactive
+
+# CHAT
+yarn nx generate @nrwl/js:library feature --unitTestRunner=jest --directory=api/chat --no-interactive
+yarn nx generate @nrwl/js:library data-access --unitTestRunner=jest --directory=api/chat --no-interactive
+yarn nx generate @nrwl/js:library util --unitTestRunner=jest --directory=api/chat --no-interactive

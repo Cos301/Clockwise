@@ -5,6 +5,7 @@ import { IAddressDetails } from './address-details.interface';
 import { IContactDetails } from './contact-details.interface';
 import { IOccupationDetails } from './occupation-details.interface';
 import { IPersonalDetails } from './personal-details.interface';
+// import { IUserProfile } from './userprofile.interface';
 
 export interface IProfile {
   userId: string;
@@ -15,4 +16,5 @@ export interface IProfile {
   occupationDetails?: IOccupationDetails | null | undefined;
   status?: ProfileStatus | null | undefined;
   created?: Timestamp | null | undefined;
+  // userProfile?: IUserProfile | null | undefined;
 }

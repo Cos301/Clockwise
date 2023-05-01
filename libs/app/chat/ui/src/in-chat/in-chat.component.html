@@ -1,0 +1,72 @@
+<ion-content>
+  <div class="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-button fill="clear" (click)="goBack()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="10">
+          <ion-row>
+            <ion-col style="justify-content: right;display: flex;margin-bottom: 25%" size="4">
+              <img src="assets/logos/Logo.svg" alt="user" class="profile_picture">
+            </ion-col>
+            <ion-col style="align-items: center;display: flex;left:0.5rem" size="8">
+              <h1 class="user-name" style="font-size: 25px">{{this.currentUser}}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="message-container">
+    <div *ngFor="let chat of chatHistory">
+      <ion-grid>
+        <ng-container *ngIf="getCurrentUserId() === chat.from; else notCurrentUser">
+          <ion-row>
+            <ion-col size="4"></ion-col>
+            <ion-col size="8">
+              <div class="message user-one">
+                <p class="message-text">{{ chat.content }}</p>
+                <p class="message-time ion-text-right">{{ getTime(chat.timestamp) }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+        <ng-template #notCurrentUser>
+          <ion-row>
+            <ion-col size="8">
+              <div class="message user-two">
+                <p class="message-text">{{ chat.content }}</p>
+                <p class="message-time">{{ getTime(chat.timestamp) }}</p>
+              </div>
+            </ion-col>
+            <ion-col size="4"></ion-col>
+          </ion-row>
+        </ng-template>
+      </ion-grid>
+    </div>
+  </div>
+
+  <ion-card style="position: fixed; bottom: 0; left: 0; height: 50px;">
+    <ion-row>
+      <ion-col size="8">
+        <div class="input-container">
+          <ion-input type="text" placeholder="Type a message..." class="input-box" [(ngModel)]="messageContent"
+            #ctrl="ngModel"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="send-button-container">
+          <ion-button class="send-button" fill="clear" (click)="sendMessage()">
+            <ion-icon name="send"></ion-icon>&nbsp; Send
+          </ion-button>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-card>
+</ion-content>
