@@ -17,7 +17,7 @@ import { ProfileRouting } from './profile.routing';
     ProfileUiModule,
     ProfileDataAccessModule,
     NgxSkeletonLoaderModule,
-    ImageContainerModule
+    ImageContainerModule,
   ],
   declarations: [ProfilePage],
 })

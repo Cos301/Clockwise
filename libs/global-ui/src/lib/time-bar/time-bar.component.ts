@@ -11,7 +11,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
   standalone: true
 })
 export class TimeBarComponent implements OnInit, OnDestroy {
-  @Input() startMinutes: number;
+  @Input() startMinutes!: number;
   
   //for visual elements
   private progress: number;
@@ -45,7 +45,8 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.showTime = true;
     this.lowTime = false;
     this.progress = 0; 
-    this.startMinutes = 0.2; 
+
+    console.log(this.startMinutes);
 
     //set a 10 minute timer and set the progress to 100
     this.startDate = new Date(); 

@@ -26,6 +26,7 @@ export class ProfilePage {
   profile!: IProfile;
   users!: IUser[];
   currUser!: IUser | undefined;
+  isModalOpen!: boolean;
 
   constructor(private readonly store: Store, private navController: NavController) {
     this.users$.subscribe((users) => {

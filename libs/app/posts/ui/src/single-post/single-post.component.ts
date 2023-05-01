@@ -22,6 +22,7 @@ export class SinglePostComponent {
   getUsername(id: string) {
     const user = this.users.find((user) => user.userProfile?.user_id === id);
     if (user?.userProfile) {
+      console.log('Francois',user.userProfile.username);
       return user.userProfile.username;
     }
     return '';

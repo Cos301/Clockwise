@@ -20,7 +20,7 @@ import { TimeBarComponent } from 'libs/global-ui/src/lib/time-bar/time-bar.compo
     GetAllPostsModule,
     CreatePostModule,
     NgxSkeletonLoaderModule,
-    TimeBarComponent
+    TimeBarComponent,
   ],
   declarations: [PostsPage],
 })

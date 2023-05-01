@@ -10,7 +10,6 @@ import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { Timestamp } from 'firebase-admin/firestore';
 import { IUser } from '@mp/api/users/util';
-import { create } from 'domain';
 
 @Component({
   selector: 'get-all-posts',
