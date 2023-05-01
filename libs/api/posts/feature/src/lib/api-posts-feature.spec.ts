@@ -10,16 +10,22 @@ import { Post } from '../models';
 import { PostsRepository } from '@mp/api/posts/data-access';
 import { IPost, GetUserDataQuery, GetAllPostsQuery } from '@mp/api/posts/util';
 import { Timestamp } from 'firebase-admin/firestore';
-import * as admin from 'firebase-admin';
+import {
+  CreatePostCommand,
+  ICreatePostRequest,
+  ICreatePostResponse,
+} from '@mp/api/posts/util';
+import { QueryBus, CommandBus } from '@nestjs/cqrs';
 describe('apiPostsFeature', () => {
   let createPostHandler: CreatePostHandler;
   let createCommentHandler: CreateCommentHandler;
   let getAllPostsHandler: GetAllPostsHandler;
   let getUserDataHandler: GetUserDataHandler;
+  let postCreatedHandler: PostCreatedHandler;
   let postsService: PostsService;
   let postsRepository: PostsRepository;
   let publisher: EventPublisher;
-
+  let cmb: CommandBus;
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [CqrsModule],
@@ -31,14 +37,17 @@ describe('apiPostsFeature', () => {
         GetAllPostsHandler,
         GetUserDataHandler,
         EventPublisher,
+        PostCreatedHandler,
+        CommandBus,
       ],
     }).compile();
 
     createPostHandler = module.get<CreatePostHandler>(CreatePostHandler);
     createCommentHandler =
       module.get<CreateCommentHandler>(CreateCommentHandler);
-
+    cmb = module.get<CommandBus>(CommandBus);
     getUserDataHandler = module.get<GetUserDataHandler>(GetUserDataHandler);
+    postCreatedHandler = module.get<PostCreatedHandler>(PostCreatedHandler);
     postsService = module.get<PostsService>(PostsService);
     postsRepository = module.get<PostsRepository>(PostsRepository);
     publisher = module.get<EventPublisher>(EventPublisher);
@@ -89,11 +98,28 @@ describe('apiPostsFeature', () => {
     fixture.commit = jest.fn();
     publisher.mergeObjectContext = jest.fn((fixture) => fixture);
     postsRepository.createPost = jest.fn();
+    const insertType: ICreatePostRequest = {
+      caption: 'test',
+      img_url: 'test',
+      user_id: '1',
+      postLife: 1,
+      post_id: '1',
+    };
+    const createPostRponse: ICreatePostResponse = {
+      post: postTest,
+    };
+    postCreatedHandler.handle = jest.fn();
+    cmb.execute = jest.fn();
 
-    // const createPostCommand = new PostCreatedHandler(postsRepository);
-    // const result = await createPostHandler.execute(createPostCommand);
-    // expect(result).toBeUndefined();
-    // expect(result.create).toHaveBeenCalled();
+    postsService.createPost = jest.fn(() => Promise.resolve(createPostRponse));
+    const result = await postsService.createPost(insertType);
+    expect(result).toBeDefined();
+
+    expect(fixture.create).toBeDefined();
+    expect(fixture.commit).toBeDefined();
+    expect(publisher.mergeObjectContext).toBeDefined();
+    expect(postsRepository.createPost).toBeDefined();
+    expect(postCreatedHandler.handle).toBeDefined();
   });
 
   //Get all Posts
@@ -127,16 +153,12 @@ describe('apiPostsFeature', () => {
       expect(x.time_remove).toBe(postTest.time_remove);
       expect(x.user_id).toBe(postTest.user_id);
     });
-
-
   });
 
   //Get User Data
   it('Get User Data', async () => {
     postsRepository.getUserData = jest.fn(() => Promise.resolve([]));
-    const result = await getUserDataHandler.execute(
-      new GetUserDataQuery({})
-    );
+    const result = await getUserDataHandler.execute(new GetUserDataQuery({}));
     expect(result).toBeDefined();
     expect(postsRepository.getUserData).toHaveBeenCalled();
     expect(result.users.length).toBe(0);
