@@ -31,4 +31,9 @@ export class UpdateOccupationDetails {
 
 export class UpdatePersonalDetails {
   static readonly type = '[Profile] UpdatePersonalDetails';
+  constructor() {
+    console.log(
+      '🚀 ~ file: profile.actions.ts:35 ~ UpdatePersonalDetails ~ type:'
+    );
+  }
 }

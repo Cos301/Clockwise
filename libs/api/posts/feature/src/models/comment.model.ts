@@ -5,7 +5,7 @@ import { Timestamp } from 'firebase-admin/firestore';
 export class Comment extends AggregateRoot implements IComment {
   constructor(
     public comment_id: string,
-    public text: string | null,
+    public text: string,
     public time_created: Timestamp,
     public user_id: string,
   ) {

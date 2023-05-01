@@ -5,7 +5,7 @@ import { Auth } from '../models';
 
 @CommandHandler(CreateAuthCommand)
 export class CreateAuthHandler implements ICommandHandler<CreateAuthCommand> {
-  constructor(private publisher: EventPublisher) {}
+  constructor(private publisher: EventPublisher) { }
 
   async execute(command: CreateAuthCommand) {
     console.log(`${CreateAuthHandler.name}`);
@@ -16,7 +16,6 @@ export class CreateAuthHandler implements ICommandHandler<CreateAuthCommand> {
       email: request.userRecord.email,
       displayName: request.userRecord.displayName,
       photoURL: request.userRecord.photoURL,
-      phoneNumber: request.userRecord.phoneNumber,
       customClaims: request.userRecord.customClaims,
       created: Timestamp.fromDate(new Date()),
     };

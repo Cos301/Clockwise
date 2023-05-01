@@ -1,1 +1,3 @@
-export * from './lib/app-posts-feature';
+export * from './posts.module';
+export * from './posts.routing'
+export * from './posts.page';

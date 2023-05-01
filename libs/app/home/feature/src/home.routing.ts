@@ -20,7 +20,12 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/home/dashboard',
+        redirectTo: '/home/posts',
+      },
+      {
+        path: 'posts',
+        loadChildren: () =>
+          import('@mp/app/posts/feature').then((m) => m.PostsModule),
       },
       {
         path: 'chat',
@@ -32,7 +37,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home/dashboard',
+    redirectTo: '/home/posts',
   },
 ];
 

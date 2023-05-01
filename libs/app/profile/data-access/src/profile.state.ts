@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import {
-    AgeGroup,
-    Ethnicity,
-    Gender,
-    HouseholdIncome,
-    IProfile,
-    IUpdateAccountDetailsRequest,
-    IUpdateAddressDetailsRequest,
-    IUpdateContactDetailsRequest,
-    IUpdateOccupationDetailsRequest,
-    IUpdatePersonalDetailsRequest
+  AgeGroup,
+  Ethnicity,
+  Gender,
+  HouseholdIncome,
+  IProfile,
+  IUpdateAccountDetailsRequest,
+  IUpdateAddressDetailsRequest,
+  IUpdateContactDetailsRequest,
+  IUpdateOccupationDetailsRequest,
+  IUpdatePersonalDetailsRequest,
 } from '@mp/api/profiles/util';
 import { AuthState } from '@mp/app/auth/data-access';
 import { Logout as AuthLogout } from '@mp/app/auth/util';
 import { SetError } from '@mp/app/errors/util';
 import {
-    Logout,
-    SetProfile,
-    SubscribeToProfile,
-    UpdateAccountDetails,
-    UpdateAddressDetails,
-    UpdateContactDetails,
-    UpdateOccupationDetails,
-    UpdatePersonalDetails
+  Logout,
+  SetProfile,
+  SubscribeToProfile,
+  UpdateAccountDetails,
+  UpdateAddressDetails,
+  UpdateContactDetails,
+  UpdateOccupationDetails,
+  UpdatePersonalDetails
 } from '@mp/app/profile/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
-import produce from 'immer';
+import produce from 'immer';  
 import { tap } from 'rxjs';
 import { ProfilesApi } from './profiles.api';
 
@@ -263,8 +263,13 @@ export class ProfileState {
 
   @Action(UpdatePersonalDetails)
   async updatePersonalDetails(ctx: StateContext<ProfileStateModel>) {
+    console.log(
+      '🚀 ~ file: profile.state.ts:269 ~ ProfileState ~ updatePersonalDetails ~ state: updatePersonalDetails State'
+    );
+    console.trace();
     try {
       const state = ctx.getState();
+
       const userId = state.profile?.userId;
       const age = state.personalDetailsForm.model.age;
       const gender = state.personalDetailsForm.model.gender;
