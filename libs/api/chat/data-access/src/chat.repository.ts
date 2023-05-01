@@ -60,6 +60,16 @@ export class ChatRepository {
     return chats;
   }
 
+  async createMessage(chat_id: string | null | undefined, data: IMessage) {
+    if (chat_id == null) {
+      return;
+    }
+    const chatRef = admin.firestore().collection('chats').doc(chat_id);
+    return await chatRef.update({
+      messages: admin.firestore.FieldValue.arrayUnion(data),
+    });
+  }
+
   async createChat(chat: IChat) {
     return await admin
       .firestore()

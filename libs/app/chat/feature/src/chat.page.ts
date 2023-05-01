@@ -7,7 +7,7 @@ import {
   ActionsExecuting,
 } from '@ngxs-labs/actions-executing';
 import { Observable } from 'rxjs';
-import { IChat,  IMessage  } from '@mp/api/chat/util';
+import { IChat, IMessage } from '@mp/api/chat/util';
 import { AuthState } from '@mp/app/auth/data-access';
 
 @Component({
@@ -44,14 +44,14 @@ export class ChatPage {
     this.isChatPageOpen = false;
     this.isNewChatOpen = false;
     this.searchQuery = "";
-    
+
   }
 
   public populateChatPage(messages: IMessage[] | null | undefined, chatId: string) {
     //set the state of the messages
     console.log('here are the messages: ', messages);
     this.store.dispatch(new SetCurrentChatId(chatId))
-    if (messages) 
+    if (messages)
       this.currentChatMessages = messages;
 
 
@@ -74,13 +74,6 @@ export class ChatPage {
     return false;
   }
 
-  public newChat() {
-
-    //make a call to the api to get the chat list....
-
-    return false;
-  }
-
   public test(chat: any): boolean {
     const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
     // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
@@ -93,6 +86,7 @@ export class ChatPage {
   public testList(chat: any): boolean {
     const user_id = this.store.selectSnapshot(AuthState.user)?.uid;
 
+    
     let inChat = false;
     chat.users.forEach((user: any) => {
       if (user.userProfile.user_id === user_id) {

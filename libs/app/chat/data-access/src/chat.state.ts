@@ -34,7 +34,7 @@ export class ChatState {
   constructor(
     private readonly chatApi: ChatApi,
     private readonly store: Store
-  ) {}
+  ) { }
 
   @Selector()
   static chats(state: ChatsStateModel) {
@@ -89,20 +89,20 @@ export class ChatState {
     ctx: StateContext<ChatsStateModel>,
     action: CreateMessage
   ) {
-    console.log('send message - chat.state.ts'); 
+    console.log('send message - chat.state.ts');
     try {
       console.log('action: ', action);
       const responseRef = await this.chatApi.createMessage(action.message);
       const response = responseRef.data;
 
-      console.log('Wilco response: ', responseRef);
+      console.log('Jason response: ', response);
 
       return ctx.dispatch(new SetMessages(response.messages));
     } catch (error) {
       return error;
     }
   }
-  
+
   @Action(SetMessages)
   async setMessages(ctx: StateContext<ChatsStateModel>, { messages }: SetMessages) {
     console.log('Pull the lever - setMessages in chat.state.ts');
@@ -152,7 +152,7 @@ export class CreateChatState {
   constructor(
     private readonly chatApi: ChatApi,
     private readonly store: Store
-  ) {}
+  ) { }
 
   @Selector()
   static chat(state: ChatStateModel) {

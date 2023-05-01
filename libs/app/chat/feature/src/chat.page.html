@@ -9,19 +9,22 @@
     <!-- <button (click)="CallAllChats()">Get All chats</button> -->
   </div>
   <div *ngFor="let chat of chats;">
-   <div style="height: 4px;"></div>
-    <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)" (currentUser)="currentUser = $event" [chat]="chat"></mp-message-bubble>
-  </div> 
+    <div *ngIf="testList(chat)">
+      <div style="height: 4px;"></div>
+      <mp-message-bubble *ngIf="test(chat)" (click)="populateChatPage(chat.messages, chat.chat_id)"
+        (currentUser)="currentUser = $event" [chat]="chat"></mp-message-bubble>
+    </div>
+  </div>
 
   <div>
-    <button (click)="newChat()" >Start a new chat</button>
+    <button (click)="newChat()">Start a new chat</button>
   </div>
 
   <div *ngIf="isNewChatOpen">
     <div>Start a new chat</div>
   </div>
-  
 
-  <mp-in-chat *ngIf="this.isChatPageOpen" [currentUser]="currentUser" (closeModal)="closeModal()"/>
+
+  <mp-in-chat *ngIf="this.isChatPageOpen" [currentUser]="currentUser" (closeModal)="closeModal()" />
 
 </ion-content>
