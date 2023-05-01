@@ -1,16 +1,16 @@
 <div id="container">  
-    <div id="imageAndUsername">
+    <div (click)="setOpen(true)" id="imageAndUsername">
         <img [src]="getPfp(post.user_id)" />
         <div>{{getUsername(post.user_id)}}</div>
     </div> 
 
     <div id="timebar">
-        <mp-time-bar (timeUp)="expire($event)"/>
+        <mp-time-bar (timeUp)="expire()"/>
         <!-- <div id="innerTimebar" [style]="getTimebarStyle()"></div> -->
     </div>
     
 
-    <img id="mainImage" src="{{post.img_url}}" />
+    <img id="{{post.post_id}}" src="{{post.img_url}}" />
 
     <div id="toolbar">
         <ion-icon name="heart-outline" size="large"></ion-icon>
@@ -24,3 +24,11 @@
         {{post.caption}}
     </div>
 </div> 
+
+<ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <user-profile [profileId]="post.user_id" (close)="setOpen(false)"></user-profile>
+      </ion-content>
+    </ng-template>
+</ion-modal>

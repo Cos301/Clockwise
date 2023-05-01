@@ -33,13 +33,11 @@ export class ProfilePage {
       this.profile$.subscribe((profile) => {
         this.profile = profile;
       });
-      console.log('Francois - this.currUsers',this.profile);
     });
 
     this.posts$.subscribe((posts) => {
       this.posts = posts;
       this.userPosts = this.posts.filter((post) => post.user_id === this.profile.userId);
-      console.log('Francoi - this.userPosts',this.userPosts);
     });
   }
 
