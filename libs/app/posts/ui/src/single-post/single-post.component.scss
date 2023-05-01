@@ -98,3 +98,7 @@ h2 {
     width: 30px;
     margin-top: 0;
 }
+
+.expired {
+    filter: saturate(0.3) brightness(0.8);
+}

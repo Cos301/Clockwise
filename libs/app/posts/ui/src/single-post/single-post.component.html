@@ -5,7 +5,7 @@
     </div> 
 
     <div id="timebar">
-        <mp-time-bar/>
+        <mp-time-bar (timeUp)="expire($event)"/>
         <!-- <div id="innerTimebar" [style]="getTimebarStyle()"></div> -->
     </div>
     

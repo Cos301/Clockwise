@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, EventEmitter, Output } from '@angular/core';
 
 //IMPORTANT NOTE: minutes can't go over 30
 
@@ -12,6 +12,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 })
 export class TimeBarComponent implements OnInit, OnDestroy {
   @Input() startMinutes!: number;
+  @Output() timeUp = new EventEmitter<boolean>();
   
   //for visual elements
   private progress: number;
@@ -45,7 +46,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.showTime = true;
     this.lowTime = false;
     this.progress = 0; 
-    this.startMinutes = Math.random() * 3;
+    this.startMinutes = Math.random() * 30;
     console.log(this.startMinutes);
 
     //set a 10 minute timer and set the progress to 100
@@ -93,6 +94,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
         clearInterval(this.timerInterval);
         this.dispMinutes = "TIME'S UP!";
         this.showTime = false;
+        this.timeUp.emit(true);
       }
 
     }, 1000)

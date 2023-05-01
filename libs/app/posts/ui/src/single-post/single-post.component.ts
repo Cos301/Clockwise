@@ -12,6 +12,7 @@ import { Observable, Timestamp } from 'rxjs';
   styleUrls: ['./single-post.component.scss'],
 })
 export class SinglePostComponent {
+
   @Input() post!: IPost;
   @Input() users!: IUser[];
   @Select(actionsExecuting([GetAllPosts]))
@@ -58,4 +59,8 @@ export class SinglePostComponent {
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     return months[month];
   }
+
+  expire(event: any) {
+    console.log('Francois',event.target);
+    }
 }
