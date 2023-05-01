@@ -1,5 +1,3 @@
-import { IPost } from "../interfaces";
-
 export interface ICreatePostRequest{
     caption: string;
     img_url: string;

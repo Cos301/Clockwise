@@ -4,7 +4,7 @@ import { Timestamp } from 'firebase-admin/firestore';
 
 export interface IUserProfile {
   user_id?: string;
-  username?: string;
+  username?: string | null ;
   password?: string;
   first_name?: string;
   last_name?: string;

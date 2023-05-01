@@ -18,7 +18,6 @@ export class PostsRepository {
     const postPromises = snapshot.docs.map(async (doc) => {
       const post = doc.data() as IPost;
       const comments: IComment[] = [];
-      console.log('Francois', post);
       await Promise.all(post.comments.map(async (comment) => {
         const commentRef: any = comment;
         const comment_id = commentRef._path.segments[1];

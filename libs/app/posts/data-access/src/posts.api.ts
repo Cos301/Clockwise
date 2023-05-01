@@ -19,7 +19,6 @@ export class PostsApi {
   }
 
   async getUserData(request: IGetUserDataRequest) {
-    console.log('Francois - getUserData callable');
     return await httpsCallable<IGetUserDataRequest,IGetUserDataResponse> (
       this.functions,
       'getUserData'

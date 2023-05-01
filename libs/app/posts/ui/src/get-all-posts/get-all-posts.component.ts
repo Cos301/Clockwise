@@ -10,6 +10,7 @@ import { IPost } from '@mp/api/posts/util';
 import { Observable } from 'rxjs';
 import { Timestamp } from 'firebase-admin/firestore';
 import { IUser } from '@mp/api/users/util';
+import { create } from 'domain';
 
 @Component({
   selector: 'get-all-posts',
@@ -40,6 +41,7 @@ export class GetAllPostsComponent {
     this.users$.subscribe((users) => {
       this.users = users || [];
     });
+
   }
 
   @Selector()
@@ -66,7 +68,6 @@ export class GetAllPostsComponent {
       })
     );
   }
-
 
   calcTotalTIme(created: Timestamp, remove: Timestamp) {
     return remove.toDate().getTime() - created.toDate().getTime();

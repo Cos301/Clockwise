@@ -40,7 +40,6 @@ export const createPost = functions.https.onCall(
   
   export const getUserData = functions.https.onCall(
     async (request: IGetUserDataRequest): Promise<IGetUserDataResponse> => {
-      console.log('Francois - posts.functions.ts:21: ', request);
       const app = await NestFactory.createApplicationContext(CoreModule);
       const service = app.get(PostsService);
       return service.getUserData(request);

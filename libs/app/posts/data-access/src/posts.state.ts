@@ -7,8 +7,6 @@ import {
   CreateComment,
   GetAllPosts,
   setAllPosts,
-  ShowCreatePost,
-  HideCreatePost,
   DecrementCounter,
   GetUserData,
   setUserData,
@@ -244,18 +242,6 @@ export class CreatePostState {
       const time_remove = Timestamp.fromDate(dateRemoved);
       const user_id = this.store.selectSnapshot(AuthState.user)?.uid || 'user_id_should not';
 
-      // if (
-      //   !post_id ||
-      //   !caption ||
-      //   !comments ||
-      //   !img_url ||
-      //   !time_created ||
-      //   !time_remove ||
-      //   !user_id
-      // ) {
-      //   return;
-      // }
-
       const request: ICreatePostRequest = {
         caption,
         postLife: count + 1,
@@ -263,16 +249,11 @@ export class CreatePostState {
         post_id,
         user_id,
       };
-      // console.log(
-      //   '🚀 ~ file: posts.state.ts:159 ~ CreatePostState ~ createPost ~ request:',
-      //   request
-      // );
+
       const responseRef = await this.postsApi.createPost(request);
       const response = responseRef.data;
-      console.log(
-        '🚀 ~ file: posts.state.ts:214 ~ CreatePostState ~ createPost ~ response:',
-        response
-      );
+
+      
 
       return ctx.dispatch(new setCreatedPost(null));
     } catch (error) {
