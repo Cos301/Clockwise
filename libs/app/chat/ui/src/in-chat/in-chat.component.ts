@@ -6,7 +6,7 @@ import { AuthState } from '@mp/app/auth/data-access';
 import { ProfileState } from '@mp/app/profile/data-access';
 import { Location } from '@angular/common';
 import { Timestamp } from '@angular/fire/firestore';
-import { CreateChat, CreateMessage, IncrementCounter, SetCurrentChatId } from '@mp/app/chat/util';
+import { CreateChat, CreateMessage, GetAllChats, IncrementCounter, SetCurrentChatId } from '@mp/app/chat/util';
 import { Observable } from 'rxjs';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { ChatState } from '@mp/app/chat/data-access';
@@ -71,8 +71,6 @@ export class InChatComponent {
   }
   
   sendMessage() {
-
-
     const req : ICreateMessageRequest = {
       chat_id: this.chatId,
       message: {
@@ -86,6 +84,7 @@ export class InChatComponent {
     
     this.store.dispatch(new CreateMessage(req));
     console.log('sent Message: ', req.message.message_id);
+    this.store.dispatch(new GetAllChats({ chat: null }));
 
     this.messageContent = "";
   }

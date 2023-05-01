@@ -29,7 +29,7 @@ export class ChatPage {
   searchQuery: string;
 
   constructor(private readonly store: Store) {
-    console.log("Jason current user", this.currentUser);
+    console.log('Jason current user', this.currentUser);
     setTimeout(() => {
       const a = '';
     }, 2000);
@@ -43,18 +43,18 @@ export class ChatPage {
     });
     this.isChatPageOpen = false;
     this.isNewChatOpen = false;
-    this.searchQuery = "";
-
+    this.searchQuery = '';
   }
 
-  public populateChatPage(messages: IMessage[] | null | undefined, chatId: string) {
+  public populateChatPage(
+    messages: IMessage[] | null | undefined,
+    chatId: string
+  ) {
     //set the state of the messages
     console.log('here are the messages: ', messages);
-    this.store.dispatch(new SetCurrentChatId(chatId))
-    if (messages)
-      this.currentChatMessages = messages;
-     
-    
+    this.store.dispatch(new SetCurrentChatId(chatId));
+    if (messages) this.currentChatMessages = messages;
+
     this.isChatPageOpen = true;
   }
 
@@ -67,34 +67,39 @@ export class ChatPage {
     this.isChatPageOpen = false;
   }
 
- public test(chat: any) : boolean {
-  const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-  // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
-  if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
-    return true;
-    
-  return false;
-}
-  public newChat() {
+  async test(chat: any): Promise<boolean> {
+    const user_id = await this.store.selectSnapshot(AuthState.user)?.uid;
+    let name = '';
+    if (chat.users[0]?.userProfile.user_id === user_id) {
+      name =
+        chat.users[1]?.userProfile.first_name +
+        ' ' +
+        chat.users[1]?.userProfile.last_name;
+    } else {
+      name =
+        chat.users[0]?.userProfile.first_name +
+        ' ' +
+        chat.users[0]?.userProfile.last_name;
+    }
+    // console.log('user 0: ', chat.users[0]?.userProfile.first_name);
+    // console.log('user 1: ', chat.users[1]?.userProfile.first_name);
+    // console.log('name: ', name);
 
+    if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
+      return true;
+
+    return false;
+  }
+  
+  public newChat() {
     //make a call to the api to get the chat list....
 
     return false;
   }
 
-  // public test(chat: any): boolean {
-  //   const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-  //   // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
-  //   if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
-  //     return true;
-      
-  //   return false;
-  // }
-
   public testList(chat: any): boolean {
     const user_id = this.store.selectSnapshot(AuthState.user)?.uid;
 
-    
     let inChat = false;
     chat.users.forEach((user: any) => {
       if (user.userProfile.user_id === user_id) {
@@ -105,11 +110,10 @@ export class ChatPage {
   }
 
   clearText() {
-    this.searchQuery = "";
+    this.searchQuery = '';
   }
   hasChanged(e: Event) {
     const target = e.target as HTMLInputElement;
     this.searchQuery = target.value;
   }
-
 }

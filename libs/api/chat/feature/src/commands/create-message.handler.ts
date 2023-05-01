@@ -15,30 +15,33 @@ export class CreateMessageHandler
   timestamp!: Timestamp;
   content!: string;
 
-  constructor(private readonly repository: ChatRepository) { }
+  constructor(private readonly repository: ChatRepository) {}
 
   async execute(command: CreateMessageCommand) {
     console.log(`${CreateMessageHandler.name}`);
     console.log('create-message.handler.ts ~ command: ', command);
-    const message = command.request.message;
-    if (message.message_id && message.from && message.timestamp && message.content) {
-      this.message_id = message.message_id;
-      this.from = message.from;
-      this.timestamp = Timestamp.now();
-      this.content = message.content;
-    }
-
+    const { message_id, content, from } = command.request.message;
     const { chat_id } = command.request;
 
-    const data: IMessage = {
-      message_id: this.message_id,
-      from: this.from,
-      timestamp: this.timestamp,
-      content: this.content
-    }
+    const chatRef = admin.firestore().doc(`/chats/${command.request.chat_id}`);
 
-    const response = await this.repository.createMessage(chat_id, data);
-    return { chat_id: chat_id, message: response }
+    const messagesArray = (await chatRef.get()).get('messages');
+    const data: ICreateMessageRequest = {
+      chat_id: chat_id,
+      message: {
+        message_id: message_id,
+        from: from,
+        timestamp: Timestamp.now(),
+        content: content,
+      },
+    };
 
+    messagesArray.push(data.message);
+
+    return await admin
+      .firestore()
+      .batch()
+      .update(chatRef, { messages: messagesArray })
+      .commit();
   }
 }
