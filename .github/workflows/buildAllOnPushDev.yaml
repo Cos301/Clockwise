@@ -1,5 +1,8 @@
 name: Build app on Push
-'on': push
+on: 
+  push: 
+    branches-ignore:
+      - "stable"
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
@@ -15,6 +18,9 @@ jobs:
           cache: 'yarn'
       - run: |
          yarn install --frozen-lockfile
-      - run: yarn build:api:dev
-         
-      
+      - name: Build app
+        run: yarn build:app:prod
+      - name: Build api
+        run: yarn build:api:prod
+      - name: Build cli
+        run: yarn build:cli:prod
