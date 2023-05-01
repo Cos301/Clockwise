@@ -48,10 +48,6 @@ export class GetAllPostsComponent {
   }
 
   public callAllPosts() {
-    console.log(
-      '🚀 ~ file: posts.page.ts:21 ~ PostsPage ~ callAllPosts ~ StartingTo:',
-      this.store
-    );
     this.store.dispatch(new GetAllPosts({}));
   }
 

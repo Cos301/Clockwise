@@ -20,7 +20,7 @@ export class SinglePostComponent {
   }
   
   getUsername(id: string) {
-    const user = this.users.find((user) => user.id === id);
+    const user = this.users.find((user) => user.userProfile?.user_id === id);
     if (user?.userProfile) {
       return user.userProfile.username;
     }
@@ -29,6 +29,7 @@ export class SinglePostComponent {
 
   getPfp(id: string) {
     const user = this.users.find((user) => user.id === id);
+
     if (user?.userProfile) {
       return user.userProfile.pfp_url;
     }

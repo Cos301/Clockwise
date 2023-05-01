@@ -18,7 +18,7 @@ export class PostsRepository {
     const postPromises = snapshot.docs.map(async (doc) => {
       const post = doc.data() as IPost;
       const comments: IComment[] = [];
-  
+      console.log('Francois', post);
       await Promise.all(post.comments.map(async (comment) => {
         const commentRef: any = comment;
         const comment_id = commentRef._path.segments[1];
@@ -61,12 +61,12 @@ export class PostsRepository {
     const users: IUser[] = [];
 
     const userPromises = userSnapshot.docs.map(async (doc) => {
-      const userData = doc.data() as IUserProfile;
-      userData.posts = [];
-      const newUser: IUser = {
-        id: userData.user_id,
-        userProfile: userData
-      };
+      const userData = doc.data() as IUser;
+      if(userData.userProfile) {
+        userData.userProfile.posts = [];
+      }
+      console.log('userData', userData);
+      const newUser: IUser = userData; 
       users.push(newUser);
     });
     await Promise.all(userPromises);

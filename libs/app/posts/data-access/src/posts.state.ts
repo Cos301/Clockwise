@@ -11,7 +11,7 @@ import {
   HideCreatePost,
   DecrementCounter,
   GetUserData,
-  setUserData
+  setUserData,
 } from '@mp/app/posts/util';
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
 import { PostsApi } from './posts.api';
@@ -19,6 +19,7 @@ import { Timestamp } from '@angular/fire/firestore';
 import produce from 'immer';
 import { AuthState } from '@mp/app/auth/data-access';
 import { IUser } from '@mp/api/users/util';
+
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface PostsStateModel {
   posts: IPost[];
@@ -30,7 +31,7 @@ export interface PostsStateModel {
   // time_remove: Timestamp;
   // user_id: string;
   count: number;
-  users: IUser[];
+  users: IUser[] | null;
 }
 
 @State<PostsStateModel>({
@@ -45,7 +46,7 @@ export interface PostsStateModel {
     // time_remove: Timestamp.now(),
     // user_id: ''
     count: 0,
-    users: []
+    users: [],
   },
 })
 @Injectable()
@@ -80,16 +81,9 @@ export class PostsState {
 
   @Action(GetAllPosts)
   async getAllPosts(ctx: StateContext<PostsStateModel>, action: GetAllPosts) {
-
-    console.log('🚀 ~ file: posts.state.ts:47 ~ PostsState ~ getAllPosts ');
     try {
       const responseRef = await this.postsApi.getAllPosts(action.request);
       const response = responseRef.data;
-
-      console.log(
-        '🚀 ~ file: posts.state.ts:47 ~ PostsState ~ getAllPosts ~ response:',
-      response
-      );
 
       return ctx.dispatch(new setAllPosts(response.posts));
     } catch (error) {
@@ -99,10 +93,11 @@ export class PostsState {
 
   @Action(GetUserData)
   async getUserData(ctx: StateContext<PostsStateModel>, action: GetUserData) {
-    console.log('Francois - posts.state.ts:65 ~ PostsState ~ getUserData');
     try {
       const responseRef = await this.postsApi.getUserData(action.request);
       const response = responseRef.data;
+
+      console.log('Franocois - response ', response);
 
       return ctx.dispatch(new setUserData(response.users));
     }
@@ -119,6 +114,7 @@ export class PostsState {
       })
     );
   }
+
 
   @Action(CreateComment)
   async createComment(ctx: StateContext<PostsStateModel>, action: CreateComment) {
@@ -193,26 +189,6 @@ export class CreatePostState {
   @Selector()
   static createPostShown(state: PostStateModel) {
     return state.createPostShown;
-  }
-
-  @Action(ShowCreatePost)
-  showCreatePost(ctx: StateContext<PostStateModel>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      createPostShown: true
-    })
-    console.log("🚀 ~ file: posts.state.ts:124 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
-  }
-
-  @Action(HideCreatePost)
-  hideCreatePost(ctx: StateContext<PostStateModel>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      createPostShown: false
-    })
-    console.log("🚀 ~ file: posts.state.ts:175 ~ PostState ~ Increment counter ~ state:", state.createPostShown)
   }
 
   @Action(IncrementCounter)

@@ -79,7 +79,6 @@ export interface ProfileStateModel {
     status: string;
     errors: object;
   };
-  showCreatePost: boolean
 }
 
 @State<ProfileStateModel>({
@@ -133,7 +132,6 @@ export interface ProfileStateModel {
       status: '',
       errors: {},
     },
-    showCreatePost: false
   },
 })
 @Injectable()

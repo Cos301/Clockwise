@@ -16,33 +16,20 @@
   </ion-toolbar>
 </ion-header> -->
 
-
 <ion-content [fullscreen]="true">
 
   <div class="container">
-    <img src="assets/placeholderAssets/profile.jpg" />
-    <div>
-        <div class="background">
-            <div class="bottomHalfInner">
-            </div>
+      <img src="assets/placeholderAssets/profile.jpg" />
+      <div class="background">
+        <div class="bottomHalfInner">
         </div>
-        <div class='username'>
-            username
-        </div>
-    </div>
-</div>
-
-<div class="container">   
-
-  <!-- <div *ngFor="let post of posts" class="post"> -->
-      <!-- <img src='' [ngClass]="{expired: post.expired}"/> -->
-      <!-- <ion-icon name="heart-outline" class="heart"></ion-icon> -->
-  <!-- </div> -->
-
-</div>
-
-
-
+      </div>
+      <div class='username'>
+        {{ getUsername() }}
+      </div>
+  </div>
+  <mp-image-container [posts]="posts"></mp-image-container>
+  <ms-profile-account-details-component></ms-profile-account-details-component>
 
 
 
@@ -65,14 +52,13 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <!-- <ng-container *ngIf="(profile$ | async) as profile; else noProfile">
-    <ms-profile-account-details-component></ms-profile-account-details-component>
-    <ms-profile-personal-details-component></ms-profile-personal-details-component>
-    <ms-profile-contact-details-component></ms-profile-contact-details-component>
-    <ms-profile-address-details-component></ms-profile-address-details-component>
-    <ms-profile-occupation-details-component></ms-profile-occupation-details-component>
-  </ng-container> -->
-  <ng-template #noProfile>
+  <!-- <ng-container *ngIf="(profile$ | async) as profile; else noProfile"> -->
+    <!-- <ms-profile-personal-details-component></ms-profile-personal-details-component> -->
+    <!-- <ms-profile-contact-details-component></ms-profile-contact-details-component> -->
+    <!-- <ms-profile-address-details-component></ms-profile-address-details-component> -->
+    <!-- <ms-profile-occupation-details-component></ms-profile-occupation-details-component> -->
+  <!-- </ng-container> -->
+  <!-- <ng-template #noProfile>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -83,5 +69,5 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ng-template>
+  </ng-template> -->
 </ion-content>

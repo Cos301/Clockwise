@@ -13,9 +13,6 @@ export class GetAllPosts {
 export class GetUserData {
   static readonly type = '[Posts] GetUserData';
   constructor(public readonly request: IGetUserDataRequest) { 
-    console.log(
-      'Francois ~ file: posts.actions.ts:14 ~ GetUserData'
-    );
   }
 }
 
