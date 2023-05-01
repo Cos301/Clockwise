@@ -53,8 +53,8 @@ export class ChatPage {
     this.store.dispatch(new SetCurrentChatId(chatId))
     if (messages)
       this.currentChatMessages = messages;
-
-
+     
+    
     this.isChatPageOpen = true;
   }
 
@@ -67,6 +67,14 @@ export class ChatPage {
     this.isChatPageOpen = false;
   }
 
+ public test(chat: any) : boolean {
+  const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
+  // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
+  if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
+    return true;
+    
+  return false;
+}
   public newChat() {
 
     //make a call to the api to get the chat list....
@@ -74,14 +82,14 @@ export class ChatPage {
     return false;
   }
 
-  public test(chat: any): boolean {
-    const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
-    // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
-    if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
-      return true;
-
-    return false;
-  }
+  // public test(chat: any): boolean {
+  //   const name = chat.users[1]?.userProfile.first_name + " " + chat.users[0]?.userProfile.last_name;
+  //   // console.log("Jesse is here: ", chat , name, " query: ", this.searchQuery);
+  //   if (name.toUpperCase().indexOf(this.searchQuery.toUpperCase()) !== -1)
+  //     return true;
+      
+  //   return false;
+  // }
 
   public testList(chat: any): boolean {
     const user_id = this.store.selectSnapshot(AuthState.user)?.uid;
