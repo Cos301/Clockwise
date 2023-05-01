@@ -45,7 +45,7 @@ export class TimeBarComponent implements OnInit, OnDestroy {
     this.showTime = true;
     this.lowTime = false;
     this.progress = 0; 
-
+    this.startMinutes = Math.random() * 3;
     console.log(this.startMinutes);
 
     //set a 10 minute timer and set the progress to 100

@@ -6,7 +6,8 @@ import { PostsModule } from '@mp/app/posts/data-access';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SinglePostComponent } from './single-post.component';
-
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { TimeBarComponent } from 'libs/global-ui/src/lib/time-bar/time-bar.component';
 @NgModule({
   declarations: [SinglePostComponent],
   imports: [
@@ -16,6 +17,7 @@ import { SinglePostComponent } from './single-post.component';
     ReactiveFormsModule,
     NgxsFormPluginModule,
     PostsModule,
+    TimeBarComponent
   ],
   exports: [SinglePostComponent],
 })
