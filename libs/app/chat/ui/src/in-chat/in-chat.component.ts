@@ -22,13 +22,13 @@ import { MessageBubbleComponent } from '../message-bubble/message-bubble.compone
 export class InChatComponent {
   @Select(ChatState.currentChatId) currentChatId$!: Observable<string | null>;
   @Select(ChatState.chats) chats$!: Observable<IChat[] | null | undefined>;
-  @Select(actionsExecuting([SetCurrentChatId]))busy$!: Observable<ActionsExecuting>;
+  @Select(actionsExecuting([SetCurrentChatId])) busy$!: Observable<ActionsExecuting>;
   // @Input() chatHistory: IMessage[] | null | undefined;
   @Input() chat!: IChat[];
   @Input() currentUser!: string | null | undefined;
-  
+
   @Output() closeModal: EventEmitter<any> = new EventEmitter();
-  
+
   messageContent = "";
 
   chatId!: string | null;
@@ -38,27 +38,26 @@ export class InChatComponent {
     this.currentChatId$.subscribe((chatId) => {
       this.chatId = chatId;
     });
-    this.chats$.subscribe((chats) =>
-      {
-        this.chats = chats;
-        this.chatHistory = chats?.find((chat) => chat.chat_id === this.chatId)?.messages;
+    this.chats$.subscribe((chats) => {
+      this.chats = chats;
+      this.chatHistory = chats?.find((chat) => chat.chat_id === this.chatId)?.messages;
     })
     console.log('Chat history: ', this.chatHistory);
 
   }
 
-  
+
   createChat() {
     console.log('createChat');
-    const chatObj : IChat = {
-      chat_id : "15",
+    const chatObj: IChat = {
+      chat_id: "15",
       users: [],
       messages: [],
     };
-    const req : ICreateChatRequest = {
+    const req: ICreateChatRequest = {
       chat: chatObj,
     }
-    
+
     this.store.dispatch(new CreateChat(req));
   }
 
@@ -69,27 +68,32 @@ export class InChatComponent {
 
     return hours + ":" + minutes;
   }
-  
-  sendMessage() {
-    const req : ICreateMessageRequest = {
+
+  async sendMessage() {
+    const req: ICreateMessageRequest = {
       chat_id: this.chatId,
       message: {
-      message_id: "ASDsda21ddGSALMKds13adSD@",
-      from: this.store.selectSnapshot(AuthState.user)?.uid,
-      timestamp: Timestamp.now(),
-      content: this.messageContent,}
+        message_id: "ASDsda21ddGSALMKds13adSD@",
+        from: this.store.selectSnapshot(AuthState.user)?.uid,
+        timestamp: Timestamp.now(),
+        content: this.messageContent,
+      }
     }
 
-    console.log('wilco chat id:', this.chatId);
-    
-    this.store.dispatch(new CreateMessage(req));
-    console.log('sent Message: ', req.message.message_id);
-    this.store.dispatch(new GetAllChats({ chat: null }));
+    if (this.messageContent != "") {
+      console.log('wilco chat id:', this.chatId);
 
-    this.messageContent = "";
+      this.store.dispatch(new CreateMessage(req));
+      console.log('sent Message: ', req.message.message_id);
+      this.store.dispatch(new GetAllChats({ chat: null }));
+      this.store.dispatch(new GetAllChats({ chat: null }));
+      this.store.dispatch(new GetAllChats({ chat: null }));
+
+      this.messageContent = "";
+    }
   }
 
-  getCurrentUserId(){
+  getCurrentUserId() {
     return this.store.selectSnapshot(AuthState.user)?.uid
   }
 
