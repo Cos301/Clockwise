@@ -67,8 +67,8 @@ export class ChatPage {
     this.isChatPageOpen = false;
   }
 
-  async test(chat: any): Promise<boolean> {
-    const user_id = await this.store.selectSnapshot(AuthState.user)?.uid;
+  public test(chat: any): boolean {
+    const user_id = this.getUserId();
     let name = '';
     if (chat.users[0]?.userProfile.user_id === user_id) {
       name =
@@ -89,6 +89,13 @@ export class ChatPage {
       return true;
 
     return false;
+  }
+
+  async getUserId(): Promise<string> {
+    const user_id = await this.store.selectSnapshot(AuthState.user)?.uid;
+    if (user_id)
+    return user_id;
+    else return '';
   }
   
   public newChat() {
