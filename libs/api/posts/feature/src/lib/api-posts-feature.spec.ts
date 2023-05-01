@@ -162,5 +162,15 @@ describe('apiPostsFeature', () => {
     expect(result).toBeDefined();
     expect(postsRepository.getUserData).toHaveBeenCalled();
     expect(result.users.length).toBe(0);
+    if(result.users.length > 0){
+      result.users.forEach((x) => {
+        expect(x.created).toBeDefined();
+        expect(x.email).toBeDefined();
+        expect(x.displayName).toBeDefined();
+        expect(x.photoURL).toBeDefined();
+        expect(x.phoneNumber).toBeDefined();
+        expect(x.customClaims).toBeDefined();
+      });
+    }
   });
 });
