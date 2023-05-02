@@ -1,0 +1,26 @@
+name: Build app on dispatch
+on: 
+  workflow_dispatch: 
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: |
+         yarn install --frozen-lockfile
+      - name: Build app
+        run: yarn build:app:dev
+      - name: Build api
+        run: yarn build:api:dev
+      - name: Build cli
+        run: yarn build:cli:dev
