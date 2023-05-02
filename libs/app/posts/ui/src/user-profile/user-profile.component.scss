@@ -52,11 +52,12 @@ ion-title {
   
   img {
     height: 120px;
+    width: 120px;
     position: absolute;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
-  
+    object-fit: cover;
     background-color: white;
     border-radius: 100%;
     z-index: 2;

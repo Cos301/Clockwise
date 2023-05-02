@@ -10,7 +10,6 @@ import { CreateChat, CreateMessage, GetAllChats, IncrementCounter, SetCurrentCha
 import { Observable } from 'rxjs';
 import { actionsExecuting, ActionsExecuting } from '@ngxs-labs/actions-executing';
 import { ChatState } from '@mp/app/chat/data-access';
-import { MessageBubbleComponent } from '../message-bubble/message-bubble.component';
 
 
 
@@ -85,12 +84,12 @@ export class InChatComponent {
 
       this.store.dispatch(new CreateMessage(req));
       console.log('sent Message: ', req.message.message_id);
-      this.store.dispatch(new GetAllChats({ chat: null }));
-      this.store.dispatch(new GetAllChats({ chat: null }));
-      this.store.dispatch(new GetAllChats({ chat: null }));
-
+      
       this.messageContent = "";
     }
+    this.store.dispatch(new GetAllChats({ chat: null }));
+    this.store.dispatch(new GetAllChats({ chat: null }));
+    this.store.dispatch(new GetAllChats({ chat: null }));
   }
 
   getCurrentUserId() {
@@ -99,7 +98,7 @@ export class InChatComponent {
 
   goBack() {
     //set the location to /home
-    this.closeModal.emit();
+    this.closeModal.emit(); 
     console.log('Calling close in child');
   }
 }
