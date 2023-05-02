@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { IPost } from '@mp/api/posts/util';
 import { IProfile } from '@mp/api/profiles/util';
@@ -17,7 +17,9 @@ export class UserProfileComponent {
   @Select(PostsState.posts) posts$!: Observable<IPost[]>;
   @Select(PostsState.user) users$!: Observable<IUser[]>;
   @Select(ProfileState.profile) profile$!: Observable<IProfile>;
-  @Input() profileId!: string;
+  @Input() profileId = '2';
+
+  @Output() public close = new EventEmitter();
   
   posts!: IPost[];
   expired!: boolean;
@@ -26,18 +28,27 @@ export class UserProfileComponent {
   users!: IUser[];
   currUser!: IUser | undefined;
   isModalOpen!: boolean;
+  username!: string | undefined | null;
+  pfp!: string | undefined | null;
 
   constructor(private readonly store: Store, private navController: NavController) {
     this.users$.subscribe((users) => {
       this.profile$.subscribe((profile) => {
         this.profile = profile;
       });
-      console.log('Francois - this.currUsers',this.profile);
+
+      this.users$.subscribe((users) => {
+        this.users = users;
+        this.currUser = this.users.find((user) => user.id === this.profileId);
+        this.username = this.currUser?.userProfile?.username;
+        this.pfp = this.currUser?.userProfile?.pfp_url;
+        console.log('Francois', this.profileId);
+      });
     });
 
     this.posts$.subscribe((posts) => {
       this.posts = posts;
-      this.userPosts = this.posts.filter((post) => post.user_id === this.profile.userId);
+      this.userPosts = this.posts.filter((post) => post.user_id === this.profileId);
       console.log('Francoi - this.userPosts',this.userPosts);
     });
   }
@@ -45,23 +56,17 @@ export class UserProfileComponent {
   ionViewWillEnter() {
     this.posts$.subscribe((posts) => {
       this.posts = posts;
-      this.userPosts = this.posts.filter((post) => post.user_id === this.profile.userId);
+      this.userPosts = this.posts.filter((post) => post.user_id === this.profileId);
 
     });
   }
 
-  getUsername() {
-    
-    const username = this.profile?.accountDetails?.displayName;
-    if (!username) {
-      return this.profile.accountDetails?.email?.split('@')[0];
-    }
-
-    return username;
-  }
-  getPfp() {
-    const pfp = this.profile?.accountDetails?.photoURL;
-    return pfp;
+  public openModal() {
+    this.isModalOpen = true;
   }
 
+  public closeModal() {
+    this.isModalOpen = false;
+    this.close.emit();
+  }
 }
