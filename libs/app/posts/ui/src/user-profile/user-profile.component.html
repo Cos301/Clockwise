@@ -1,13 +1,19 @@
 <ion-content [fullscreen]="true">
 
+    <ion-fab>
+      <ion-fab-button color="light">
+        <ion-icon (click)="closeModal()" name="close-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
     <div class="container">
-        <img src="{{getPfp()}}" />
+        <img src="{{ pfp }}" />
         <div class="background">
           <div class="bottomHalfInner">
           </div>
         </div>
         <div class='username'>
-          {{ getUsername() }}
+          {{ username }}
         </div>
     </div>
     <mp-image-container [posts]="userPosts"></mp-image-container>
