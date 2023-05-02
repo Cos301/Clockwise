@@ -16,6 +16,7 @@ import {
   ICreatePostResponse,
 } from '@mp/api/posts/util';
 import { QueryBus, CommandBus } from '@nestjs/cqrs';
+
 describe('apiPostsFeature', () => {
   let createPostHandler: CreatePostHandler;
   let createCommentHandler: CreateCommentHandler;
