@@ -7,6 +7,40 @@
   padding-bottom: 50px;
 }
 
+.big {
+  font-size: 3rem;
+}
+
+h1 {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.center-container {
+  background: rgb(165,228,255);
+  background: linear-gradient(143deg, rgb(196, 230, 247) 0%, rgba(255,255,255,1) 39%, rgb(194, 230, 248) 100%); 
+}
+
+.image {
+  width: 50vw;
+}
+
+h1 .center {
+  display: flex;
+  justify-content: center;
+}
+
+.small {
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 3px; 
+  background-color: rgba(39, 94, 55, 0.08);
+  margin-top: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 // @media (prefers-color-scheme: light) {
 //   .logo-light {
 //     display: block;

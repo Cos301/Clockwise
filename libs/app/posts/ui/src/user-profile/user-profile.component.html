@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+
+    <div class="container">
+        <img src="{{getPfp()}}" />
+        <div class="background">
+          <div class="bottomHalfInner">
+          </div>
+        </div>
+        <div class='username'>
+          {{ getUsername() }}
+        </div>
+    </div>
+    <mp-image-container [posts]="userPosts"></mp-image-container>
+  
+  </ion-content>

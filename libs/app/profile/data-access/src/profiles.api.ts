@@ -66,6 +66,7 @@ export class ProfilesApi {
   }
 
   async updatePersonalDetails(request: IUpdatePersonalDetailsRequest) {
+    console.log('request - Update Personal details profiles.api.ts' );
     return await httpsCallable<
       IUpdatePersonalDetailsRequest,
       IUpdatePersonalDetailsResponse

@@ -9,4 +9,8 @@ import { ProfilesApi } from './profiles.api';
   imports: [CommonModule, NgxsModule.forFeature([ProfileState]), AuthModule],
   providers: [ProfilesApi],
 })
-export class ProfileModule {}
+export class ProfileModule {
+  constructor() {
+    console.log('ProfileModule');
+  }
+}

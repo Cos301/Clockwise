@@ -1,0 +1,13 @@
+<div>
+    <li *ngFor="let message of messages">
+        <mp-message-bubble 
+        chatName="New Chat" 
+        msgPreview="This is a message preview"
+        time="13:45"
+        unReadCount="2"
+    />
+    </li>
+    
+    <button (click)="addMessage({'chatName': 'Name', 'msgPreview': 'msgPreview', 'time' : '13:45', 'unReadCount': '2'})">Add message (demo purposes)</button>
+</div>
+

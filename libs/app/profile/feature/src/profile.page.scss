@@ -13,3 +13,52 @@ ion-card-title > ion-icon {
 ion-icon {
   padding-left: 5px;
 }
+
+
+.container {
+  padding-top: 10px;
+  background-color: var(--clExtraLight);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.bottomHalfInner, .username {    
+  background-color: var(--clPrimary);
+}
+
+.username {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 13px;
+  font-family: var(--stdFont);
+  font-family: 'Imprima';
+  transform: translateY(-1px);
+}
+
+.background {
+  background-color: var(--clExtraLight);
+  overflow: hidden;
+  height: 140px;
+  padding-top: 60px;
+}
+
+.bottomHalfInner {
+  border-radius: 30px;
+  height: 200%;
+  position: relative;
+  z-index: 0;
+}
+
+img {
+  height: 120px;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: white;
+  border-radius: 100%;
+  z-index: 2;
+}
+

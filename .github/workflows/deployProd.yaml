@@ -20,6 +20,13 @@ jobs:
           check-name: 'RunUnitTests'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          projectId: '${{ secrets.NX_FIREBASE_PROJECT_ID }}'
+      
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -27,10 +34,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: |
+         npm install -g firebase-tools
+         firebase login:ci
          yarn install --frozen-lockfile
-      - name: Deploy Firebase
-        run: yarn deploy:prod
-      - name: deploy app
-        run: yarn deploy:app:prod
-      - name: deploy api
-        run: yarn deploy:api:prod
+      - name: Deploy 
+        run: yarn shipit:prod
+
